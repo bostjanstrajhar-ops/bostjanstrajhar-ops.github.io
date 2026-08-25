@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://bostjanstrajhar-ops.github.io/sitemap.xml
