@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Predavanja in delavnice za kolektive — mag. Boštjan Štrajhar</title>
+<meta name="description" content="Ena ura ali dve s kolektivom o eni sami temi. Ne o tem, kako pritisk prenašati, ampak o tem, kje nastane. Tri teme, do 70 udeležencev, pisno avtorsko delo po srečanju.">
+<meta name="author" content="mag. Boštjan Štrajhar">
+<link rel="canonical" href="https://bostjanstrajhar-ops.github.io/predavanja.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sl_SI">
+<meta property="og:url" content="https://bostjanstrajhar-ops.github.io/predavanja.html">
+<meta property="og:site_name" content="mag. Boštjan Štrajhar">
+<meta property="og:title" content="Predavanja in delavnice za kolektive — mag. Boštjan Štrajhar">
+<meta property="og:description" content="Ne o tem, kako pritisk prenašati, ampak o tem, kje nastane. Tri teme za kolektive.">
+<meta property="og:image" content="https://bostjanstrajhar-ops.github.io/predavanje.jpg">
+<meta property="og:image:width" content="780">
+<meta property="og:image:height" content="780">
+<meta property="og:image:alt" content="mag. Boštjan Štrajhar med govorom">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f7f5f1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f7f5f1'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%232b4f55' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='16' r='2.6' fill='%232b4f55'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="slog.css">
+<link rel="preload" href="newsreader-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="inter-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+/* Slog te strani. Skupni slog je v slog.css. */
+html{scroll-padding-top:112px}
+
+/* ---------- hero ---------- */
+.hero{border-top:0;padding-top:clamp(3rem,7vw,6rem)}
+.hero-mreza{display:grid;grid-template-columns:1.35fr .8fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.hero h1{max-width:15ch}
+.hero .uvod{margin-bottom:1.6rem}
+.hero-foto img{width:100%;height:auto;display:block;border-radius:3px;filter:saturate(.9)}
+.hero-foto figcaption{
+  font-size:.78rem;color:var(--tiho);margin-top:.85rem;line-height:1.5;
+  border-left:2px solid var(--crta);padding-left:.85rem;
+}
+@media(max-width:860px){
+  .hero-mreza{grid-template-columns:1fr;gap:2.4rem}
+  .hero-foto{max-width:340px}
+}
+
+/* Vrstica s podatki: kdor je prišel po ceno in obliko, jo najde takoj. */
+.podatkovna{
+  display:flex;flex-wrap:wrap;margin:2.6rem 0 0;padding:0;list-style:none;
+  border-top:1px solid var(--crta);border-bottom:1px solid var(--crta);
+}
+.podatkovna li{
+  padding:.95rem 1.5rem .95rem 0;margin-right:1.5rem;font-size:.9rem;color:var(--tekst);
+  border-right:1px solid var(--crta);
+}
+.podatkovna li:last-child{border-right:0;margin-right:0;padding-right:0}
+.podatkovna b{display:block;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--tiho);font-weight:500;margin-bottom:.2rem}
+@media(max-width:700px){
+  .podatkovna li{width:50%;border-right:0;padding:.85rem 0;margin-right:0}
+  .podatkovna li:nth-child(odd){padding-right:1rem}
+}
+
+/* ---------- znak: krog s piko, isti motiv kot v ikoni strani ---------- */
+.znak{display:block;margin:0 auto;opacity:.5}
+
+/* ---------- dve obliki ---------- */
+.obliki{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,4vw,3rem);margin-top:2.8rem}
+.oblika{border-top:1px solid var(--crta);padding-top:1.6rem}
+.oblika h3{font-family:"Newsreader",Georgia,serif;font-size:1.45rem;font-weight:400;margin-bottom:.9rem}
+.oblika p{font-size:1rem}
+.oblika p:last-child{margin-bottom:0}
+.zakaj-locim{margin-top:3rem;max-width:720px;border-left:2px solid var(--poudarek);padding-left:1.7rem}
+.zakaj-locim p{font-size:1rem}
+.zakaj-locim p:last-child{margin-bottom:0}
+.zakaj-locim .poanta{
+  font-family:"Newsreader",Georgia,serif;font-size:clamp(1.12rem,2vw,1.3rem);
+  line-height:1.55;color:#22282a;
+}
+@media(max-width:700px){.obliki{grid-template-columns:1fr;gap:2rem}}
+
+/* ---------- teme ---------- */
+.tema{
+  display:grid;grid-template-columns:96px 1fr;gap:clamp(1rem,3vw,2.6rem);
+  padding:3rem 0;border-top:1px solid var(--crta);scroll-margin-top:130px;
+}
+.teme .tema:last-of-type{border-bottom:1px solid var(--crta)}
+.tema-st{
+  font-family:"Newsreader",Georgia,serif;font-size:2.5rem;line-height:1;
+  color:var(--poudarek);opacity:.42;font-weight:300;padding-top:.1rem;
+}
+.tema h3{font-family:"Newsreader",Georgia,serif;font-size:clamp(1.5rem,2.6vw,1.85rem);font-weight:400;margin-bottom:.5rem}
+.tema .podnaslov{color:var(--tiho);font-size:.97rem;margin-bottom:1.8rem;max-width:60ch}
+.tema p{max-width:66ch}
+.tema .poanta{
+  border-left:2px solid var(--poudarek);padding-left:1.5rem;margin:1.9rem 0;
+  font-family:"Newsreader",Georgia,serif;font-size:clamp(1.12rem,2vw,1.3rem);
+  line-height:1.55;color:#252b2d;max-width:56ch;
+}
+.tema-pod{margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid var(--crta);max-width:66ch}
+.tema-pod p{font-size:.97rem;margin-bottom:.9rem}
+.tema-pod p:last-child{margin-bottom:0}
+.tema-pod b{color:var(--crnilo);font-weight:600}
+@media(max-width:620px){
+  .tema{grid-template-columns:1fr;gap:.4rem;padding:2.4rem 0}
+  .tema-st{font-size:1.6rem}
+}
+
+/* Tiho vodilo ob strani: pove, katera tema je v pogledu. Na ožjem zaslonu ga ni. */
+.teme-mreza{display:grid;grid-template-columns:1fr 170px;gap:clamp(2rem,4vw,3.4rem)}
+.teme-mreza > .vsebina{min-width:0}
+/* Stolpec se razteza čez vso višino; lepi se šele vodilo v njem. */
+.vodilo-stolpec{order:2}
+.vodilo{
+  position:sticky;top:110px;
+  font-size:.78rem;line-height:1.5;color:var(--tiho);
+}
+.vodilo ol{list-style:none;padding:0;margin:0}
+.vodilo li{padding:.45rem 0 .45rem .9rem;border-left:2px solid var(--crta);transition:color .2s,border-color .2s}
+.vodilo li.tu{color:var(--poudarek);border-left-color:var(--poudarek)}
+.vodilo a{color:inherit;text-decoration:none}
+@media(max-width:1180px){
+  .teme-mreza{display:block}
+  .vodilo-stolpec{display:none}
+}
+
+/* ---------- kako poteka ---------- */
+.poteka{max-width:760px;margin-top:2.6rem}
+.poteka p{font-size:1.02rem}
+.poteka .studija{
+  margin-top:2.4rem;padding:1.6rem 1.8rem;background:var(--papir-topel);border-radius:3px;
+}
+.poteka .studija p{margin:0;font-size:.99rem}
+.poteka .studija p + p{margin-top:.8rem}
+
+/* ---------- cena ---------- */
+.cena{background:var(--papir-topel);border-top:0}
+.cena-mreza{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+.cena p{font-size:1.02rem}
+.javni-seznam{list-style:none;padding:0;margin:1.8rem 0 0}
+.javni-seznam li{padding:1.1rem 0;border-bottom:1px solid #ddd5c8;font-size:.97rem;line-height:1.65}
+.javni-seznam li:first-child{border-top:1px solid #ddd5c8}
+.javni-seznam b{display:block;color:var(--crnilo);font-weight:600;margin-bottom:.15rem}
+@media(max-width:820px){.cena-mreza{grid-template-columns:1fr;gap:2.4rem}}
+
+/* ---------- vabilo na test ---------- */
+.vabilo{
+  margin-top:3rem;max-width:860px;background:var(--papir-topel);
+  border-radius:3px;padding:clamp(1.7rem,3.5vw,2.4rem);
+  display:grid;grid-template-columns:1fr auto;gap:clamp(1.4rem,3vw,2.6rem);align-items:center;
+}
+.vabilo h3{font-family:"Newsreader",Georgia,serif;font-size:1.5rem;font-weight:400;margin-bottom:.7rem}
+.vabilo p{margin-bottom:.7rem;font-size:1rem}
+.vabilo p:last-child{margin-bottom:0}
+.vabilo .gumb{white-space:nowrap}
+@media(max-width:700px){
+  .vabilo{grid-template-columns:1fr;align-items:stretch}
+  .vabilo .gumb{text-align:center}
+}
+
+/* .drobno je sicer opredeljen v index.html; tu ga potrebujeva tudi sama. */
+.drobno{font-size:.79rem;color:var(--tiho);line-height:1.55;margin:.95rem 0 0}
+
+/* ---------- kontakt ---------- */
+.kontakt-mreza{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+.podatki{list-style:none;padding:0;margin:2rem 0 0}
+.podatki li{margin-bottom:1.1rem;font-size:1rem}
+.podatki .oznaka-mala{display:block;font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;color:var(--tiho);margin-bottom:.15rem}
+.podatki a{text-decoration:none;border-bottom:1px solid var(--crta)}
+.podatki a:hover{border-bottom-color:var(--poudarek)}
+@media(max-width:820px){.kontakt-mreza{grid-template-columns:1fr}}
+/* Enak odmik navedkov na telefonu kot pri .navedek in .merilo v slog.css. */
+@media(max-width:620px){.zakaj-locim,.tema .poanta{padding-left:1.3rem}}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#vsebina">Preskoči na vsebino</a>
+
+<header class="glava" id="glava">
+  <div class="ovoj">
+    <a class="logo" href="index.html">mag. Boštjan Štrajhar <span>— diagnostika organizacij</span></a>
+    <button class="meni-gumb" id="meni-gumb" type="button"
+            aria-expanded="false" aria-controls="meni" aria-label="Odpri meni">
+      <svg width="26" height="18" viewBox="0 0 26 18" fill="none" aria-hidden="true">
+        <path class="crta c1" d="M1 1h24"/>
+        <path class="crta c2" d="M1 9h24"/>
+        <path class="crta c3" d="M1 17h24"/>
+      </svg>
+    </button>
+    <nav class="meni" id="meni" aria-label="Glavni meni">
+      <a href="index.html#metoda">Diagnostika</a>
+      <a href="#teme" aria-current="page">Predavanja</a>
+      <a href="index.html#praksa">Iz prakse</a>
+      <a href="index.html#kdo">Kdo sem</a>
+      <a class="gumb-mali" href="#kontakt">Uvodni pogovor</a>
+    </nav>
+  </div>
+</header>
+
+<main id="vsebina">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="ovoj">
+    <div class="hero-mreza">
+      <div>
+        <span class="oznaka">Predavanja in delavnice</span>
+        <h1>Dve uri, ena tema,<br>ves kolektiv.</h1>
+        <p class="uvod">Predavanja o obvladovanju stresa navadno govorijo o tem, kaj naj človek naredi sam s seboj: kako naj diha, kako naj si razporedi čas, kako naj se odklopi. Vse to je res in vse to pomaga.</p>
+        <p>Ne odgovori pa na vprašanje, zakaj je pritiska toliko.</p>
+        <p>Moja predavanja so obrnjena. Ne govorijo o tem, kako pritisk prenašati, ampak o tem, kje nastane. Nekaj ga nastane v človeku samem in nekaj v tem, kako hiša deluje. Oboje je treba pogledati, sicer se po dveh urah nič ne spremeni.</p>
+        <div class="gumbi">
+          <a class="gumb" href="#teme">Tri teme →</a>
+          <a class="gumb-obris" href="#cena">Cena in dogovor</a>
+        </div>
+      </div>
+      <figure class="hero-foto">
+        <img src="predavanje.jpg" alt="mag. Boštjan Štrajhar med govorom" width="780" height="780" loading="eager">
+        <figcaption>Posnetek z javne prireditve, ne z delavnice. Fotografij s predavanj iz let 2008–2011 nimam — takrat se to ni fotografiralo.</figcaption>
+      </figure>
+    </div>
+
+    <ul class="podatkovna">
+      <li><b>Trajanje</b>ena ura ali dve</li>
+      <li><b>Udeleženci</b>do 70 pri delavnici</li>
+      <li><b>Cena</b>800–2.000 EUR</li>
+      <li><b>Dogovor</b>tri tedne vnaprej</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ REFERENCA ============ -->
+<section id="od-kod">
+  <div class="ovoj">
+    <span class="oznaka">Od kod to</span>
+    <h2>Dvesto predavanj,<br>nato petnajst let premora.</h2>
+    <p>Med letoma 2008 in 2011 sem predaval po vsej Sloveniji, večinoma v vrtcih, šolah in drugih vzgojno-izobraževalnih ustanovah. Teme so bile komunikacija s starši, soočanje z izzivi in stresom ter vprašanje, kako poleg razuma nagovoriti tudi voljo in čutenje. Skupaj okoli dvesto srečanj.</p>
+    <p>Ko sem leta 2011 prevzel vodenje šole, sem predavanja opustil — za oboje ni bilo časa in ne bi bilo pošteno do nobenega.</p>
+    <p>Vmes je minilo petnajst let. Petnajst let vodenja: šola in vrtec, javni zavod, danes občinska uprava. Vračam se z drugimi vprašanji, kot sem jih imel takrat.</p>
+  </div>
+</section>
+
+<!-- ============ DVE OBLIKI ============ -->
+<section id="obliki">
+  <div class="ovoj">
+    <span class="oznaka">Oblika</span>
+    <h2>Ena ura ali dve.<br>Razlika ni v dolžini.</h2>
+
+    <div class="obliki">
+      <div class="oblika">
+        <h3>Ena ura — predavanje</h3>
+        <p>Govorim jaz, na koncu odgovarjam na vprašanja. Poslušalec temo razume.</p>
+        <p>Število udeležencev ni omejeno — dvorana, zbornica, večji kolektiv, kakor pri vas nanese.</p>
+      </div>
+      <div class="oblika">
+        <h3>Dve uri — predavanje in delavnica</h3>
+        <p>Prva ura je enaka. V drugi dela kolektiv, v manjših skupinah.</p>
+        <p>Največ sedemdeset udeležencev, sicer delavnica ne deluje.</p>
+      </div>
+    </div>
+
+    <div class="zakaj-locim">
+      <p>Zakaj to sploh ločujem. Človek lahko nekaj razume in vseeno ne ravna drugače. Spoznanje, ki ostane samo v glavi, se v ponedeljek ne pojavi na sestanku. Da bi se pojavilo, ga mora človek tudi občutiti — na sebi, na svojem primeru, v pogovoru s sodelavcem, ki isto stvar vidi drugače.</p>
+      <p class="poanta">Ena ura odpre temo. Dve uri jo premakneta.</p>
+      <p>Če se odločate med obojim in ne veste, kaj izbrati: pri kolektivu, ki se prvič srečuje s tako temo, je ura pogosto dovolj. Kadar v hiši nekaj že dolgo tiho stoji, ura ne bo zalegla.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRI TEME ============ -->
+<section id="teme">
+  <div class="ovoj">
+
+    <div class="teme-mreza">
+    <div class="vodilo-stolpec">
+    <nav class="vodilo" aria-label="Teme">
+      <ol>
+        <li data-tema="tema-1"><a href="#tema-1">Zakaj najbolj vestni prvi izgorijo</a></li>
+        <li data-tema="tema-2"><a href="#tema-2">Zakaj isti dogodek v isti hiši ni isti dogodek</a></li>
+        <li data-tema="tema-3"><a href="#tema-3">Zmote se vidijo za nazaj</a></li>
+      </ol>
+    </nav>
+    </div>
+
+    <div class="vsebina">
+    <span class="oznaka">Tri teme</span>
+    <h2>Vsaka stoji sama zase.</h2>
+    <p>Nobena od njih ni prava za vsak kolektiv. Če ne veste, katera je pri vas na mestu, je na dnu strani šest vprašanj, ki to pokažejo.</p>
+
+    <div class="teme">
+
+      <article class="tema" id="tema-1">
+        <div class="tema-st">01</div>
+        <div>
+          <h3>Zakaj najbolj vestni prvi izgorijo</h3>
+          <p class="podnaslov">O tem, kaj si človek naloži sam in kaj mu naloži hiša.</p>
+
+          <p>V isti pisarni sta delali dve sodelavki.</p>
+          <p>Prva je hotela vse opraviti brezhibno. Doma je še pozno popoldne premlevala, ali je svoje stališče na sestanku pojasnila dovolj natančno. Nihče od nje tega ni zahteval. Zahtevala je sama.</p>
+          <p>Druga je bila njeno nasprotje. Ko jo je direktor vprašal, ali je dokumentacija za prijavo na nepovratna sredstva izpolnjena, je odgovorila, da ni, in dodala, da se svet zaradi tega ne bo ustavil. Nato mu je prinesla kavo.</p>
+          <p>Prva je čez leta izgorela. Druga ne.</p>
+          <p>Iz tega je lahko potegniti napačen sklep — da je težava v vestnosti. Hiša, v kateri bi bili vsi kot druga sodelavka, ne bi delovala niti mesec dni.</p>
+
+          <p class="poanta">Zanimivo vprašanje je drugo: zakaj je prva nosila toliko, in zakaj tega nihče ni ustavil.</p>
+
+          <p>Del odgovora je v njej. Človek si mero postavi sam in nekateri si jo postavijo tako visoko, da je ni mogoče doseči. To se da prepoznati in tega se da naučiti — regulirati ni isto kot popustiti.</p>
+          <p>Del odgovora je v hiši. Kadar odgovornost ni jasno razdeljena, jo prevzamejo najbolj vestni. Ne zato, ker bi jim jo kdo naložil, ampak zato, ker ne prenesejo, da bi nekaj ostalo nenarejeno. Delo se opravi, torej je videti, da sistem deluje. Da deluje na hrbtu treh ljudi, se pokaže šele, ko eden od njih odide ali obstane.</p>
+          <p>In takrat organizacija to navadno razume kot njegovo osebno šibkost.</p>
+
+          <div class="tema-pod">
+            <p><b>Za koga je ta tema.</b> Za kolektive, kjer se dela veliko in kjer se ista imena pojavljajo pri vsaki nujni nalogi. Tudi za vodstva, ki opažajo, da so prav najboljši ljudje najbolj utrujeni.</p>
+            <p><b>Kaj se v drugi uri dela.</b> Skupine dobijo izmišljen primer — nalogo, ki jo je treba razdeliti in opraviti. Nihče ne govori o sebi in nihče ne izpostavlja sodelavcev. Vsaka skupina poišče svojo razdelitev, nato jih primerjamo. Razlike med rešitvami povedo več kot vsaka razlaga, ki bi jo lahko dal sam.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="tema" id="tema-2">
+        <div class="tema-st">02</div>
+        <div>
+          <h3>Zakaj isti dogodek v isti hiši ni isti dogodek</h3>
+          <p class="podnaslov">O tem, kaj se ne pove na glas, in zakaj tisti, ki molči, misli, da je stvar jasna.</p>
+
+          <p>Na sestanku je vodja povedal, da bo treba projekt oddati tri tedne prej.</p>
+          <p>Štirje ljudje so slišali isti stavek.</p>
+          <p>Prvi je takoj računal, kdo bo kaj prevzel, in se razjezil, ker ni bilo odgovora. Zanj je bila stvar preprosta: če ni razdelitve, ni roka.</p>
+          <p>Drugi je začel premišljevati, kaj vse gre lahko narobe. Zvečer je doma naštel sedem tveganj. Na sestanku ni povedal nobenega — zdelo se mu je, da bo videti kot tisti, ki vedno komplicira.</p>
+          <p>Tretja je bila takoj za. Rekla je, da bomo zmogli, in to je mislila resno. Podrobnosti so se ji zdele stvar, ki se bo že uredila sproti.</p>
+          <p>Četrti ni rekel nič. Rok je rok. Če se bo spremenil, se bo spremenil še enkrat.</p>
+
+          <p class="poanta">Vsi štirje so imeli prav. Nobeden ni imel cele slike.</p>
+
+          <p>Tri tedne pozneje se je projekt ustavil natanko na tveganju, ki ga je drugi našteval doma. Prvi je bil prepričan, da je bila stvar vseskozi nedorečena. Tretja je bila presenečena. Četrti ne.</p>
+          <p>To ni zgodba o slabi komunikaciji. Vsi štirje so komunicirali normalno.</p>
+          <p>Zgodba je o tem, da človek predpostavlja, da drugi vidijo isto, kar vidi on. Kar je njemu očitno, mu ne pride na misel povedati. Prav tisto, kar se ne pove, ker se zdi samoumevno, pa je navadno tisto, česar drugi ne vidijo.</p>
+          <p>V kolektivu se to sešteje. Vsak nosi svoj del slike in vsak misli, da je slika ena sama. Sestanek se konča, vsi prikimajo, in vsak odide z drugačnim razumevanjem istega dogovora.</p>
+          <p>Molk pri tem ni znak strinjanja. Pogosto je znak, da človek ne ve, kako povedati stvar, ki se mu zdi prezgodnja, pretežka ali preveč osebna.</p>
+
+          <div class="tema-pod">
+            <p><b>Za koga je ta tema.</b> Za kolektive, kjer se dogovori sprejmejo hitro in gladko, izvedba pa se potem razlikuje od dogovora. Tudi za vodstva, ki opažajo, da se pravi pogovor začne šele, ko se sestanek konča.</p>
+            <p><b>Kaj se v drugi uri dela.</b> Skupine dobijo isti izmišljen primer — kratek opis dogodka v podjetju. Vsaka skupina ga presodi in predlaga svojo rešitev. Rešitve so vsakič različne, čeprav je opis en sam. Nato pogledamo, kaj je vsaka skupina v besedilu prebrala in česa ni. To pokaže bolj neposredno kot vsaka razlaga, ki bi jo lahko dal sam.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="tema" id="tema-3">
+        <div class="tema-st">03</div>
+        <div>
+          <h3>Zmote se vidijo za nazaj</h3>
+          <p class="podnaslov">O razliki med napako in zmoto, in o tem, kaj stane pričakovanje, da mora biti vse ves čas v redu.</p>
+
+          <p>Na neki šoli je poučeval učitelj, ki je od sebe pričakoval veliko in še več.</p>
+          <p>Bil je dobre volje, nasmejan, poln navdiha. Sodelavci so ga imeli radi. Na tej šoli je bilo v navadi, da so hospitirali drug pri drugem — nič posebnega, običajno delo. Kadar je prišel na vrsto on, je vedno nekaj prišlo vmes. »Ni problema,« je rekel vsakič. In vsakič je tik pred zdajci obisk odpovedal zaradi okoliščin, ki so nenadoma nastopile.</p>
+          <p>Ravnatelj mu je večkrat ponudil mentorske ure. V pogovoru sta se odlično razumela. Potem je prišel dan, ko bi ravnatelj opazoval njegov pouk, in obisk je bil spet odpovedan.</p>
+          <p>To je trajalo leta. Rezultati pri njegovem predmetu so bili iz leta v leto slabši in tega ni bilo mogoče prekriti. Sčasoma je začel kriviti otroke, starše, sistem, pogoje dela, učno gradivo. Po osmih letih je odšel.</p>
+          <p>Ni mu manjkalo ponujene pomoči. Manjkal je en sam korak: da bi sam pri sebi priznal, da jo potrebuje.</p>
+
+          <p>Zdaj razlika, na kateri stoji vse predavanje.</p>
+          <p><b>Napako je treba predvideti.</b> Napaka je nekaj, kar se da izračunati vnaprej — v proračunu, v dokumentaciji, v urniku. Zato so kontrole, roki in štiri oči. Delo brez napak je mogoče in je stvar skrbnosti.</p>
+          <p><b>Zmote ne moreš predvideti.</b> Zmota se pokaže šele za nazaj, ko je odločitev že sprejeta. Danes ni mogoče pripraviti prodajnega načrta, pouka ali dokumentacije, ki ne bo vsebovala nobene zmote. Mogoče jo je pripraviti brez napak. To ni isto in mešanje obojega je drago.</p>
+          <p>Kdor tega ne loči, začne vsako zmoto obravnavati kot napako — torej kot nekaj, česar nekdo ni predvidel, čeprav bi moral. In od tod je do iskanja krivca en korak.</p>
+          <p>Zato se v hiši, kjer mora biti vse ves čas v redu, nihče ne izpostavi. Vsi so nasmejani, vsi so pozitivni, in nihče ne pusti nikogar v svoj razred.</p>
+          <p>Opazil sem še nekaj. Ljudje pogosto z veliko vnemo priznavamo majhne napake in se nanje osredotočamo — natanko toliko, da nam ni treba pogledati velikih.</p>
+
+          <p class="poanta">Vsi imamo sence. Narobe ni, da jih imamo. Narobe je, kadar se pretvarjamo, da jih nimamo.</p>
+
+          <div class="tema-pod">
+            <p><b>Za koga je ta tema.</b> Za kolektive, kjer velja, da mora biti vzdušje dobro, in kjer se zato o težavah govori pozno. Tudi za vodstva, ki opažajo, da se enemu človeku že leta nekaj zatika, pa nihče ne ve, kako to načeti.</p>
+            <p><b>Kaj se v drugi uri dela.</b> Skupine dobijo izmišljen primer odločitve, ki se je slabo iztekla. Naloga je razločiti, kaj je bila napaka — nekaj, kar bi se dalo predvideti — in kaj zmota, ki se je pokazala šele pozneje. Presoje skupin se razlikujejo, in prav ta razlika je vsebina pogovora, ki sledi.</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KAKO POTEKA ============ -->
+<section id="poteka">
+  <div class="ovoj">
+    <svg class="znak" width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+      <circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+      <circle cx="16" cy="16" r="2.4" fill="currentColor"/>
+    </svg>
+    <span class="oznaka" style="margin-top:2.6rem;display:block">Izvedba</span>
+    <h2>Kaj potrebujem od vas,<br>in kaj dobite.</h2>
+
+    <div class="poteka">
+      <p>Pred srečanjem se pogovoriva po telefonu. Ne potrebujem poročil in analiz. Potrebujem odgovor na dve vprašanji: koliko ljudi bo v prostoru in kaj trenutno najbolj potrebujete.</p>
+      <p>Prostor: dovolj velik, da se skupine lahko razdelijo in slišijo. Nič tehnike ne potrebujem. Projektorja ne uporabljam, ker se pri drsnicah pozornost preseli na platno.</p>
+      <p>Predavanje ni posneto. Kar se v dvorani pove, ostane v dvorani.</p>
+
+      <div class="studija">
+        <p><strong>Po srečanju pripravim pisno avtorsko delo:</strong> strokovno študijo obravnavane teme z analizo stanja in usmeritvami za nadaljnje delo.</p>
+        <p>To ni diagnostika hiše — dve uri za to ne zadostujeta in ne bom se delal, da zadostujeta. Je strokovna obdelava teme, umeščena v vaš kolektiv, s priporočili, ki jih lahko uporabite naprej.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CENA ============ -->
+<section class="cena" id="cena">
+  <div class="ovoj">
+    <span class="oznaka">Cena in dogovor</span>
+    <h2>Cena.</h2>
+
+    <div class="cena-mreza">
+      <div>
+        <p>Za srečanje s predavanjem in delavnico se cena giblje med 800 in 2.000 evri, odvisno od velikosti kolektiva, oddaljenosti in tega, ali gre za eno temo ali za več srečanj. Za enourno predavanje je nižja. Točno ceno vam povem po telefonu, preden karkoli potrdite.</p>
+        <p>Termin dogovoriva vsaj tri tedne vnaprej. Predavanja opravljam ob rednem delu, zato jih ne sprejmem veliko.</p>
+      </div>
+      <div>
+        <p><strong>Za javne naročnike.</strong> Delo opravim po avtorski pogodbi, skladno z ZJN-3 in ZASP.</p>
+        <ul class="javni-seznam">
+          <li><b>Evidenčno naročilo.</b> Vrednost storitve ne dosega mejne vrednosti za uporabo ZJN-3, zato naročilo oddate po evidenčnem postopku. <span class="dopolni">[DOPOLNI: preveri veljavni prag na PISRS in ga po želji izpiši]</span></li>
+          <li><b>Zakonit predmet naročila.</b> Predmet je izvirno pisno avtorsko delo — strokovna študija z analizo stanja in usmeritvami. To je podlaga za avtorsko pogodbo in vzdrži nadzor FURS ali Računskega sodišča.</li>
+          <li><b>Prenos avtorskih pravic.</b> V pogodbi se materialne avtorske pravice v celoti prenesejo na naročnika, brez omejitev za vaše delovanje.</li>
+        </ul>
+        <p style="margin-top:1.6rem">Ponudbo pripravim pisno: tema, oblika, trajanje, cena in opis avtorskega dela.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEST ============ -->
+<section id="test">
+  <div class="ovoj">
+    <span class="oznaka">Katera tema</span>
+    <h2>Če ne veste, katera<br>od treh je prava.</h2>
+    <p>Nobena tema ne ustreza vsakemu kolektivu. Šest vprašanj pokaže, katera je pri vas najbolj na mestu — ali pa da nobena ni.</p>
+
+    <div class="vabilo">
+      <div>
+        <h3>Kaj bi vaš kolektiv slišal</h3>
+        <p>Šest vprašanj o tem, kje se pri vas zatika. Dve minuti. Nič se ne pošlje in nič se ne shrani — odgovarjate sami sebi.</p>
+        <p class="drobno">Če vam test pokaže, da nobena tema ni na mestu, vam to tudi napiše.</p>
+      </div>
+      <a class="gumb" href="test-predavanja.html">Začnite test</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KONTAKT ============ -->
+<section id="kontakt">
+  <div class="ovoj">
+    <div class="kontakt-mreza">
+      <div>
+        <span class="oznaka">Prvi korak</span>
+        <h2>Pokličite in povejte,<br>kaj potrebujete.</h2>
+        <p>Pogovor traja četrt ure. Povem vam, katera tema je za vaš kolektiv smiselna in koliko bo stalo. Če menim, da predavanje pri vas ne bo zaleglo, vam to povem takoj.</p>
+
+        <ul class="podatki">
+          <li>
+            <span class="oznaka-mala">E-pošta</span>
+            <a href="mailto:bostjan@strajhar.si">bostjan@strajhar.si</a>
+          </li>
+          <li>
+            <span class="oznaka-mala">Telefon</span>
+            <a href="tel:+38640475307">040 475 307</a>
+          </li>
+          <li>
+            <span class="oznaka-mala">Odzovem se</span>
+            v enem delovnem dnevu
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p>Če vam je pisanje ljubše, je na začetni strani obrazec, ki pripravi sporočilo v vašem poštnem programu.</p>
+        <div class="gumbi" style="margin-top:1.4rem">
+          <a class="gumb" href="index.html#kontakt">Na obrazec</a>
+          <a class="gumb-obris" href="index.html#metoda">Kaj je diagnostika →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="noga">
+  <div class="ovoj">
+    <p>© <span id="leto">2026</span> mag. Boštjan Štrajhar · <a href="index.html">Nazaj na začetno stran</a></p>
+    <p>Ta stran ne uporablja piškotkov in ne zbira podatkov o obiskovalcih.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var leto = document.getElementById("leto");
+  if (leto) leto.textContent = new Date().getFullYear();
+
+  var glava = document.getElementById("glava");
+  var zadnje = null;
+  window.addEventListener("scroll", function () {
+    var s = window.scrollY > 12;
+    if (s !== zadnje) { glava.classList.toggle("oblita", s); zadnje = s; }
+  }, { passive: true });
+
+  // Meni na telefonu.
+  var mGumb = document.getElementById("meni-gumb");
+  var meni = document.getElementById("meni");
+  if (mGumb && meni) {
+    var preklopi = function (odpri) {
+      mGumb.setAttribute("aria-expanded", odpri ? "true" : "false");
+      mGumb.setAttribute("aria-label", odpri ? "Zapri meni" : "Odpri meni");
+      meni.classList.toggle("odprt", odpri);
+      document.body.classList.toggle("meni-odprt", odpri);
+    };
+    mGumb.addEventListener("click", function () {
+      preklopi(mGumb.getAttribute("aria-expanded") !== "true");
+    });
+    meni.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") preklopi(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && mGumb.getAttribute("aria-expanded") === "true") {
+        preklopi(false); mGumb.focus();
+      }
+    });
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 1080) preklopi(false);
+    });
+  }
+
+  // Vodilo ob temah. Če brskalnik opazovalnika ne pozna, ostane vodilo mirno.
+  if ("IntersectionObserver" in window) {
+    var postavke = document.querySelectorAll(".vodilo li");
+    var opazovalnik = new IntersectionObserver(function (vnosi) {
+      vnosi.forEach(function (v) {
+        if (!v.isIntersecting) return;
+        postavke.forEach(function (p) {
+          p.classList.toggle("tu", p.dataset.tema === v.target.id);
+        });
+      });
+    }, { rootMargin: "-30% 0px -55% 0px" });
+    document.querySelectorAll(".tema").forEach(function (t) { opazovalnik.observe(t); });
+  }
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://bostjanstrajhar-ops.github.io/predavanja.html",
+      "url": "https://bostjanstrajhar-ops.github.io/predavanja.html",
+      "name": "Predavanja in delavnice za kolektive",
+      "description": "Ena ura ali dve s kolektivom o eni sami temi. Tri teme o tem, kaj v organizaciji proizvaja pritisk in trenja.",
+      "inLanguage": "sl-SI",
+      "isPartOf": { "@id": "https://bostjanstrajhar-ops.github.io/#stran" },
+      "author": { "@id": "https://bostjanstrajhar-ops.github.io/#oseba" },
+      "mainEntity": { "@id": "https://bostjanstrajhar-ops.github.io/#predavanja" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://bostjanstrajhar-ops.github.io/#predavanja",
+      "name": "Predavanja in delavnice za kolektive",
+      "description": "Enourno predavanje ali dveurno srečanje s predavanjem in delavnico o tem, kaj v organizaciji proizvaja pritisk in trenja. Tri teme. Po srečanju pisno avtorsko delo — strokovna študija z analizo stanja in usmeritvami.",
+      "url": "https://bostjanstrajhar-ops.github.io/predavanja.html",
+      "provider": { "@id": "https://bostjanstrajhar-ops.github.io/#oseba" },
+      "areaServed": { "@type": "Country", "name": "Slovenija" },
+      "availableLanguage": "sl",
+      "serviceType": "Predavanja in delavnice za organizacije"
+    }
+  ]
+}
+</script>
+</body>
+</html>

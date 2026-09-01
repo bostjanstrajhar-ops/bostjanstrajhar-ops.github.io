@@ -3,30 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Test organizacijske realnosti — sedem vprašanj za vodstvo</title>
-<meta name="description" content="Sedem vprašanj o skritih trenjih v organizaciji, ki stanejo čas, denar in energijo. Dve minuti, brez registracije. Odgovori ostanejo v vašem brskalniku.">
+<title>Kaj bi vaš kolektiv slišal — šest vprašanj za vodstvo</title>
+<meta name="description" content="Šest vprašanj, ki pokažejo, katera od treh tem je za vaš kolektiv na mestu. Dve minuti, brez registracije. Odgovori ostanejo v vašem brskalniku.">
 <meta name="author" content="mag. Boštjan Štrajhar">
-<link rel="canonical" href="https://bostjanstrajhar-ops.github.io/test.html">
+<link rel="canonical" href="https://bostjanstrajhar-ops.github.io/test-predavanja.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="sl_SI">
-<meta property="og:url" content="https://bostjanstrajhar-ops.github.io/test.html">
+<meta property="og:url" content="https://bostjanstrajhar-ops.github.io/test-predavanja.html">
 <meta property="og:site_name" content="mag. Boštjan Štrajhar">
-<meta property="og:title" content="Test organizacijske realnosti — sedem vprašanj za vodstvo">
-<meta property="og:description" content="Sedem vprašanj o skritih trenjih v organizaciji. Dve minuti, brez registracije, brez shranjevanja.">
-<meta property="og:image" content="https://bostjanstrajhar-ops.github.io/portret.jpg">
+<meta property="og:title" content="Kaj bi vaš kolektiv slišal — šest vprašanj za vodstvo">
+<meta property="og:description" content="Šest vprašanj, ki pokažejo, katera tema je za vaš kolektiv na mestu. Dve minuti, brez shranjevanja.">
+<meta property="og:image" content="https://bostjanstrajhar-ops.github.io/predavanje.jpg">
 <meta name="theme-color" content="#f7f5f1">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f7f5f1'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%232b4f55' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='16' r='2.6' fill='%232b4f55'/%3E%3C/svg%3E">
 
 <link rel="stylesheet" href="slog.css">
 
 <style>
-/* Slog te strani. Skupni slog je v slog.css. */
+/* Slog te strani. Skupni slog je v slog.css. Enak kot pri prvem testu. */
 html{scroll-padding-top:112px}
 .test-uvod{border-top:0;padding-top:clamp(2.6rem,6vw,4.6rem);padding-bottom:0}
 .test-uvod h1{max-width:16ch}
-.opozorilo{
-  margin-top:2.4rem;max-width:660px;border-left:2px solid var(--poudarek);padding-left:1.6rem;
-}
+.opozorilo{margin-top:2.4rem;max-width:660px;border-left:2px solid var(--poudarek);padding-left:1.6rem}
 .opozorilo p{
   font-family:"Newsreader",Georgia,serif;font-size:clamp(1.08rem,1.9vw,1.24rem);
   line-height:1.58;color:#252b2d;
@@ -57,7 +55,6 @@ html{scroll-padding-top:112px}
   letter-spacing:.1em;color:var(--poudarek);opacity:.55;padding-top:.5rem;
 }
 .izbire{display:flex;gap:.6rem;margin-left:2.6rem;flex-wrap:wrap}
-/* Gumbi so vidni; polje radio je skrito, a ostane dosegljivo s tipkovnico. */
 .izbire input{position:absolute;width:1px;height:1px;opacity:0;margin:0}
 .izbire label{
   cursor:pointer;border:1px solid var(--crta);background:#fdfcfa;
@@ -74,9 +71,9 @@ html{scroll-padding-top:112px}
   .izbire label{flex:1;text-align:center;padding:13px 10px;min-width:88px}
 }
 
+.drobno{font-size:.79rem;color:var(--tiho);line-height:1.55;margin:.95rem 0 0}
+
 /* ---------- stanje in izid ---------- */
-/* Vrstica s potekom je pripeta pod glavo, ne na dno zaslona —
-   na dnu bi prekrivala gumbe pri zadnjem vidnem vprašanju. */
 .stanje-pas{
   position:sticky;top:66px;z-index:20;
   background:rgba(247,245,241,.95);backdrop-filter:blur(8px);
@@ -87,30 +84,28 @@ html{scroll-padding-top:112px}
   display:flex;align-items:center;justify-content:space-between;gap:1rem;
   font-size:.84rem;color:var(--tiho);
 }
-.stanje .crtica{
-  flex:1;max-width:220px;height:2px;background:var(--crta);position:relative;border-radius:2px;
-}
+.stanje .crtica{flex:1;max-width:220px;height:2px;background:var(--crta);position:relative;border-radius:2px}
 .stanje .crtica i{
   position:absolute;inset:0 auto 0 0;background:var(--poudarek);
   border-radius:2px;width:0;transition:width .3s;
 }
-.izid{
-  border-top:1px solid var(--crta);background:var(--papir-topel);
-  padding:clamp(2.6rem,6vw,4.4rem) 0;
-}
+.izid{border-top:1px solid var(--crta);background:var(--papir-topel);padding:clamp(2.6rem,6vw,4.4rem) 0}
 .izid[hidden]{display:none}
-.izid-tocke{
-  font-family:"Newsreader",Georgia,serif;font-size:3.2rem;line-height:1;
-  color:var(--poudarek);font-weight:300;
-}
-.izid-tocke .enota{font-size:1.1rem;color:var(--tiho);margin-left:.5rem;font-family:"Inter",sans-serif}
-.izid h2{margin:1.1rem 0 1.3rem;max-width:18ch}
+.izid h2{margin:.6rem 0 1.3rem;max-width:20ch}
 .izid-besedilo{max-width:640px}
 .izid-besedilo p:last-of-type{margin-bottom:0}
-.podskupine{
-  list-style:none;padding:0;margin:2.6rem 0 0;max-width:640px;
-  border-top:1px solid #ddd5c8;
+.priporocena{
+  margin-top:2.6rem;max-width:640px;border-left:2px solid var(--poudarek);padding-left:1.7rem;
 }
+.priporocena .oznaka-mala{
+  display:block;font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--tiho);margin-bottom:.4rem;
+}
+.priporocena p{
+  margin:0;font-family:"Newsreader",Georgia,serif;
+  font-size:clamp(1.16rem,2.2vw,1.42rem);line-height:1.5;color:#22282a;
+}
+.podskupine{list-style:none;padding:0;margin:2.6rem 0 0;max-width:640px;border-top:1px solid #ddd5c8}
 .podskupine li{
   display:flex;justify-content:space-between;gap:1rem;align-items:baseline;
   padding:.9rem 0;border-bottom:1px solid #ddd5c8;font-size:.95rem;
@@ -126,7 +121,7 @@ html{scroll-padding-top:112px}
 .ni-diagnoza{margin-top:2.8rem;font-size:.85rem;color:var(--tiho);max-width:600px}
 @media(max-width:620px){
   .stanje{padding:.7rem 22px}
-  /* Ovalna oznaka v dveh vrsticah izgleda nerodno — na telefonu je navadna vrstica. */
+  .opozorilo,.priporocena{padding-left:1.3rem}
   .zasebno{
     display:block;border:0;border-top:1px solid var(--crta);
     border-radius:0;background:none;padding:1.1rem 0 0;margin-top:2rem;
@@ -154,7 +149,7 @@ html{scroll-padding-top:112px}
       <a href="predavanja.html">Predavanja</a>
       <a href="index.html#praksa">Iz prakse</a>
       <a href="index.html#kdo">Kdo sem</a>
-      <a class="gumb-mali" href="index.html#kontakt">Uvodni pogovor</a>
+      <a class="gumb-mali" href="predavanja.html#kontakt">Uvodni pogovor</a>
     </nav>
   </div>
 </header>
@@ -163,12 +158,12 @@ html{scroll-padding-top:112px}
 
 <section class="test-uvod">
   <div class="ovoj">
-    <span class="oznaka">Test organizacijske realnosti</span>
-    <h1>Sedem vprašanj, na katera se težko odgovori pošteno.</h1>
+    <span class="oznaka">Za vodstvo</span>
+    <h1>Kaj bi vaš kolektiv slišal.</h1>
 
     <div class="opozorilo">
-      <p>Test zahteva eno samo stvar: odkritost do sebe. Če boste odgovarjali tako, kot bi odgovorili na seji, vam ne bo povedal ničesar.</p>
-      <p>In še to: <strong>to ni diagnoza.</strong> Diagnoza je tisto, kar naredim na terenu, ko govorim z ljudmi. Test vam pove le, ali je o čem govoriti.</p>
+      <p>Nobena od treh tem ni prava za vsak kolektiv. Ta vprašanja vam pokažejo, katera je pri vas najbolj na mestu — ali pa da nobena ni.</p>
+      <p>Odgovarjajte po tem, kako je, ne po tem, kako bi želeli, da bi bilo.</p>
     </div>
 
     <p class="zasebno">Dve minuti. Nič se ne pošlje, nič se ne shrani — odgovori ostanejo v vašem brskalniku.</p>
@@ -177,7 +172,7 @@ html{scroll-padding-top:112px}
 
 <div class="stanje-pas">
   <div class="stanje" id="stanje" aria-live="polite">
-    <span id="stanje-tekst">Odgovorjeno 0 od 7</span>
+    <span id="stanje-tekst">Odgovorjeno 0 od 6</span>
     <span class="crtica" aria-hidden="true"><i id="crtica"></i></span>
   </div>
 </div>
@@ -186,11 +181,11 @@ html{scroll-padding-top:112px}
   <div class="ovoj">
     <form id="test">
 
-      <fieldset class="skupina" data-skupina="Kaj vodstvo izve in kdaj">
-        <legend>Kaj vodstvo izve in kdaj</legend>
+      <fieldset class="skupina" data-skupina="Obremenitev" data-tema="A">
+        <legend>Obremenitev</legend>
 
         <div class="vprasanje">
-          <p class="besedilo"><span class="st">01</span><span id="v1">Ali vodstvo za resne napake ali zamude izve šele takrat, ko je že požar — čeprav so ljudje na terenu zanje vedeli tedne ali mesece prej?</span></p>
+          <p class="besedilo"><span class="st">01</span><span id="v1">Ali se ista imena pojavijo vsakič, ko je treba nekaj opraviti nujno ali izven opisa del?</span></p>
           <div class="izbire" role="radiogroup" aria-labelledby="v1">
             <input type="radio" name="q1" id="q1a" value="2"><label for="q1a">Da</label>
             <input type="radio" name="q1" id="q1b" value="1"><label for="q1b">Delno</label>
@@ -199,7 +194,7 @@ html{scroll-padding-top:112px}
         </div>
 
         <div class="vprasanje">
-          <p class="besedilo"><span class="st">02</span><span id="v2">Ali se uradna poročila in kazalniki pogosto ne ujemajo z resničnim stanjem — z zadovoljstvom strank ali občanov in z dejanskim izidom?</span></p>
+          <p class="besedilo"><span class="st">02</span><span id="v2">Ali so pri vas najbolj utrujeni prav tisti ljudje, na katere se najbolj zanesete?</span></p>
           <div class="izbire" role="radiogroup" aria-labelledby="v2">
             <input type="radio" name="q2" id="q2a" value="2"><label for="q2a">Da</label>
             <input type="radio" name="q2" id="q2b" value="1"><label for="q2b">Delno</label>
@@ -208,11 +203,11 @@ html{scroll-padding-top:112px}
         </div>
       </fieldset>
 
-      <fieldset class="skupina" data-skupina="Kje se delo ustavi">
-        <legend>Kje se delo ustavi</legend>
+      <fieldset class="skupina" data-skupina="Razumevanje" data-tema="B">
+        <legend>Razumevanje</legend>
 
         <div class="vprasanje">
-          <p class="besedilo"><span class="st">03</span><span id="v3">Ali naloge in projekti obstanejo v zraku med oddelki, ker ni jasno, kje se konča odgovornost enega in začne odgovornost drugega?</span></p>
+          <p class="besedilo"><span class="st">03</span><span id="v3">Ali se dogovori na sestankih sprejmejo gladko, izvedba pa se potem razlikuje od dogovorjenega?</span></p>
           <div class="izbire" role="radiogroup" aria-labelledby="v3">
             <input type="radio" name="q3" id="q3a" value="2"><label for="q3a">Da</label>
             <input type="radio" name="q3" id="q3b" value="1"><label for="q3b">Delno</label>
@@ -221,42 +216,33 @@ html{scroll-padding-top:112px}
         </div>
 
         <div class="vprasanje">
-          <p class="besedilo"><span class="st">04</span><span id="v4">Ali vaši postopki in pravilniki v praksi bolj ščitijo pred prevzemanjem odgovornosti, kot pospešujejo delo?</span></p>
+          <p class="besedilo"><span class="st">04</span><span id="v4">Ali izveste, kaj ljudje o odločitvi zares mislijo, šele potem, ko je sestanek končan?</span></p>
           <div class="izbire" role="radiogroup" aria-labelledby="v4">
             <input type="radio" name="q4" id="q4a" value="2"><label for="q4a">Da</label>
             <input type="radio" name="q4" id="q4b" value="1"><label for="q4b">Delno</label>
             <input type="radio" name="q4" id="q4c" value="0"><label for="q4c">Ne</label>
           </div>
         </div>
+      </fieldset>
+
+      <fieldset class="skupina" data-skupina="Pretvarjanje" data-tema="C">
+        <legend>Pretvarjanje</legend>
 
         <div class="vprasanje">
-          <p class="besedilo"><span class="st">05</span><span id="v5">Ali se redno vračate k istim težavam, za katere je bilo na sestankih že večkrat rečeno, da so trajno rešene?</span></p>
+          <p class="besedilo"><span class="st">05</span><span id="v5">Ali se pri vas o težavah spregovori šele takrat, ko jih ni več mogoče prezreti?</span></p>
           <div class="izbire" role="radiogroup" aria-labelledby="v5">
             <input type="radio" name="q5" id="q5a" value="2"><label for="q5a">Da</label>
             <input type="radio" name="q5" id="q5b" value="1"><label for="q5b">Delno</label>
             <input type="radio" name="q5" id="q5c" value="0"><label for="q5c">Ne</label>
           </div>
         </div>
-      </fieldset>
-
-      <fieldset class="skupina" data-skupina="Kaj se dogaja med ljudmi">
-        <legend>Kaj se dogaja med ljudmi</legend>
 
         <div class="vprasanje">
-          <p class="besedilo"><span class="st">06</span><span id="v6">Ali se na operativnih sestankih porabi več časa za pojasnjevanje, zakaj nekaj ni bilo narejeno, kot za dogovor, kako bo narejeno?</span></p>
+          <p class="besedilo"><span class="st">06</span><span id="v6">Ali je v hiši kdo, pri katerem se nekaj zatika že leta, pa nihče ne ve, kako to načeti?</span></p>
           <div class="izbire" role="radiogroup" aria-labelledby="v6">
             <input type="radio" name="q6" id="q6a" value="2"><label for="q6a">Da</label>
             <input type="radio" name="q6" id="q6b" value="1"><label for="q6b">Delno</label>
             <input type="radio" name="q6" id="q6c" value="0"><label for="q6c">Ne</label>
-          </div>
-        </div>
-
-        <div class="vprasanje">
-          <p class="besedilo"><span class="st">07</span><span id="v7">Ali so v hiši posamezniki, katerih ravnanje ovira delo, pa se tega nihče ne loti — zaradi njihovega znanja, staža ali zato, ker si nihče ne želi konflikta?</span></p>
-          <div class="izbire" role="radiogroup" aria-labelledby="v7">
-            <input type="radio" name="q7" id="q7a" value="2"><label for="q7a">Da</label>
-            <input type="radio" name="q7" id="q7b" value="1"><label for="q7b">Delno</label>
-            <input type="radio" name="q7" id="q7c" value="0"><label for="q7c">Ne</label>
           </div>
         </div>
       </fieldset>
@@ -268,19 +254,22 @@ html{scroll-padding-top:112px}
 <section class="izid" id="izid" hidden aria-live="polite">
   <div class="ovoj">
     <span class="oznaka">Vaš izid</span>
-    <p class="izid-tocke"><span id="tocke">0</span><span class="enota">od 14 točk</span></p>
     <h2 id="izid-naslov"></h2>
     <div class="izid-besedilo" id="izid-besedilo"></div>
+
+    <div class="priporocena" id="priporocena" hidden>
+      <span class="oznaka-mala">Priporočena tema</span>
+      <p id="priporocena-tema"></p>
+    </div>
 
     <ul class="podskupine" id="podskupine"></ul>
 
     <div class="izid-gumbi">
-      <a class="gumb" id="izid-povezava" href="index.html#kontakt">Dogovorite se za uvodni pogovor</a>
-      <a class="gumb-obris" id="izid-povezava2" href="predavanja.html" hidden>Predavanja in delavnice →</a>
+      <a class="gumb" id="izid-povezava" href="predavanja.html">Poglejte to temo →</a>
       <button type="button" class="ponovi" id="ponovi">Ponovi test</button>
     </div>
 
-    <p class="ni-diagnoza">Ta izid ni diagnoza in ne more biti. Sedem vprašanj ne more nadomestiti tega, kar se pokaže, ko človek posluša ljudi v hiši. Izid vam pove le, ali je o čem govoriti.</p>
+    <p class="ni-diagnoza">Ta izid ni diagnoza. Šest vprašanj pove le, o čem je pri vas vredno govoriti dve uri.</p>
   </div>
 </section>
 
@@ -288,7 +277,7 @@ html{scroll-padding-top:112px}
 
 <footer class="noga">
   <div class="ovoj">
-    <p>© <span id="leto">2026</span> mag. Boštjan Štrajhar · <a href="index.html">Nazaj na začetno stran</a></p>
+    <p>© <span id="leto">2026</span> mag. Boštjan Štrajhar · <a href="predavanja.html">Predavanja in delavnice</a> · <a href="index.html">Začetna stran</a></p>
     <p>Ta stran ne uporablja piškotkov in ne zbira podatkov o obiskovalcih.</p>
   </div>
 </footer>
@@ -334,76 +323,73 @@ html{scroll-padding-top:112px}
   }
 
   // ---------- Test ----------
-  // Da = 2, Delno = 1, Ne = 0. Skupaj od 0 do 14.
-  // Vse se izračuna v brskalniku; nič se ne pošlje in nič ne shrani.
+  // Da = 2, Delno = 1, Ne = 0. Skupaj od 0 do 12.
+  // Izid ne sledi skupnemu seštevku, ampak sklopu z največ točkami:
+  // ta določi priporočeno temo. Vse se izračuna v brskalniku.
 
-  var IZIDI = [
-    {
-      do: 3,
-      naslov: "Kaže, da vaša hiša deluje.",
+  var TEME = {
+    A: {
+      naslov: "Pri vas breme ni enakomerno razdeljeno.",
       besedilo: [
-        "Po teh odgovorih sodeč mene ne potrebujete. To ni vljudnostna fraza. Če bi vas skušal prepričati o nasprotnem, bi bil natanko tak svetovalec, kakršnih ne maram.",
-        "Zapišite si datum in test ponovite čez pol leta. Organizacije se ne pokvarijo naenkrat — pokvarijo se počasi in navadno se tega najprej ne opazi od znotraj.",
-        "Če vseeno želite dve uri s kolektivom o eni sami temi, so na voljo predavanja. To ni isto kot diagnostika in ne predpostavlja, da je pri vas kaj narobe."
+        "Odgovori kažejo na hišo, v kateri delo teče — teče pa po nekaj ljudeh. To se navadno opazi šele, ko eden od njih odide ali obstane."
       ],
-      poziv: null,
-      poziv2: "Predavanja in delavnice →"
+      tema: "Zakaj najbolj vestni prvi izgorijo",
+      povezava: "predavanja.html#tema-1"
     },
-    {
-      do: 7,
-      naslov: "Trenja so, a jih še obvladujete.",
+    B: {
+      naslov: "Pri vas se dogovori razumejo različno.",
       besedilo: [
-        "Nič od tega ni dramatično. Vse od tega pa raste, dokler se tega nihče ne loti. Trenja se ne umirijo sama — postanejo navada, navad pa nihče več ne opazi.",
-        "Pri tem izidu je verjetno dovolj pogovor, ne projekt. Pokličite in v pol ure vam povem, ali se diagnostika sploh splača. Če se ne, vam to povem takoj.",
-        "Pogosto je pri tem izidu smiselna krajša pot: dve uri s kolektivom o eni temi."
+        "Odgovori kažejo, da se na sestankih doseže soglasje, ki v izvedbi ne drži. To redko pomeni, da kdo ne posluša. Pogosteje pomeni, da vsak nosi svoj del slike in misli, da je slika ena sama."
       ],
-      poziv: "Pokličite in preveriva",
-      poziv2: "Predavanja in delavnice →"
+      tema: "Zakaj isti dogodek v isti hiši ni isti dogodek",
+      povezava: "predavanja.html#tema-2"
     },
-    {
-      do: 11,
-      naslov: "Vzorci so se ustalili.",
+    C: {
+      naslov: "Pri vas se o težavah govori pozno.",
       besedilo: [
-        "Pri toliko pritrdilnih odgovorih ne gre več za posamezne zaplete, ampak za način, kako vaša hiša deluje. To ni očitek. Tako se organizacije razvijejo, kadar se nihče nima časa ustaviti.",
-        "Takšnih vzorcev od znotraj ni mogoče videti — ne zato, ker ne bi znali, ampak ker ste vpleteni. To je stanje, v katerem diagnostika naredi največ."
+        "Odgovori kažejo na hišo, kjer velja, da mora biti vzdušje dobro. Cena tega je, da se stvari izrečejo šele, ko jih ni več mogoče prekriti."
       ],
-      poziv: "Dogovorite se za uvodni pogovor"
-    },
-    {
-      do: 14,
-      naslov: "Sistem že plačuje ceno.",
-      besedilo: [
-        "To ni več vprašanje učinkovitosti. Pri takem obsegu trenj organizacija izgublja čas in ljudi, ne da bi to kjerkoli pisalo v poročilih — in prvi odidejo tisti najbolj vestni.",
-        "Tu odlašanje ni nevtralna odločitev. Vsak mesec je dražji od prejšnjega, ker se vzorec med tem utrjuje."
-      ],
-      poziv: "Dogovorite se za uvodni pogovor"
+      tema: "Zmote se vidijo za nazaj",
+      povezava: "predavanja.html#tema-3"
     }
-  ];
+  };
+
+  var NIC = {
+    naslov: "Videti je, da nič posebej ne izstopa.",
+    besedilo: [
+      "Po teh odgovorih pri vas ni teme, ki bi terjala dve uri celotnega kolektiva. To ni vljudnostna fraza — če bi vam kljub temu kaj prodajal, bi bil natanko tak predavatelj, kakršnih sam ne maram.",
+      "Test si shranite in ga ponovite čez pol leta."
+    ]
+  };
 
   var obrazec = document.getElementById("test");
   var skupine = Array.prototype.slice.call(obrazec.querySelectorAll(".skupina"));
-  var skupno = obrazec.querySelectorAll('.vprasanje').length;
+  var skupno = obrazec.querySelectorAll(".vprasanje").length;
 
   var elStanje = document.getElementById("stanje-tekst");
   var elCrtica = document.getElementById("crtica");
   var elIzid = document.getElementById("izid");
-  var elTocke = document.getElementById("tocke");
   var elNaslov = document.getElementById("izid-naslov");
   var elBesedilo = document.getElementById("izid-besedilo");
+  var elPriporocena = document.getElementById("priporocena");
+  var elTema = document.getElementById("priporocena-tema");
   var elPod = document.getElementById("podskupine");
   var elPovezava = document.getElementById("izid-povezava");
-  var elPovezava2 = document.getElementById("izid-povezava2");
 
   function preberi() {
     var odgovori = 0, skupaj = 0, poSkupinah = [];
     skupine.forEach(function (s) {
-      var t = 0, n = 0, najvec = 0;
-      s.querySelectorAll('input[type=radio]:checked').forEach(function (i) {
+      var t = 0, n = 0;
+      s.querySelectorAll("input[type=radio]:checked").forEach(function (i) {
         t += Number(i.value); n++;
       });
-      najvec = s.querySelectorAll('.vprasanje').length * 2;
       odgovori += n; skupaj += t;
-      poSkupinah.push({ ime: s.dataset.skupina, tocke: t, najvec: najvec, polno: n === s.querySelectorAll('.vprasanje').length });
+      poSkupinah.push({
+        ime: s.dataset.skupina,
+        kljuc: s.dataset.tema,
+        tocke: t,
+        najvec: s.querySelectorAll(".vprasanje").length * 2
+      });
     });
     return { odgovori: odgovori, skupaj: skupaj, poSkupinah: poSkupinah };
   }
@@ -414,22 +400,41 @@ html{scroll-padding-top:112px}
     elCrtica.style.width = (r.odgovori / skupno * 100) + "%";
     if (r.odgovori < skupno) { elIzid.hidden = true; return; }
 
-    var izid = IZIDI[0];
-    for (var i = 0; i < IZIDI.length; i++) { if (r.skupaj <= IZIDI[i].do) { izid = IZIDI[i]; break; } }
+    var izid, izbrana = null, izenacena = false;
 
-    elTocke.textContent = r.skupaj;
+    if (r.skupaj <= 3) {
+      izid = NIC;
+    } else {
+      // Sklop z največ točkami določi temo. Pri izenačenju velja prvi po vrsti,
+      // z opombo, da sta pri vas na mestu obe.
+      var najvisje = r.poSkupinah.slice().sort(function (a, b) { return b.tocke - a.tocke; });
+      izenacena = najvisje.length > 1 && najvisje[0].tocke === najvisje[1].tocke;
+      for (var i = 0; i < r.poSkupinah.length; i++) {
+        if (r.poSkupinah[i].tocke === najvisje[0].tocke) { izbrana = r.poSkupinah[i].kljuc; break; }
+      }
+      izid = TEME[izbrana];
+    }
+
     elNaslov.textContent = izid.naslov;
-    elBesedilo.innerHTML = izid.besedilo.map(function (p) { return "<p>" + p + "</p>"; }).join("");
+    var odstavki = izid.besedilo.slice();
+    if (izenacena) {
+      odstavki.push("Dva sklopa sta pri vas izenačena. Spodaj je tista tema, ki jo priporočam najprej — druga je prav tako na mestu in jo najdete na strani s temami.");
+    }
+    elBesedilo.innerHTML = odstavki.map(function (p) { return "<p>" + p + "</p>"; }).join("");
+
+    if (izbrana) {
+      elPriporocena.hidden = false;
+      elTema.textContent = izid.tema;
+      elPovezava.hidden = false;
+      elPovezava.href = izid.povezava;
+    } else {
+      elPriporocena.hidden = true;
+      elPovezava.hidden = true;
+    }
 
     elPod.innerHTML = r.poSkupinah.map(function (s) {
       return "<li><b>" + s.ime + "</b><span class='tocke'>" + s.tocke + " / " + s.najvec + "</span></li>";
     }).join("");
-
-    if (izid.poziv) { elPovezava.hidden = false; elPovezava.textContent = izid.poziv; }
-    else { elPovezava.hidden = true; }
-
-    if (izid.poziv2) { elPovezava2.hidden = false; elPovezava2.textContent = izid.poziv2; }
-    else { elPovezava2.hidden = true; }
 
     var jeSkrit = elIzid.hidden;
     elIzid.hidden = false;
@@ -455,10 +460,10 @@ html{scroll-padding-top:112px}
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://bostjanstrajhar-ops.github.io/test.html",
-  "url": "https://bostjanstrajhar-ops.github.io/test.html",
-  "name": "Test organizacijske realnosti",
-  "description": "Sedem vprašanj o skritih trenjih v organizaciji, ki stanejo čas, denar in energijo. Dve minuti, brez registracije.",
+  "@id": "https://bostjanstrajhar-ops.github.io/test-predavanja.html",
+  "url": "https://bostjanstrajhar-ops.github.io/test-predavanja.html",
+  "name": "Kaj bi vaš kolektiv slišal",
+  "description": "Šest vprašanj, ki pokažejo, katera od treh tem predavanj je za vaš kolektiv na mestu.",
   "inLanguage": "sl-SI",
   "isPartOf": { "@id": "https://bostjanstrajhar-ops.github.io/#stran" },
   "author": { "@id": "https://bostjanstrajhar-ops.github.io/#oseba" }

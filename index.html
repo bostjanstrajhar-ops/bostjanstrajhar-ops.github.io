@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Diagnostika organizacij in poslovno svetovanje — mag. Boštjan Štrajhar</title>
-<meta name="description" content="Diagnostika poslovnih in organizacijskih procesov za podjetja, javne zavode in občinske uprave. Povem, kje je vzrok — brez modnih besed in instantnih rešitev.">
+<title>Diagnostika organizacij, predavanja in delavnice — mag. Boštjan Štrajhar</title>
+<meta name="description" content="Diagnostika poslovnih in organizacijskih procesov ter predavanja in delavnice za kolektive. Za podjetja, javne zavode in občinske uprave. Povem, kje je vzrok — brez modnih besed in instantnih rešitev.">
 <meta name="author" content="mag. Boštjan Štrajhar">
 <link rel="canonical" href="https://bostjanstrajhar-ops.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="sl_SI">
 <meta property="og:url" content="https://bostjanstrajhar-ops.github.io/">
 <meta property="og:site_name" content="mag. Boštjan Štrajhar">
-<meta property="og:title" content="Diagnostika organizacij in poslovno svetovanje — mag. Boštjan Štrajhar">
-<meta property="og:description" content="Vzrok je skoraj vedno drugje, kot se zdi. Diagnostika procesov za podjetja, javne zavode in občinske uprave.">
+<meta property="og:title" content="Diagnostika organizacij, predavanja in delavnice — mag. Boštjan Štrajhar">
+<meta property="og:description" content="Vzrok je skoraj vedno drugje, kot se zdi. Diagnostika procesov ter predavanja za kolektive.">
 <meta property="og:image" content="https://bostjanstrajhar-ops.github.io/portret.jpg">
 <meta property="og:image:width" content="880">
 <meta property="og:image:height" content="1252">
@@ -190,6 +190,16 @@
 form{background:#fdfcfa;border:1px solid var(--crta);border-radius:3px;padding:clamp(1.5rem,3vw,2.2rem)}
 .polje{margin-bottom:1.15rem}
 .polje label{display:block;font-size:.85rem;font-weight:500;color:var(--crnilo);margin-bottom:.4rem}
+.polje select{
+  width:100%;font-family:inherit;font-size:.97rem;color:var(--crnilo);
+  background:#fff;border:1px solid var(--crta);border-radius:2px;padding:11px 13px;line-height:1.55;
+}
+.polje select:focus{border-color:var(--poudarek);outline:none;box-shadow:0 0 0 3px rgba(43,79,85,.1)}
+/* Kratke teme v razdelku o predavanjih. */
+.teme-kratko{list-style:none;padding:0;margin:2.4rem 0 0;max-width:820px}
+.teme-kratko li{padding:1.3rem 0;border-bottom:1px solid var(--crta);font-size:1rem;line-height:1.68}
+.teme-kratko li:first-child{border-top:1px solid var(--crta)}
+.teme-kratko b{display:block;color:var(--crnilo);font-weight:600;margin-bottom:.15rem}
 .polje input,.polje textarea{
   width:100%;font-family:inherit;font-size:.97rem;color:var(--crnilo);
   background:#fff;border:1px solid var(--crta);border-radius:2px;padding:11px 13px;line-height:1.55;
@@ -216,6 +226,8 @@ form button:hover{background:var(--crnilo)}
 }
 .kopiraj:hover{border-color:var(--poudarek);color:var(--poudarek);background:none}
 @media(max-width:820px){.kontakt-mreza,.dvojno{grid-template-columns:1fr}}
+/* 16px prepreči, da iOS ob dotiku na izbirnik poveča stran (enako kot za input v slog.css). */
+@media(max-width:620px){.polje select{padding:13px 14px;font-size:16px}}
 
 </style>
 </head>
@@ -235,12 +247,10 @@ form button:hover{background:var(--crnilo)}
       </svg>
     </button>
     <nav class="meni" id="meni" aria-label="Glavni meni">
-      <a href="#kdaj">Kdaj me pokličete</a>
-      <a href="#metoda">Kako delam</a>
+      <a href="#metoda">Diagnostika</a>
+      <a href="predavanja.html">Predavanja</a>
       <a href="#praksa">Iz prakse</a>
-      <a href="#javni">Za javne naročnike</a>
       <a href="#kdo">Kdo sem</a>
-      <a class="meni-test" href="test.html"><span class="kratko">Test</span><span class="dolgo">Test organizacijske realnosti</span></a>
       <a class="gumb-mali" href="#kontakt">Uvodni pogovor</a>
     </nav>
   </div>
@@ -301,7 +311,7 @@ form button:hover{background:var(--crnilo)}
     <h2>Proces ni shema na papirju.</h2>
     <p>Proces je tisto, kar se v resnici zgodi, ko se srečata dva človeka in eden nekaj potrebuje od drugega. Shema pove, kako naj bi bilo. Ljudje povedo, kako je.</p>
     <p>Zato pogledam oboje. Kako je delo zapisano in kako dejansko teče. Kje se ustavi. Kdo koga obide, ker je hitreje. Kaj se pove na sestanku in kaj šele na hodniku. Kdo v hiši nosi več, kot piše v opisu njegovega dela — in zakaj to prenaša.</p>
-    <p>To ni team building. To ni motivacijsko predavanje. Ne prinesem vam paketa rešitev, ki bi ustrezal katerikoli organizaciji. Prinesem vam sliko vaše hiše, kakršna je, in svoje mnenje o tem, kje je vzrok.</p>
+    <p>To ni team building in tudi ni predavanje. Predavanje odpre eno temo v dveh urah, diagnostika pa pogleda celo hišo in traja dlje. Ne prinesem vam paketa rešitev, ki bi ustrezal katerikoli organizaciji. Prinesem vam sliko vaše hiše, kakršna je, in svoje mnenje o tem, kje je vzrok.</p>
     <p>Rešitve, ki jih prinese nekdo od zunaj, redko zdržijo. Zdržijo tiste, do katerih pride organizacija sama. Moja naloga torej ni, da vam povem, kaj morate storiti — moja naloga je, da vas pripeljem do mesta, kjer to vidite sami, in da vmes ne zavijem v bližnjico.</p>
     <p><strong>Rezultat je pisno poročilo:</strong> kaj sem videl, kje je po moji presoji vzrok, kaj predlagam in po kakšnem vrstnem redu.</p>
   </div>
@@ -422,14 +432,26 @@ form button:hover{background:var(--crnilo)}
   </div>
 </section>
 
-<!-- ============ UMETNA INTELIGENCA ============ -->
-<section id="ui">
+<!-- ============ PREDAVANJA ============ -->
+<section id="predavanja">
   <div class="ovoj">
-    <span class="oznaka">Eno vprašanje, ki ga dobim pogosto</span>
-    <h2>In umetna inteligenca?</h2>
-    <p>Umetna inteligenca je orodje in zaenkrat ga večina organizacij uporablja precej pod njegovimi zmožnostmi. Strah, da bo nadomestila človeka, razumem. Mislim pa, da je obrnjen. Naredila bo veliko več, kot zmore en sam človek — nikoli pa ne bo naredila tistega, kar zna samo človek.</p>
-    <p>Umetna inteligenca lahko sestavi najboljši možni recept in najbolj natančno navodilo. V kuhinjo mora vseeno stopiti človek, vzeti sestavine in skuhati kosilo. In najlepše od vsega: samo človek ga lahko tudi poje in okusi.</p>
-    <p>Z umetno inteligenco bomo marsikaj naredili bolje in hitreje. Namesto nas pa ne more živeti in ne more ustvarjati odnosov — in odnosi so tisto, na čemer stoji vsak posel, vsaka stvaritev in vsako življenje.</p>
+    <span class="oznaka">Druga storitev</span>
+    <h2>Včasih se začne<br>z dvema urama.</h2>
+    <p>Diagnostika je zaveza za dalj časa in odločitev, ki jo mora vodstvo dobro premisliti. Ni pa vsaka hiša na tej točki — in ni vsaka hiša tega potrebna.</p>
+    <p>Zato ponujam tudi krajšo obliko: eno ali dve uri s kolektivom, o eni sami temi.</p>
+    <p>Med letoma 2008 in 2011 sem imel okoli dvesto predavanj in delavnic po vsej Sloveniji, večinoma v vzgojno-izobraževalnih ustanovah. Ko sem leta 2011 prevzel vodenje šole, sem to opustil — za oboje ni bilo časa. Zdaj se vračam, z dvanajstimi leti vodenja več.</p>
+
+    <ul class="teme-kratko">
+      <li><b>Zakaj najbolj vestni prvi izgorijo.</b> Del bremena si človek naloži sam. Del mu naloži hiša, v kateri ni jasno, kje se konča odgovornost enega in začne odgovornost drugega.</li>
+      <li><b>Zakaj isti dogodek v isti hiši ni isti dogodek.</b> Štirje ljudje so bili na istem sestanku. Vsi štirje govorijo resnico. Zgodbe so različne.</li>
+      <li><b>Zmote se vidijo za nazaj.</b> Napako je treba predvideti. Zmote ne moreš. Kaj to pomeni za pričakovanje, da mora biti vse ves čas v redu.</li>
+    </ul>
+
+    <p class="sklepna">To ni predavanje o tem, kako naj zaposleni bolje prenašajo pritisk. Je predavanje o tem, kaj ta pritisk v hiši proizvaja.</p>
+
+    <div class="gumbi" style="margin-top:2.2rem">
+      <a class="gumb" href="predavanja.html">Teme, oblika in cena →</a>
+    </div>
   </div>
 </section>
 
@@ -441,7 +463,7 @@ form button:hover{background:var(--crnilo)}
     <p style="color:#b9bfbd">Toliko let sem bil na drugi strani mize — kot naročnik in kot vodja — da natanko vem, kaj me je pri svetovalcih motilo.</p>
 
     <ul class="ne-bo">
-      <li><b>Ne bo triurnega predavanja.</b> Tistega, po katerem so vsi navdušeni, v ponedeljek beseda še nanese ob kavi, v petek pa nihče več ne ve, za kaj je šlo.</li>
+      <li><b>Ne bo predavanja, ki v petek nikogar več ne zanima.</b> Tistega, po katerem so vsi navdušeni, v ponedeljek beseda še nanese ob kavi, potem pa nihče več ne ve, za kaj je šlo. Zato pri dveh urah polovico časa dela kolektiv, ne jaz.</li>
       <li><b>Ne bo poročila, napisanega tako, da bo naročniku všeč.</b> Plačate me za to, kar vidim, ne za to, kar bi radi slišali. Če bom napisal, kar naročnik pričakuje, sem vzel denar za nič.</li>
       <li><b>Ne bo modnih besed.</b> Nobenih sinergij, paradigem in preobrazb. Če česa ne znam povedati preprosto, tega še ne razumem dovolj dobro.</li>
       <li><b>Ne bo dobrega počutja na ukaz.</b> Cilj ni, da bi se pri vas vsi ves čas počutili odlično — to ni mogoče in ni potrebno. Cilj je organizacija, ki dela tudi takrat, ko je težko, in v kateri ljudje vedo, da so ovire del vsakega procesa in ne znamenje, da je nekaj hudo narobe. Nič ni narobe, če se kdo ne počuti fantastično. Narobe je pričakovati, da se bodo tako počutili vsi — in narobe je, če kdo svoje nezadovoljstvo brez razloga prenaša na druge.</li>
@@ -515,7 +537,13 @@ form button:hover{background:var(--crnilo)}
           <div class="pot-blok">
             <h3>Kje sem se učil</h3>
             <p>Pri dvajsetih sem odšel v Anglijo in tam tri leta študiral kot mednarodni štipendist, med ljudmi z vseh koncev sveta. Naučil sem se nekaj, česar doma ne bi mogel: isto stvar različne kulture vidijo različno, in kdor je prepričan, da ima prav, navadno le stoji na enem mestu.</p>
-            <p>Doma znanstveni magisterij iz antropologije, med moduli psihoanaliza. Ob tem več kot dvesto predavanj in delavnic o stresu in počutju na delovnem mestu ter vodenje mediacij v delovnih sporih.</p>
+            <p>Doma znanstveni magisterij iz antropologije, med moduli psihoanaliza, v teoriji in praksi.</p>
+          </div>
+
+          <div class="pot-blok">
+            <h3>Predavanja</h3>
+            <p>Med letoma 2008 in 2011 sem imel okoli dvesto predavanj in delavnic po vsej Sloveniji, večinoma v vrtcih, šolah in drugih vzgojno-izobraževalnih ustanovah — o komunikaciji s starši, o soočanju s stresom in izzivi ter o tem, kako poleg razuma nagovoriti tudi voljo in čutenje. Leta 2011 sem s tem prenehal, ker sem prevzel vodenje šole. Zdaj se vračam, s petnajstimi leti vodenja več. Poleg tega vodim mediacije v delovnih sporih.</p>
+            <p><a href="predavanja.html">Teme, oblika in cena →</a></p>
           </div>
 
         </div>
@@ -536,7 +564,7 @@ form button:hover{background:var(--crnilo)}
         <ul class="podatki">
           <li>
             <span class="oznaka-mala">E-pošta</span>
-            <a href="mailto:bostjan.strajhar@gmail.com">bostjan.strajhar@gmail.com</a>
+            <a href="mailto:bostjan@strajhar.si">bostjan@strajhar.si</a>
           </li>
           <li>
             <span class="oznaka-mala">Telefon</span>
@@ -571,6 +599,14 @@ form button:hover{background:var(--crnilo)}
           </div>
         </div>
         <div class="polje">
+          <label for="zanimanje">Kaj vas zanima</label>
+          <select id="zanimanje" name="zanimanje">
+            <option value="Diagnostika">Diagnostika</option>
+            <option value="Predavanje ali delavnica">Predavanje ali delavnica</option>
+            <option value="Ne vem še">Ne vem še</option>
+          </select>
+        </div>
+        <div class="polje">
           <label for="sporocilo">Kaj se pri vas dogaja?</label>
           <textarea id="sporocilo" name="sporocilo" required placeholder="Nekaj stavkov je dovolj. Podrobnosti pustiva za pogovor."></textarea>
         </div>
@@ -578,7 +614,7 @@ form button:hover{background:var(--crnilo)}
         <p class="drobno">Gumb odpre vaš e-poštni program z že napisanim sporočilom. Nič se ne pošlje samodejno in nič se ne shrani na tej strani.</p>
 
         <div class="rezerva" id="rezerva" hidden>
-          <p><strong>Se poštni program ni odprl?</strong> To se zgodi, kadar v brskalniku ni nastavljen. Besedilo je spodaj — kopirajte ga in pošljite na <a href="mailto:bostjan.strajhar@gmail.com">bostjan.strajhar@gmail.com</a> ali pa me pokličite na <a href="tel:+38640475307">040 475 307</a>.</p>
+          <p><strong>Se poštni program ni odprl?</strong> To se zgodi, kadar v brskalniku ni nastavljen. Besedilo je spodaj — kopirajte ga in pošljite na <a href="mailto:bostjan@strajhar.si">bostjan@strajhar.si</a> ali pa me pokličite na <a href="tel:+38640475307">040 475 307</a>.</p>
           <textarea id="rezerva-besedilo" rows="8" readonly aria-label="Pripravljeno besedilo sporočila"></textarea>
           <button type="button" class="kopiraj" id="kopiraj">Kopiraj besedilo</button>
         </div>
@@ -646,7 +682,7 @@ form button:hover{background:var(--crnilo)}
 
   // Obrazec sestavi e-sporočilo in odpre poštni program.
   // Brez zunanjih storitev — primerno za GitHub Pages.
-  var NASLOV = "bostjan.strajhar@gmail.com";
+  var NASLOV = "bostjan@strajhar.si";
   var obrazec = document.getElementById("obrazec");
   if (!obrazec) return;
 
@@ -654,12 +690,14 @@ form button:hover{background:var(--crnilo)}
     e.preventDefault();
     var v = function (id) { return (document.getElementById(id).value || "").trim(); };
 
-    var zadeva = "Povpraševanje s spletne strani" + (v("org") ? " — " + v("org") : "");
+    var izbira = (document.getElementById("zanimanje") || {}).value || "Povpraševanje";
+    var zadeva = izbira + (v("org") ? " — " + v("org") : "");
     var telo = [
       "Ime in priimek: " + v("ime"),
       "Organizacija: " + (v("org") || "—"),
       "E-pošta: " + v("posta"),
       "Telefon: " + (v("tel") || "—"),
+      "Kaj vas zanima: " + izbira,
       "",
       "Kaj se dogaja:",
       v("sporocilo"),
@@ -728,7 +766,7 @@ form button:hover{background:var(--crnilo)}
       "jobTitle": "Svetovalec za diagnostiko organizacijskih in poslovnih procesov",
       "url": "https://bostjanstrajhar-ops.github.io/",
       "image": "https://bostjanstrajhar-ops.github.io/portret.jpg",
-      "email": "bostjan.strajhar@gmail.com",
+      "email": "bostjan@strajhar.si",
       "telephone": "+386 40 475 307",
       "knowsLanguage": ["sl", "en"],
       "alumniOf": [
@@ -741,7 +779,9 @@ form button:hover{background:var(--crnilo)}
         "vodenje javnih zavodov",
         "mediacija v delovnih sporih",
         "organizacijska klima",
-        "antropologija organizacij"
+        "antropologija organizacij",
+        "predavanja in delavnice za kolektive",
+        "izgorelost in obremenitve na delovnem mestu"
       ]
     },
     {
@@ -756,12 +796,28 @@ form button:hover{background:var(--crnilo)}
       "serviceType": "Diagnostika poslovnih procesov"
     },
     {
+      "@type": "Service",
+      "@id": "https://bostjanstrajhar-ops.github.io/#predavanja",
+      "name": "Predavanja in delavnice za kolektive",
+      "description": "Enourno predavanje ali dveurno srečanje s predavanjem in delavnico o tem, kaj v organizaciji proizvaja pritisk in trenja. Tri teme. Po srečanju pisno avtorsko delo — strokovna študija z analizo stanja in usmeritvami.",
+      "url": "https://bostjanstrajhar-ops.github.io/predavanja.html",
+      "provider": { "@id": "https://bostjanstrajhar-ops.github.io/#oseba" },
+      "areaServed": { "@type": "Country", "name": "Slovenija" },
+      "availableLanguage": "sl",
+      "serviceType": "Predavanja in delavnice za organizacije"
+    },
+    {
       "@type": "WebSite",
       "@id": "https://bostjanstrajhar-ops.github.io/#stran",
       "url": "https://bostjanstrajhar-ops.github.io/",
       "name": "mag. Boštjan Štrajhar — diagnostika organizacij",
       "inLanguage": "sl-SI",
-      "about": { "@id": "https://bostjanstrajhar-ops.github.io/#oseba" }
+      "about": { "@id": "https://bostjanstrajhar-ops.github.io/#oseba" },
+      "hasPart": [
+        { "@id": "https://bostjanstrajhar-ops.github.io/predavanja.html" },
+        { "@id": "https://bostjanstrajhar-ops.github.io/test.html" },
+        { "@id": "https://bostjanstrajhar-ops.github.io/test-predavanja.html" }
+      ]
     }
   ]
 }
