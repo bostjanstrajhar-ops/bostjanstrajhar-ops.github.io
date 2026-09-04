@@ -124,6 +124,30 @@ html{scroll-padding-top:112px}
   .vodilo-stolpec{display:none}
 }
 
+
+/* Daljše zgodbe so zvite; obiskovalec jih razpre sam. Brez skripte — <details>. */
+.vec{margin:.2rem 0 1.15rem;max-width:var(--besedilo)}
+.vec > summary{
+  list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:.6rem;
+  color:var(--poudarek);font-size:.9rem;padding:7px 0;
+  border-bottom:1px solid var(--crta);width:auto;
+}
+.vec > summary::-webkit-details-marker{display:none}
+.vec > summary::after{
+  content:"";width:6px;height:6px;flex:none;
+  border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
+  transform:rotate(45deg) translateY(-2px);transition:transform .2s;
+}
+.vec[open] > summary::after{transform:rotate(-135deg) translateY(1px)}
+.vec > summary:hover{color:var(--crnilo);border-bottom-color:var(--poudarek)}
+.vec > summary:focus-visible{outline:2px solid var(--poudarek);outline-offset:3px}
+.vec .zapri{display:none}
+.vec[open] .odpri{display:none}
+.vec[open] .zapri{display:inline}
+.vec-vsebina{padding-top:1.3rem}
+.vec-vsebina > :last-child{margin-bottom:0}
+@media(max-width:620px){.vec > summary{padding:11px 0;font-size:.95rem}}
+
 /* ---------- kako poteka ---------- */
 .poteka{max-width:760px;margin-top:2.6rem}
 .poteka p{font-size:1.02rem}
@@ -190,8 +214,9 @@ html{scroll-padding-top:112px}
     </button>
     <nav class="meni" id="meni" aria-label="Glavni meni">
       <a href="index.html#metoda">Diagnostika</a>
+      <a class="meni-test" href="test.html"><span class="kratko">Test organizacije</span><span class="dolgo">Test organizacijske realnosti</span></a>
       <a href="#teme" aria-current="page">Predavanja</a>
-      <a href="index.html#praksa">Iz prakse</a>
+      <a class="meni-test" href="test-predavanja.html"><span class="kratko">Test kolektiva</span><span class="dolgo">Kaj bi vaš kolektiv slišal</span></a>
       <a href="index.html#kdo">Kdo sem</a>
       <a class="gumb-mali" href="#kontakt">Uvodni pogovor</a>
     </nav>
@@ -217,14 +242,14 @@ html{scroll-padding-top:112px}
       </div>
       <figure class="hero-foto">
         <img src="predavanje.jpg" alt="mag. Boštjan Štrajhar med govorom" width="780" height="780" loading="eager">
-        <figcaption>Posnetek z javne prireditve, ne z delavnice. Fotografij s predavanj iz let 2008–2011 nimam — takrat se to ni fotografiralo.</figcaption>
+        <figcaption>Posnetek z javne prireditve.</figcaption>
       </figure>
     </div>
 
     <ul class="podatkovna">
       <li><b>Trajanje</b>ena ura ali dve</li>
       <li><b>Udeleženci</b>do 70 pri delavnici</li>
-      <li><b>Cena</b>800–2.000 EUR</li>
+      <li><b>Cena</b>800–2.600 EUR</li>
       <li><b>Dogovor</b>tri tedne vnaprej</li>
     </ul>
   </div>
@@ -263,7 +288,7 @@ html{scroll-padding-top:112px}
     <div class="zakaj-locim">
       <p>Zakaj to sploh ločujem. Človek lahko nekaj razume in vseeno ne ravna drugače. Spoznanje, ki ostane samo v glavi, se v ponedeljek ne pojavi na sestanku. Da bi se pojavilo, ga mora človek tudi občutiti — na sebi, na svojem primeru, v pogovoru s sodelavcem, ki isto stvar vidi drugače.</p>
       <p class="poanta">Ena ura odpre temo. Dve uri jo premakneta.</p>
-      <p>Če se odločate med obojim in ne veste, kaj izbrati: pri kolektivu, ki se prvič srečuje s tako temo, je ura pogosto dovolj. Kadar v hiši nekaj že dolgo tiho stoji, ura ne bo zalegla.</p>
+      <p>Če se odločate med obojim in ne veste, kaj izbrati: pri kolektivu, ki se prvič srečuje s tako temo, je ura pogosto dovolj.</p>
     </div>
   </div>
 </section>
@@ -294,19 +319,22 @@ html{scroll-padding-top:112px}
         <div class="tema-st">01</div>
         <div>
           <h3>Zakaj najbolj vestni prvi izgorijo</h3>
-          <p class="podnaslov">O tem, kaj si človek naloži sam in kaj mu naloži hiša.</p>
+          <p class="podnaslov">O tem, kaj si človek naloži sam in kaj mu naložijo drugi.</p>
 
           <p>V isti pisarni sta delali dve sodelavki.</p>
+          <details class="vec">
+            <summary><span class="odpri">Prikaži več</span><span class="zapri">Prikaži manj</span></summary>
+            <div class="vec-vsebina">
           <p>Prva je hotela vse opraviti brezhibno. Doma je še pozno popoldne premlevala, ali je svoje stališče na sestanku pojasnila dovolj natančno. Nihče od nje tega ni zahteval. Zahtevala je sama.</p>
           <p>Druga je bila njeno nasprotje. Ko jo je direktor vprašal, ali je dokumentacija za prijavo na nepovratna sredstva izpolnjena, je odgovorila, da ni, in dodala, da se svet zaradi tega ne bo ustavil. Nato mu je prinesla kavo.</p>
           <p>Prva je čez leta izgorela. Druga ne.</p>
           <p>Iz tega je lahko potegniti napačen sklep — da je težava v vestnosti. Hiša, v kateri bi bili vsi kot druga sodelavka, ne bi delovala niti mesec dni.</p>
-
           <p class="poanta">Zanimivo vprašanje je drugo: zakaj je prva nosila toliko, in zakaj tega nihče ni ustavil.</p>
-
           <p>Del odgovora je v njej. Človek si mero postavi sam in nekateri si jo postavijo tako visoko, da je ni mogoče doseči. To se da prepoznati in tega se da naučiti — regulirati ni isto kot popustiti.</p>
           <p>Del odgovora je v hiši. Kadar odgovornost ni jasno razdeljena, jo prevzamejo najbolj vestni. Ne zato, ker bi jim jo kdo naložil, ampak zato, ker ne prenesejo, da bi nekaj ostalo nenarejeno. Delo se opravi, torej je videti, da sistem deluje. Da deluje na hrbtu treh ljudi, se pokaže šele, ko eden od njih odide ali obstane.</p>
           <p>In takrat organizacija to navadno razume kot njegovo osebno šibkost.</p>
+            </div>
+          </details>
 
           <div class="tema-pod">
             <p><b>Za koga je ta tema.</b> Za kolektive, kjer se dela veliko in kjer se ista imena pojavljajo pri vsaki nujni nalogi. Tudi za vodstva, ki opažajo, da so prav najboljši ljudje najbolj utrujeni.</p>
@@ -322,19 +350,22 @@ html{scroll-padding-top:112px}
           <p class="podnaslov">O tem, kaj se ne pove na glas, in zakaj tisti, ki molči, misli, da je stvar jasna.</p>
 
           <p>Na sestanku je vodja povedal, da bo treba projekt oddati tri tedne prej.</p>
+          <details class="vec">
+            <summary><span class="odpri">Prikaži več</span><span class="zapri">Prikaži manj</span></summary>
+            <div class="vec-vsebina">
           <p>Štirje ljudje so slišali isti stavek.</p>
           <p>Prvi je takoj računal, kdo bo kaj prevzel, in se razjezil, ker ni bilo odgovora. Zanj je bila stvar preprosta: če ni razdelitve, ni roka.</p>
           <p>Drugi je začel premišljevati, kaj vse gre lahko narobe. Zvečer je doma naštel sedem tveganj. Na sestanku ni povedal nobenega — zdelo se mu je, da bo videti kot tisti, ki vedno komplicira.</p>
           <p>Tretja je bila takoj za. Rekla je, da bomo zmogli, in to je mislila resno. Podrobnosti so se ji zdele stvar, ki se bo že uredila sproti.</p>
           <p>Četrti ni rekel nič. Rok je rok. Če se bo spremenil, se bo spremenil še enkrat.</p>
-
           <p class="poanta">Vsi štirje so imeli prav. Nobeden ni imel cele slike.</p>
-
           <p>Tri tedne pozneje se je projekt ustavil natanko na tveganju, ki ga je drugi našteval doma. Prvi je bil prepričan, da je bila stvar vseskozi nedorečena. Tretja je bila presenečena. Četrti ne.</p>
           <p>To ni zgodba o slabi komunikaciji. Vsi štirje so komunicirali normalno.</p>
-          <p>Zgodba je o tem, da človek predpostavlja, da drugi vidijo isto, kar vidi on. Kar je njemu očitno, mu ne pride na misel povedati. Prav tisto, kar se ne pove, ker se zdi samoumevno, pa je navadno tisto, česar drugi ne vidijo.</p>
+          <p>Zgodba je o tem, da človek predpostavlja, da drugi vidijo isto, kar vidi on. Prav tisto, kar se ne pove, ker se zdi samoumevno, pa je navadno tisto, česar drugi ne vidijo.</p>
           <p>V kolektivu se to sešteje. Vsak nosi svoj del slike in vsak misli, da je slika ena sama. Sestanek se konča, vsi prikimajo, in vsak odide z drugačnim razumevanjem istega dogovora.</p>
           <p>Molk pri tem ni znak strinjanja. Pogosto je znak, da človek ne ve, kako povedati stvar, ki se mu zdi prezgodnja, pretežka ali preveč osebna.</p>
+            </div>
+          </details>
 
           <div class="tema-pod">
             <p><b>Za koga je ta tema.</b> Za kolektive, kjer se dogovori sprejmejo hitro in gladko, izvedba pa se potem razlikuje od dogovora. Tudi za vodstva, ki opažajo, da se pravi pogovor začne šele, ko se sestanek konča.</p>
@@ -349,24 +380,27 @@ html{scroll-padding-top:112px}
           <h3>Zmote se vidijo za nazaj</h3>
           <p class="podnaslov">O razliki med napako in zmoto, in o tem, kaj stane pričakovanje, da mora biti vse ves čas v redu.</p>
 
-          <p>Na neki šoli je poučeval učitelj, ki je od sebe pričakoval veliko in še več.</p>
+          <p>Na neki šoli je poučeval učitelj, ki je od sebe pričakoval veliko.</p>
+          <details class="vec">
+            <summary><span class="odpri">Prikaži več</span><span class="zapri">Prikaži manj</span></summary>
+            <div class="vec-vsebina">
           <p>Bil je dobre volje, nasmejan, poln navdiha. Sodelavci so ga imeli radi. Na tej šoli je bilo v navadi, da so hospitirali drug pri drugem — nič posebnega, običajno delo. Kadar je prišel na vrsto on, je vedno nekaj prišlo vmes. »Ni problema,« je rekel vsakič. In vsakič je tik pred zdajci obisk odpovedal zaradi okoliščin, ki so nenadoma nastopile.</p>
           <p>Ravnatelj mu je večkrat ponudil mentorske ure. V pogovoru sta se odlično razumela. Potem je prišel dan, ko bi ravnatelj opazoval njegov pouk, in obisk je bil spet odpovedan.</p>
           <p>To je trajalo leta. Rezultati pri njegovem predmetu so bili iz leta v leto slabši in tega ni bilo mogoče prekriti. Sčasoma je začel kriviti otroke, starše, sistem, pogoje dela, učno gradivo. Po osmih letih je odšel.</p>
           <p>Ni mu manjkalo ponujene pomoči. Manjkal je en sam korak: da bi sam pri sebi priznal, da jo potrebuje.</p>
-
           <p>Zdaj razlika, na kateri stoji vse predavanje.</p>
-          <p><b>Napako je treba predvideti.</b> Napaka je nekaj, kar se da izračunati vnaprej — v proračunu, v dokumentaciji, v urniku. Zato so kontrole, roki in štiri oči. Delo brez napak je mogoče in je stvar skrbnosti.</p>
-          <p><b>Zmote ne moreš predvideti.</b> Zmota se pokaže šele za nazaj, ko je odločitev že sprejeta. Danes ni mogoče pripraviti prodajnega načrta, pouka ali dokumentacije, ki ne bo vsebovala nobene zmote. Mogoče jo je pripraviti brez napak. To ni isto in mešanje obojega je drago.</p>
+          <p><b>Zmote so naraven del napredka in učenja.</b> Vendar pa moramo biti pozorni: ko se napake začnejo ponavljati, to ni več stvar trenutne nepazljivosti, ampak znak, da škripa nekje v procesu. Takrat ne rešujemo več ljudi, ampak moramo popraviti sistem.</p>
+          <p><b>Zmote ne moreš predvideti.</b> Zmota se pokaže šele za nazaj, ko je odločitev že sprejeta. Danes skoraj ni mogoče pripraviti prodajnega načrta, pouka ali dokumentacije, ki ne bo vsebovala nobene zmote.</p>
           <p>Kdor tega ne loči, začne vsako zmoto obravnavati kot napako — torej kot nekaj, česar nekdo ni predvidel, čeprav bi moral. In od tod je do iskanja krivca en korak.</p>
-          <p>Zato se v hiši, kjer mora biti vse ves čas v redu, nihče ne izpostavi. Vsi so nasmejani, vsi so pozitivni, in nihče ne pusti nikogar v svoj razred.</p>
+          <p>Zato se v organizaciji, kjer mora biti vse ves čas v redu, nihče ne izpostavi. Vsi so nasmejani, vsi so pozitivni, in nihče ne pusti nikogar v svoj razred.</p>
           <p>Opazil sem še nekaj. Ljudje pogosto z veliko vnemo priznavamo majhne napake in se nanje osredotočamo — natanko toliko, da nam ni treba pogledati velikih.</p>
-
-          <p class="poanta">Vsi imamo sence. Narobe ni, da jih imamo. Narobe je, kadar se pretvarjamo, da jih nimamo.</p>
+          <p class="poanta">Vsi imamo sence. Ni narobe, da jih imamo. Narobe je, kadar se pretvarjamo, da jih nimamo.</p>
+            </div>
+          </details>
 
           <div class="tema-pod">
             <p><b>Za koga je ta tema.</b> Za kolektive, kjer velja, da mora biti vzdušje dobro, in kjer se zato o težavah govori pozno. Tudi za vodstva, ki opažajo, da se enemu človeku že leta nekaj zatika, pa nihče ne ve, kako to načeti.</p>
-            <p><b>Kaj se v drugi uri dela.</b> Skupine dobijo izmišljen primer odločitve, ki se je slabo iztekla. Naloga je razločiti, kaj je bila napaka — nekaj, kar bi se dalo predvideti — in kaj zmota, ki se je pokazala šele pozneje. Presoje skupin se razlikujejo, in prav ta razlika je vsebina pogovora, ki sledi.</p>
+            <p><b>Kaj se v drugi uri dela.</b> Skupine dobijo primer odločitve, ki se je slabo iztekla. Naloga je razločiti, kaj je bila napaka — nekaj, kar bi se dalo predvideti — in kaj zmota, ki se je pokazala šele pozneje. Presoje skupin se razlikujejo, in prav ta razlika je vsebina pogovora, ki sledi.</p>
           </div>
         </div>
       </article>
@@ -408,13 +442,13 @@ html{scroll-padding-top:112px}
 
     <div class="cena-mreza">
       <div>
-        <p>Za srečanje s predavanjem in delavnico se cena giblje med 800 in 2.000 evri, odvisno od velikosti kolektiva, oddaljenosti in tega, ali gre za eno temo ali za več srečanj. Za enourno predavanje je nižja. Točno ceno vam povem po telefonu, preden karkoli potrdite.</p>
+        <p>Za srečanje s predavanjem in delavnico se cena giblje med 800 in 2.600 evri, odvisno od velikosti kolektiva, oddaljenosti in tega, ali gre za eno temo ali za več srečanj. Za enourno predavanje je nižja. Točno ceno vam povem po telefonu, preden karkoli potrdite.</p>
         <p>Termin dogovoriva vsaj tri tedne vnaprej. Predavanja opravljam ob rednem delu, zato jih ne sprejmem veliko.</p>
       </div>
       <div>
         <p><strong>Za javne naročnike.</strong> Delo opravim po avtorski pogodbi, skladno z ZJN-3 in ZASP.</p>
         <ul class="javni-seznam">
-          <li><b>Evidenčno naročilo.</b> Vrednost storitve ne dosega mejne vrednosti za uporabo ZJN-3, zato naročilo oddate po evidenčnem postopku. <span class="dopolni">[DOPOLNI: preveri veljavni prag na PISRS in ga po želji izpiši]</span></li>
+          <li><b>Evidenčno naročilo.</b> Vrednost storitve ne dosega mejne vrednosti za uporabo ZJN-3, zato naročilo oddate po evidenčnem postopku.</li>
           <li><b>Zakonit predmet naročila.</b> Predmet je izvirno pisno avtorsko delo — strokovna študija z analizo stanja in usmeritvami. To je podlaga za avtorsko pogodbo in vzdrži nadzor FURS ali Računskega sodišča.</li>
           <li><b>Prenos avtorskih pravic.</b> V pogodbi se materialne avtorske pravice v celoti prenesejo na naročnika, brez omejitev za vaše delovanje.</li>
         </ul>
@@ -429,7 +463,7 @@ html{scroll-padding-top:112px}
   <div class="ovoj">
     <span class="oznaka">Katera tema</span>
     <h2>Če ne veste, katera<br>od treh je prava.</h2>
-    <p>Nobena tema ne ustreza vsakemu kolektivu. Šest vprašanj pokaže, katera je pri vas najbolj na mestu — ali pa da nobena ni.</p>
+    <p>Šest vprašanj pokaže, katera tematika je pri vas najbolj na mestu — ali pa da nobena ni.</p>
 
     <div class="vabilo">
       <div>
@@ -453,16 +487,12 @@ html{scroll-padding-top:112px}
 
         <ul class="podatki">
           <li>
-            <span class="oznaka-mala">E-pošta</span>
+            <span class="oznaka-mala">E-pošta:</span>
             <a href="mailto:bostjan@strajhar.si">bostjan@strajhar.si</a>
           </li>
           <li>
             <span class="oznaka-mala">Telefon</span>
             <a href="tel:+38640475307">040 475 307</a>
-          </li>
-          <li>
-            <span class="oznaka-mala">Odzovem se</span>
-            v enem delovnem dnevu
           </li>
         </ul>
       </div>

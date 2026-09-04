@@ -195,6 +195,30 @@ form{background:#fdfcfa;border:1px solid var(--crta);border-radius:3px;padding:c
   background:#fff;border:1px solid var(--crta);border-radius:2px;padding:11px 13px;line-height:1.55;
 }
 .polje select:focus{border-color:var(--poudarek);outline:none;box-shadow:0 0 0 3px rgba(43,79,85,.1)}
+
+/* Daljše zgodbe so zvite; obiskovalec jih razpre sam. Brez skripte — <details>. */
+.vec{margin:.2rem 0 1.15rem;max-width:var(--besedilo)}
+.vec > summary{
+  list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:.6rem;
+  color:var(--poudarek);font-size:.9rem;padding:7px 0;
+  border-bottom:1px solid var(--crta);width:auto;
+}
+.vec > summary::-webkit-details-marker{display:none}
+.vec > summary::after{
+  content:"";width:6px;height:6px;flex:none;
+  border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
+  transform:rotate(45deg) translateY(-2px);transition:transform .2s;
+}
+.vec[open] > summary::after{transform:rotate(-135deg) translateY(1px)}
+.vec > summary:hover{color:var(--crnilo);border-bottom-color:var(--poudarek)}
+.vec > summary:focus-visible{outline:2px solid var(--poudarek);outline-offset:3px}
+.vec .zapri{display:none}
+.vec[open] .odpri{display:none}
+.vec[open] .zapri{display:inline}
+.vec-vsebina{padding-top:1.3rem}
+.vec-vsebina > :last-child{margin-bottom:0}
+@media(max-width:620px){.vec > summary{padding:11px 0;font-size:.95rem}}
+
 /* Kratke teme v razdelku o predavanjih. */
 .teme-kratko{list-style:none;padding:0;margin:2.4rem 0 0;max-width:820px}
 .teme-kratko li{padding:1.3rem 0;border-bottom:1px solid var(--crta);font-size:1rem;line-height:1.68}
@@ -248,8 +272,9 @@ form button:hover{background:var(--crnilo)}
     </button>
     <nav class="meni" id="meni" aria-label="Glavni meni">
       <a href="#metoda">Diagnostika</a>
+      <a class="meni-test" href="test.html"><span class="kratko">Test organizacije</span><span class="dolgo">Test organizacijske realnosti</span></a>
       <a href="predavanja.html">Predavanja</a>
-      <a href="#praksa">Iz prakse</a>
+      <a class="meni-test" href="test-predavanja.html"><span class="kratko">Test kolektiva</span><span class="dolgo">Kaj bi vaš kolektiv slišal</span></a>
       <a href="#kdo">Kdo sem</a>
       <a class="gumb-mali" href="#kontakt">Uvodni pogovor</a>
     </nav>
@@ -265,7 +290,7 @@ form button:hover{background:var(--crnilo)}
       <div>
         <span class="oznaka">Diagnostika poslovnih in organizacijskih procesov</span>
         <h1>Vzrok je skoraj vedno<br><span class="tiho">drugje, kot se zdi.</span></h1>
-        <p class="uvod">Vstopim v organizacijo. Opazujem, poslušam in zapisujem. Nato povem, kaj sem videl — mirno, jasno in brez olepševanja. Tudi kadar to ni prijetno.</p>
+        <p class="uvod">Vstopim v organizacijo. Opazujem, poslušam in zapisujem. Nato povem, kaj sem videl — mirno, jasno in brez olepševanja. Resnica včasih ni udobna, a je edini temelj za napredek in rešitev izzivov.</p>
         <div class="gumbi">
           <a class="gumb" href="#kontakt">Dogovorite se za uvodni pogovor</a>
           <a class="gumb-obris" href="#metoda">Kako delam →</a>
@@ -289,9 +314,9 @@ form button:hover{background:var(--crnilo)}
   <div class="ovoj">
     <span class="oznaka">Kdaj me pokličete</span>
     <h2>Ne kličete me, ko je vse v redu.</h2>
-    <p>Kličete me, ko nekaj že dolgo ni v redu, pa nihče ne zna povedati, kaj. Poskusili ste že nekaj rešitev. Vsaka je za nekaj časa pomagala. Potem se je vrnilo isto.</p>
+    <p>Kličete me, ko slutite, da nekaj ni v redu, pa nihče ne zna povedati, kaj. Poskusili ste že nekaj rešitev. Vsaka je za nekaj časa pomagala. Potem se je vrnilo isto.</p>
 
-    <p class="sklepna">Ali je pri vas tako? Na to vprašanje se od znotraj težko odgovori — zato sem sestavil sedem vprašanj, ki pomagajo.</p>
+    <p class="sklepna">Ali je pri vas tako? Na to vprašanje se težko odgovori — zato sem sestavil sedem vprašanj, ki pomagajo.</p>
 
     <div class="vabilo">
       <div>
@@ -309,10 +334,10 @@ form button:hover{background:var(--crnilo)}
   <div class="ovoj">
     <span class="oznaka">Kaj pravzaprav delam</span>
     <h2>Proces ni shema na papirju.</h2>
-    <p>Proces je tisto, kar se v resnici zgodi, ko se srečata dva človeka in eden nekaj potrebuje od drugega. Shema pove, kako naj bi bilo. Ljudje povedo, kako je.</p>
-    <p>Zato pogledam oboje. Kako je delo zapisano in kako dejansko teče. Kje se ustavi. Kdo koga obide, ker je hitreje. Kaj se pove na sestanku in kaj šele na hodniku. Kdo v hiši nosi več, kot piše v opisu njegovega dela — in zakaj to prenaša.</p>
-    <p>To ni team building in tudi ni predavanje. Predavanje odpre eno temo v dveh urah, diagnostika pa pogleda celo hišo in traja dlje. Ne prinesem vam paketa rešitev, ki bi ustrezal katerikoli organizaciji. Prinesem vam sliko vaše hiše, kakršna je, in svoje mnenje o tem, kje je vzrok.</p>
-    <p>Rešitve, ki jih prinese nekdo od zunaj, redko zdržijo. Zdržijo tiste, do katerih pride organizacija sama. Moja naloga torej ni, da vam povem, kaj morate storiti — moja naloga je, da vas pripeljem do mesta, kjer to vidite sami, in da vmes ne zavijem v bližnjico.</p>
+    <p>Proces je tisto, kar se zgodi, ko se srečata dva človeka in eden nekaj potrebuje od drugega. Shema pove, kako naj bi bilo. Ljudje povedo, kako je.</p>
+    <p>Zato pogledam oboje. Kako je delo zapisano in kako dejansko teče. Kje se ustavi. Kdo koga obide, ker je tako hitreje. Kaj se pove na sestanku in kaj šele na hodniku. Kdo nosi več, kot piše v opisu njegovega dela — in zakaj to prenaša.</p>
+    <p>To ni team building in tudi ni predavanje. Predavanje odpre eno temo v dveh urah, diagnostika pa pogleda celoto in traja dlje. Ne prinesem vam paketa rešitev, ki bi ustrezal katerikoli organizaciji. Prinesem vam sliko vaše hiše, kakršna je, in pomagam razumeti, zakaj je do določenih situacij sploh prišlo.</p>
+    <p>Rešitve, ki jih prinese nekdo od zunaj, redko zdržijo. Zdržijo tiste, do katerih pride organizacija sama. Moja naloga torej ni, da vam povem, kaj morate storiti — moja naloga je, da vas pripeljem do mesta, kjer to vidite sami.</p>
     <p><strong>Rezultat je pisno poročilo:</strong> kaj sem videl, kje je po moji presoji vzrok, kaj predlagam in po kakšnem vrstnem redu.</p>
   </div>
 </section>
@@ -330,7 +355,7 @@ form button:hover{background:var(--crnilo)}
         <div class="korak-st">01</div>
         <div>
           <h3>Poslušam in zapisujem</h3>
-          <p>Grem po oddelkih. Nič ne komentiram, nič ne popravljam, ničesar ne predlagam. Samo poslušam in si zapisujem. Vprašanja so preprosta: kaj delate, kje se vam zatakne, koga pokličete, ko se zatakne, in kaj se zgodi potem. V tem koraku še nimam mnenja — in to je namen.</p>
+          <p>Grem po oddelkih. Nič ne komentiram, nič ne popravljam, ničesar ne predlagam. Samo poslušam in si zapisujem. Vprašanja so preprosta: kaj delate, kje se vam zatakne, koga pokličete, ko se zatakne, in kaj se zgodi potem.</p>
           <p>Vzporedno gledam še nekaj: koliko je vodstvo obremenjeno. Če je pod prevelikim pritiskom, se nobeno priporočilo ne prime, pa naj bo še tako dobro. Takrat je to prva stvar, ki jo je treba nasloviti.</p>
         </div>
       </div>
@@ -355,7 +380,7 @@ form button:hover{background:var(--crnilo)}
         <div class="korak-st">04</div>
         <div>
           <h3>Pogovor v skupini</h3>
-          <p>Del ugotovitev je treba izreči na glas, pred vsemi. To je najtežji korak in tudi najbolj koristen. Marsikaj, kar se je leta skrivalo za vljudnostjo, tu prvič dobi ime. Moja naloga je, da to povem tako, da nihče ne izpade kriv, a da nihče tudi ne more več reči, da za to ni vedel.</p>
+          <p>Del ugotovitev je treba izreči na glas. To je najtežji korak in tudi najbolj koristen. Marsikaj, kar se je leta skrivalo za vljudnostjo, tu prvič dobi ime. Moja naloga je, da to povem tako, da nihče ne izpade kriv, a da nihče tudi ne more več reči, da za to ni vedel.</p>
         </div>
       </div>
 
@@ -371,8 +396,8 @@ form button:hover{background:var(--crnilo)}
 
     <div class="pod-koraki">
       <h3>Zakaj tega ne morete narediti sami</h3>
-      <p>Ne zato, ker ne bi znali. Zato, ker ste vpleteni. V svoji organizaciji ste v vsakem procesu tudi čustveno — in prav je tako. Kdor dela brez srca, ne naredi ničesar dobrega. A srce potrebuje razdaljo, sicer vidi samo tisto, kar mu je blizu.</p>
-      <p>Jaz to razdaljo prinesem s seboj. Nič drugega ni v tem: samo to, da nisem vpleten.</p>
+      <p>Ker ste preveč vpleteni. Kot vodja v vsak proces vlagate svojo energijo in čustva. Brez te strasti organizacija ne bi rasla. A prav ta bližina zamegli pogled na rešitve.</p>
+      <p>S seboj prinašam objektivnost, preverjeno znanje in leta izkušenj, ki jih vaša organizacija potrebuje za naslednji korak.</p>
     </div>
 
     <div class="korak-op">
@@ -383,7 +408,7 @@ form button:hover{background:var(--crnilo)}
       <p>Merilo, po katerem sodim svoje delo, ni debelina poročila. Merilo je, ali organizacija čez leto dni sama prepozna in reši naslednjo podobno težavo. Če me morate klicati vsakič znova, nečesa nisem opravil.</p>
     </div>
 
-    <p class="drobno" style="margin-top:2.4rem;max-width:760px"><strong>Koliko časa traja.</strong> Odvisno od velikosti organizacije, še bolj pa od tega, koliko ste na spremembo v resnici pripravljeni. Ko vem, za kakšno hišo gre, vam povem tudi rok.</p>
+    <p class="drobno" style="margin-top:2.4rem;max-width:760px"><strong>Koliko časa traja.</strong> Odvisno od velikosti organizacije, še bolj pa od tega, koliko ste na spremembo v resnici pripravljeni. Ko vem, za kaj gre, vam povem tudi rok.</p>
   </div>
 </section>
 
@@ -400,32 +425,47 @@ form button:hover{background:var(--crnilo)}
         <span class="kdo">Vzgojno-izobraževalni zavod</span>
         <h3>Problem je imel ime in priimek</h3>
         <p>Kot ravnatelj sem redno sedel v razredih in opazoval pouk. V enem razredu je bil učenec, ki je veljal za težavo. Živahen, moteč — to je držalo. Rešitev, o kateri so vsi govorili, je bila ena sama: učenec se mora spremeniti.</p>
+        <details class="vec">
+          <summary><span class="odpri">Prikaži več</span><span class="zapri">Prikaži manj</span></summary>
+          <div class="vec-vsebina">
         <p>Ko sem opazoval, sem videl nekaj drugega. Učitelj je imel do tega otroka antipatijo. Ne zlonamerno. Čisto človeško. A dokler si tega ni priznal, ni imel v rokah ničesar, kar bi lahko spremenil pri sebi. Vso spremembo je bilo torej treba naložiti otroku.</p>
         <p>Isti otrok je pri drugem učitelju deloval bistveno bolje.</p>
         <p class="zakljucek">To ni zgodba o šoli. Simpatija in antipatija delujeta v vsaki hiši — med sodelavci, med vodjo in zaposlenim. Vpletena dva pogosto mislita, da tega nihče ne opazi. Opazijo vsi drugi. In prav to, ne organigram, ustvarja vzdušje na delovnem mestu.</p>
-        <p style="margin-top:1.4rem">V podjetju se isti vzorec pokaže drugače. Nekdo velja za »težavnega«. Njegovi predlogi se sistematično ne uvrstijo na dnevni red. Njegove naloge se tiho podvajajo pri drugih. Formalno je vse v redu. V resnici organizacija plačuje odnos, o katerem se ne govori.</p>
+        <p style="margin-top:1.4rem">V podjetju se isti vzorec pokaže drugače. Nekdo velja za »težavnega«. Njegovi predlogi se sistematično ne uvrstijo na dnevni red. Njegove naloge se tiho podvajajo pri drugih. Formalno je vse v redu. V resnici pa organizacija plačuje odnos, o katerem se ne govori.</p>
+          </div>
+        </details>
       </article>
 
       <article class="primer">
         <span class="kdo">Javno podjetje</span>
         <h3>Krivda, ki ni bila njegova</h3>
-        <p>Javno podjetje je izvajalo večletno infrastrukturno investicijo. Rok se je premikal, stroški so rasli. Ljudje so bili jezni, mediji tudi.</p>
+        <p>Javno podjetje je izvajalo večletno infrastrukturno investicijo. Rok se je premikal, stroški so rasli. Ljudje so bili jezni, mediji so bili kritični.</p>
+        <details class="vec">
+          <summary><span class="odpri">Prikaži več</span><span class="zapri">Prikaži manj</span></summary>
+          <div class="vec-vsebina">
         <p>Jeza se je zbrala pri enem človeku — pri sodelavcu, ki je projekt vodil operativno in v tem okolju tudi živi. Kritizirali so ga v trgovini in na ulici, kot da so zamude in podražitve njegova odločitev.</p>
-        <p>Dejstva so bila drugačna. Projekt se je začel pod prejšnjim vodstvom. Del zahtev je prišel od financerja. Predvsem pa je bilo delo oddano po najnižji ceni — in v slovenskem gradbeništvu najnižja ponujena cena skoraj nikoli ni končna cena. Časovnice se raztegnejo, obseg del zraste z aneksi, in kar je bilo na papirju najcenejše, je na koncu dražje in slabše.</p>
+        <p>Dejstva so bila drugačna. Projekt se je začel pod prejšnjim vodstvom. Del zahtev je postavil sofinancer. Predvsem pa je bilo delo oddano po najnižji ceni — in v slovenskem gradbeništvu najnižja ponujena cena skoraj nikoli ni končna cena. Časovnice se raztegnejo, obseg del zraste z aneksi, in kar je bilo na papirju najcenejše, je na koncu dražje in slabše.</p>
         <p>Napaka torej ni bila njegova. Napaka je bila v merilu, po katerem je bil izvajalec izbran — in to merilo je bilo postavljeno, preden je on prevzel projekt.</p>
         <p class="zakljucek">Zanimivo vprašanje ni bilo, kdo je kriv. Zanimivo je bilo, zakaj je ta človek krivdo vzel nase — in zakaj se mu je zdelo, da bi bilo brezbrižno, če bi mu bilo lažje.</p>
         <p style="margin-top:1.4rem">To je organizacijsko vprašanje, ne zasebno. Kadar odgovornost ni jasno razdeljena, jo prevzamejo najbolj vestni. Ti isti ljudje potem prvi izgorijo ali odidejo — organizacija pa to razume kot njihovo osebno šibkost.</p>
+          </div>
+        </details>
       </article>
 
       <article class="primer">
         <span class="kdo">Zasebno podjetje</span>
         <h3>Odpoved kot edino sporočilo, ki je prišlo skozi</h3>
         <p>Zaposleni je pri direktorju veljal za izjemnega. Prijazen, nasmejan, vedno optimističen — in direktorjev osebni prijatelj. Sam je menil, da je glede na svojo izobrazbo na prenizkem delovnem mestu in premalo plačan.</p>
+        <details class="vec">
+          <summary><span class="odpri">Prikaži več</span><span class="zapri">Prikaži manj</span></summary>
+          <div class="vec-vsebina">
         <p>Vodja oddelka je direktorju leta poročal drugačno sliko: delo, ki ni bilo opravljeno, spori s sodelavci, službene poti, ki jih ni znal utemeljiti. Direktor tega ni slišal. Ne zato, ker bi bil slab vodja — zato, ker mu je bila prijateljeva različica bližja.</p>
         <p>Nekega dne je zaposleni prinesel odpoved. Brez zamere, je rekel, rad bi se preizkusil še kje drugje. Direktor je še isti dan naročil, naj se mu dvigne plača.</p>
         <p class="zakljucek">Odpoved je bila edino sporočilo, ki je do direktorja prišlo. Vsa prejšnja so hodila po poti, ki je bila pri njem zaprta — prihajala so od vodje, ki mu ni bil prijatelj.</p>
         <p style="margin-top:1.4rem">Kaj je ostalo. V plačni lestvici je nastala anomalija, ki so jo opazili vsi in o kateri ni govoril nihče. Vodja oddelka je odšel h konkurenci. Zaposleni, zaradi katerega se je vse skupaj zgodilo, si je nekaj mesecev pozneje vseeno našel novo službo. Direktor je ostal — z dražjo plačno lestvico, brez vodje in brez prijatelja.</p>
         <p>V vsaki hiši obstaja pot, po kateri informacija do vodstva pride, in pot, po kateri ne. Redkokdaj je to stvar organigrama. Skoraj vedno je stvar tega, komu vodstvo verjame.</p>
+          </div>
+        </details>
       </article>
 
     </div>
@@ -442,7 +482,7 @@ form button:hover{background:var(--crnilo)}
     <p>Med letoma 2008 in 2011 sem imel okoli dvesto predavanj in delavnic po vsej Sloveniji, večinoma v vzgojno-izobraževalnih ustanovah. Ko sem leta 2011 prevzel vodenje šole, sem to opustil — za oboje ni bilo časa. Zdaj se vračam, z dvanajstimi leti vodenja več.</p>
 
     <ul class="teme-kratko">
-      <li><b>Zakaj najbolj vestni prvi izgorijo.</b> Del bremena si človek naloži sam. Del mu naloži hiša, v kateri ni jasno, kje se konča odgovornost enega in začne odgovornost drugega.</li>
+      <li><b>Zakaj najbolj vestni prvi izgorijo.</b> Del bremena si človek naloži sam. Del mu naložijo drugi, v organizaciji, kjer ni jasno, kje se konča odgovornost enega in začne odgovornost drugega.</li>
       <li><b>Zakaj isti dogodek v isti hiši ni isti dogodek.</b> Štirje ljudje so bili na istem sestanku. Vsi štirje govorijo resnico. Zgodbe so različne.</li>
       <li><b>Zmote se vidijo za nazaj.</b> Napako je treba predvideti. Zmote ne moreš. Kaj to pomeni za pričakovanje, da mora biti vse ves čas v redu.</li>
     </ul>
@@ -464,7 +504,7 @@ form button:hover{background:var(--crnilo)}
 
     <ul class="ne-bo">
       <li><b>Ne bo predavanja, ki v petek nikogar več ne zanima.</b> Tistega, po katerem so vsi navdušeni, v ponedeljek beseda še nanese ob kavi, potem pa nihče več ne ve, za kaj je šlo. Zato pri dveh urah polovico časa dela kolektiv, ne jaz.</li>
-      <li><b>Ne bo poročila, napisanega tako, da bo naročniku všeč.</b> Plačate me za to, kar vidim, ne za to, kar bi radi slišali. Če bom napisal, kar naročnik pričakuje, sem vzel denar za nič.</li>
+      <li><b>Ne bo poročila, napisanega tako, da bo naročniku všeč.</b> Plačate me za to, kar vidim, ne za to, kar bi radi slišali.</li>
       <li><b>Ne bo modnih besed.</b> Nobenih sinergij, paradigem in preobrazb. Če česa ne znam povedati preprosto, tega še ne razumem dovolj dobro.</li>
       <li><b>Ne bo dobrega počutja na ukaz.</b> Cilj ni, da bi se pri vas vsi ves čas počutili odlično — to ni mogoče in ni potrebno. Cilj je organizacija, ki dela tudi takrat, ko je težko, in v kateri ljudje vedo, da so ovire del vsakega procesa in ne znamenje, da je nekaj hudo narobe. Nič ni narobe, če se kdo ne počuti fantastično. Narobe je pričakovati, da se bodo tako počutili vsi — in narobe je, če kdo svoje nezadovoljstvo brez razloga prenaša na druge.</li>
       <li><b>Ne bo hitrih zaključkov.</b> Prvi teden nimam mnenja. Kdor vam ga ponudi na prvem sestanku, ga je prinesel s seboj.</li>
@@ -494,7 +534,7 @@ form button:hover{background:var(--crnilo)}
   <div class="ovoj">
     <span class="oznaka">Za javne naročnike</span>
     <h2>Vem, kako je na vaši<br>strani mize.</h2>
-    <p>Postopek mora zdržati revizijo. Zato je vsaka nejasnost tveganje, in zato so odločitve počasne — ne iz nezainteresiranosti, ampak iz previdnosti. Pišem torej takole, brez ovinkov.</p>
+    <p>Postopek mora zdržati revizijo. Zato je vsaka nejasnost tveganje, in zato so odločitve počasne — ne iz nezainteresiranosti, ampak iz previdnosti.</p>
 
     <ul class="javni-seznam">
       <li><b>Diagnostika procesov sodi med intelektualne storitve.</b> Pri teh Zakon o javnem naročanju izbire zgolj po najnižji ceni ne dopušča — naročnik mora ovrednotiti tudi metodologijo, reference in usposobljenost izvajalca. To vam olajša utemeljitev izbire.</li>
@@ -521,9 +561,9 @@ form button:hover{background:var(--crnilo)}
       </div>
       <div>
         <h2>Organizacije poznam<br>s terena in z vrha.</h2>
-        <p>Nisem svetovalec, ki bi organizacije poznal iz literature. Šolo in vrtec sem ustanovil in ju vodil. Javni zavod sem prevzel in reorganiziral. Danes delam v občinski upravi, kjer se od znotraj vidi, kje se postopki zataknejo in koliko dela je potrebnega, da javna storitev pride do človeka.</p>
+        <p>Nisem svetovalec, ki bi organizacije poznal iz literature. Šolo in vrtec sem ustanovil in ju vodil. Javni zavod sem prevzel in reorganiziral. Danes delam v občinski upravi, kjer se od znotraj vidi, kje se postopki zataknejo in koliko dela je potrebnega, da storitev pride do človeka.</p>
         <p>Znanstveni magisterij iz antropologije mi daje orodje, s katerim vidim vzorce v odnosih med ljudmi. Leta vodenja mi dajejo občutek za to, kaj je v resnici izvedljivo. Eno brez drugega ne zaleže.</p>
-        <p>Diagnostiko opravljam ob rednem delu, v vnaprej dogovorjenem obsegu in rokih. Zato je ne sprejmem veliko — in zato tudi natančno preverim, ali sem za vašo hišo pravi človek, preden karkoli obljubim.</p>
+        <p>Diagnostiko opravljam ob rednem delu, v vnaprej dogovorjenem obsegu in rokih. Zato je ne sprejmem veliko — in zato tudi natančno preverim, ali sem pravi človek za vas, preden karkoli obljubim.</p>
 
         <div class="pot">
 
@@ -531,7 +571,7 @@ form button:hover{background:var(--crnilo)}
             <h3>Kar sem vodil</h3>
             <p><strong>Ustanovitelj in ravnatelj Waldorfske šole in vrtca Savinja.</strong> Iz nič: prostori, kadri, pravilniki, finance. Uradni ustanovitelj je bila matična ljubljanska šola, postavitev na terenu pa moje delo. V podporo šoli je bilo takrat povezanih več kot dvajset občin.</p>
             <p><strong>Direktor javnega zavoda za kulturo, šport in turizem.</strong> Reorganizacija zavoda, novi regionalni produkti, šest povezanih občin v skupnem programu. Za ponoven mandat nisem kandidiral.</p>
-            <p><strong>Podsekretar, vodja oddelka za investicije in razvoj.</strong> Investicije, javna naročila, upravni postopki, usklajevanje z ministrstvi in civilnimi iniciativami.</p>
+            <p><strong>Podsekretar, vodja oddelka za investicije in razvoj, strokovni sodelavec.</strong> Investicije, javna naročila, upravni postopki, usklajevanje z ministrstvi in civilnimi iniciativami, odnosi z javnostjo.</p>
           </div>
 
           <div class="pot-blok">
@@ -559,7 +599,7 @@ form button:hover{background:var(--crnilo)}
       <div>
         <span class="oznaka">Prvi korak</span>
         <h2>Uvodni pogovor je brezplačen.</h2>
-        <p>Traja približno pol ure. Povejte mi, kaj se pri vas dogaja. Povem vam, ali sem za to pravi človek. <strong>Če nisem, vam to povem takoj</strong> — in po možnosti tudi, koga naj pokličete namesto mene.</p>
+        <p>Traja približno pol ure. Povejte mi, kaj se pri vas dogaja. Povem vam, ali sem za to pravi človek. <strong>Če nisem, vam to povem takoj</strong> — in po možnosti tudi, koga pokličete namesto mene.</p>
 
         <ul class="podatki">
           <li>
@@ -572,7 +612,7 @@ form button:hover{background:var(--crnilo)}
           </li>
           <li>
             <span class="oznaka-mala">Odzovem se</span>
-            v enem delovnem dnevu
+            v treh delovnih dneh
           </li>
         </ul>
       </div>
