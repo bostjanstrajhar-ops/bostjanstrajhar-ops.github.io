@@ -3,28 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Diagnostika organizacij, predavanja in delavnice — mag. Boštjan Štrajhar</title>
-<meta name="description" content="Diagnostika poslovnih in organizacijskih procesov ter predavanja in delavnice za kolektive. Za podjetja, javne zavode in občinske uprave. Povem, kje je vzrok — brez modnih besed in instantnih rešitev.">
+<title>mag. Boštjan Štrajhar — diagnostika organizacij in predavanja za kolektive</title>
+<meta name="description" content="Dve uri s kolektivom ali diagnostika celotne organizacije. Za javne zavode, občinske uprave in podjetja. Začnite s testom — dve minuti.">
 <meta name="author" content="mag. Boštjan Štrajhar">
 <link rel="canonical" href="https://bostjanstrajhar-ops.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="sl_SI">
 <meta property="og:url" content="https://bostjanstrajhar-ops.github.io/">
 <meta property="og:site_name" content="mag. Boštjan Štrajhar">
-<meta property="og:title" content="Diagnostika organizacij, predavanja in delavnice — mag. Boštjan Štrajhar">
-<meta property="og:description" content="Vzrok je skoraj vedno drugje, kot se zdi. Diagnostika procesov ter predavanja za kolektive.">
-<meta property="og:image" content="https://bostjanstrajhar-ops.github.io/portret.jpg">
-<meta property="og:image:width" content="880">
-<meta property="og:image:height" content="1252">
-<meta property="og:image:alt" content="mag. Boštjan Štrajhar">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="mag. Boštjan Štrajhar — diagnostika organizacij in predavanja za kolektive">
+<meta property="og:description" content="Dve uri s kolektivom ali diagnostika celotne organizacije. Za javne zavode, občinske uprave in podjetja. Začnite s testom — dve minuti.">
 <meta name="theme-color" content="#f7f5f1">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f7f5f1'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%232b4f55' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='16' r='2.6' fill='%232b4f55'/%3E%3C/svg%3E">
-
 <link rel="stylesheet" href="slog.css">
-<link rel="preload" href="newsreader-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="inter-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-
 <style>
 /* Slog te strani. Skupni slog je v slog.css. */
 /* ---------- hero ---------- */
@@ -253,15 +244,35 @@ form button:hover{background:var(--crnilo)}
 /* 16px prepreči, da iOS ob dotiku na izbirnik poveča stran (enako kot za input v slog.css). */
 @media(max-width:620px){.polje select{padding:13px 14px;font-size:16px}}
 
+
+/* ---------- položaji, v katerih me pokličejo ---------- */
+.polozaji{list-style:none;padding:0;margin:2rem 0 0;max-width:780px}
+.polozaji li{padding:1rem 0;border-bottom:1px solid var(--crta);font-size:1.02rem;line-height:1.6}
+.polozaji li:first-child{border-top:1px solid var(--crta)}
+.polozaji li::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;
+  background:var(--poudarek);margin:0 .85rem .28rem 0;opacity:.6}
+
+/* ---------- dve poti ---------- */
+.poti{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,4vw,3rem);margin-top:2.6rem}
+.pot-kartica{border-top:2px solid var(--poudarek);padding-top:1.5rem;display:flex;flex-direction:column}
+.pot-kartica h3{font-family:"Newsreader",Georgia,serif;font-size:1.5rem;font-weight:400;margin-bottom:.3rem}
+.pot-kartica .meta{font-size:.79rem;letter-spacing:.11em;text-transform:uppercase;color:var(--tiho);margin-bottom:1rem}
+.pot-kartica p{font-size:1rem;margin-bottom:1.1rem}
+.pot-kartica .gumbi{margin-top:auto;padding-top:.4rem}
+@media(max-width:760px){.poti{grid-template-columns:1fr;gap:2.4rem}}
+
+/* ---------- kratek življenjepis na razdelilniku ---------- */
+.kdo-kratko{max-width:720px}
+.kdo-kratko p{font-size:1.02rem}
+
 </style>
 </head>
-
 <body>
 <a class="skip" href="#vsebina">Preskoči na vsebino</a>
 
 <header class="glava" id="glava">
   <div class="ovoj">
-    <a class="logo" href="#">mag. Boštjan Štrajhar <span>— diagnostika organizacij</span></a>
+    <a class="logo" href="index.html">mag. Boštjan Štrajhar <span>— diagnostika organizacij</span></a>
     <button class="meni-gumb" id="meni-gumb" type="button"
             aria-expanded="false" aria-controls="meni" aria-label="Odpri meni">
       <svg width="26" height="18" viewBox="0 0 26 18" fill="none" aria-hidden="true">
@@ -271,11 +282,11 @@ form button:hover{background:var(--crnilo)}
       </svg>
     </button>
     <nav class="meni" id="meni" aria-label="Glavni meni">
-      <a href="#metoda">Diagnostika</a>
+      <a href="diagnostika.html">Diagnostika</a>
       <a class="meni-test" href="test.html"><span class="kratko">Test organizacije</span><span class="dolgo">Test organizacijske realnosti</span></a>
       <a href="predavanja.html">Predavanja</a>
       <a class="meni-test" href="test-predavanja.html"><span class="kratko">Test kolektiva</span><span class="dolgo">Kaj bi vaš kolektiv slišal</span></a>
-      <a href="#kdo">Kdo sem</a>
+      <a href="pot.html">Kdo sem</a>
       <a class="gumb-mali" href="#kontakt">Uvodni pogovor</a>
     </nav>
   </div>
@@ -283,17 +294,17 @@ form button:hover{background:var(--crnilo)}
 
 <main id="vsebina">
 
-<!-- ============ HERO ============ -->
+<!-- ============ UVOD ============ -->
 <section class="hero">
   <div class="ovoj">
     <div class="hero-mreza">
       <div>
-        <span class="oznaka">Diagnostika poslovnih in organizacijskih procesov</span>
+        <span class="oznaka">Diagnostika organizacij · Predavanja za kolektive</span>
         <h1>Vzrok je skoraj vedno<br><span class="tiho">drugje, kot se zdi.</span></h1>
-        <p class="uvod">Vstopim v organizacijo. Opazujem, poslušam in zapisujem. Nato povem, kaj sem videl — mirno, jasno in brez olepševanja. Resnica včasih ni udobna, a je edini temelj za napredek in rešitev izzivov.</p>
+        <p class="uvod">Poslušam po oddelkih in povem, kaj sem videl. Včasih zadostujeta dve uri s kolektivom, včasih je treba pogledati celoto.</p>
         <div class="gumbi">
-          <a class="gumb" href="#kontakt">Dogovorite se za uvodni pogovor</a>
-          <a class="gumb-obris" href="#metoda">Kako delam →</a>
+          <a class="gumb" href="test.html">Test organizacije — 2 minuti</a>
+          <a class="gumb-obris" href="test-predavanja.html">Test kolektiva →</a>
         </div>
         <ul class="dejavnosti">
           <li>Javni zavodi</li>
@@ -309,106 +320,48 @@ form button:hover{background:var(--crnilo)}
   </div>
 </section>
 
-<!-- ============ KDAJ ME POKLIČETE ============ -->
+<!-- ============ KDAJ ME POKLIČEJO ============ -->
 <section id="kdaj">
   <div class="ovoj">
-    <span class="oznaka">Kdaj me pokličete</span>
-    <h2>Ne kličete me, ko je vse v redu.</h2>
-    <p>Kličete me, ko slutite, da nekaj ni v redu, pa nihče ne zna povedati, kaj. Poskusili ste že nekaj rešitev. Vsaka je za nekaj časa pomagala. Potem se je vrnilo isto.</p>
-
-    <p class="sklepna">Ali je pri vas tako? Na to vprašanje se težko odgovori — zato sem sestavil sedem vprašanj, ki pomagajo.</p>
-
-    <div class="vabilo">
-      <div>
-        <h3>Test organizacijske realnosti</h3>
-        <p>Sedem vprašanj o trenjih, ki organizacijo stanejo čas, denar in energijo. Dve minuti. Nič se ne pošlje in nič se ne shrani — odgovarjate sami sebi.</p>
-        <p class="drobno">Če vam test pokaže, da me ne potrebujete, vam to tudi napiše.</p>
-      </div>
-      <a class="gumb" href="test.html">Začnite test</a>
-    </div>
+    <span class="oznaka">Kdaj me pokličejo</span>
+    <h2>Štirje trenutki,<br>ki jih poznam od blizu.</h2>
+    <ul class="polozaji">
+      <li>Ko je bilo treba urediti odnose med učitelji in starši.</li>
+      <li>Ko je vodja želel vpeljati novost in je hotel, da tudi zaživi.</li>
+      <li>Ko je ravnatelj želel podpreti učitelje, ki so bili na robu izgorelosti.</li>
+      <li>Ko je novo vodstvo hotelo jasno sliko, kje organizacija je.</li>
+    </ul>
+    <p class="sklepna">Nobeden od teh trenutkov ne pomeni, da je kaj narobe. Vsi štirje pomenijo, da nekdo hoče naprej.</p>
   </div>
 </section>
 
-<!-- ============ KAJ JE DIAGNOSTIKA ============ -->
-<section id="kaj">
+<!-- ============ DVE POTI ============ -->
+<section id="poti">
   <div class="ovoj">
-    <span class="oznaka">Kaj pravzaprav delam</span>
-    <h2>Proces ni shema na papirju.</h2>
-    <p>Proces je tisto, kar se zgodi, ko se srečata dva človeka in eden nekaj potrebuje od drugega. Shema pove, kako naj bi bilo. Ljudje povedo, kako je.</p>
-    <p>Zato pogledam oboje. Kako je delo zapisano in kako dejansko teče. Kje se ustavi. Kdo koga obide, ker je tako hitreje. Kaj se pove na sestanku in kaj šele na hodniku. Kdo nosi več, kot piše v opisu njegovega dela — in zakaj to prenaša.</p>
-    <p>To ni team building in tudi ni predavanje. Predavanje odpre eno temo v dveh urah, diagnostika pa pogleda celoto in traja dlje. Ne prinesem vam paketa rešitev, ki bi ustrezal katerikoli organizaciji. Prinesem vam sliko vaše hiše, kakršna je, in pomagam razumeti, zakaj je do določenih situacij sploh prišlo.</p>
-    <p>Rešitve, ki jih prinese nekdo od zunaj, redko zdržijo. Zdržijo tiste, do katerih pride organizacija sama. Moja naloga torej ni, da vam povem, kaj morate storiti — moja naloga je, da vas pripeljem do mesta, kjer to vidite sami.</p>
-    <p><strong>Rezultat je pisno poročilo:</strong> kaj sem videl, kje je po moji presoji vzrok, kaj predlagam in po kakšnem vrstnem redu.</p>
-  </div>
-</section>
+    <span class="oznaka">Kaj ponujam</span>
+    <h2>Dve poti. Prva je krajša,<br>druga gre do konca.</h2>
 
-<!-- ============ METODA ============ -->
-<section id="metoda">
-  <div class="ovoj">
-    <span class="oznaka">Kako delam</span>
-    <h2>Pet korakov. Po vrsti,<br>ker drugače ne gre.</h2>
-    <p>Vsak korak ima svoj namen. Nobenega ne preskočim — sicer poročilo ni to, kar obljubljam.</p>
-
-    <div class="koraki">
-
-      <div class="korak">
-        <div class="korak-st">01</div>
-        <div>
-          <h3>Poslušam in zapisujem</h3>
-          <p>Grem po oddelkih. Nič ne komentiram, nič ne popravljam, ničesar ne predlagam. Samo poslušam in si zapisujem. Vprašanja so preprosta: kaj delate, kje se vam zatakne, koga pokličete, ko se zatakne, in kaj se zgodi potem.</p>
-          <p>Vzporedno gledam še nekaj: koliko je vodstvo obremenjeno. Če je pod prevelikim pritiskom, se nobeno priporočilo ne prime, pa naj bo še tako dobro. Takrat je to prva stvar, ki jo je treba nasloviti.</p>
+    <div class="poti">
+      <div class="pot-kartica">
+        <h3>Predavanje in delavnica</h3>
+        <p class="meta">Ena ura ali dve · do 70 ljudi · 800–2.600 EUR</p>
+        <p>Ena tema, ves kolektiv. Ne o tem, kako pritisk prenašati, ampak o tem, kje nastane. Tri teme: zakaj najbolj vestni prvi izgorijo, zakaj isti dogodek v isti hiši ni isti dogodek, zmote se vidijo za nazaj.</p>
+        <div class="gumbi">
+          <a class="gumb" href="predavanja.html">Teme in cena →</a>
+          <a class="gumb-obris" href="test-predavanja.html">Test kolektiva</a>
         </div>
       </div>
 
-      <div class="korak">
-        <div class="korak-st">02</div>
-        <div>
-          <h3>Sestavljam sliko</h3>
-          <p>Zapiske enega oddelka postavim ob zapiske drugega. Tu se pokaže največ. Isti dogodek ima v dveh pisarnah dve različni zgodbi. Razlika med njima ni nesporazum, ki bi ga bilo treba pojasniti. Razlika je podatek — in pogosto je prav ta razlika najkrajša pot do vzroka.</p>
+      <div class="pot-kartica">
+        <h3>Diagnostika procesov</h3>
+        <p class="meta">Pet korakov · več mesecev · pisno poročilo</p>
+        <p>Vstopim v organizacijo, poslušam po oddelkih, sestavim sliko in jo preverim v pogovorih na štiri oči. Del ugotovitev izrečem pred skupino. Na koncu oddam pisno poročilo z vzrokom in priporočili.</p>
+        <div class="gumbi">
+          <a class="gumb" href="diagnostika.html">Kako poteka →</a>
+          <a class="gumb-obris" href="test.html">Test organizacije</a>
         </div>
       </div>
-
-      <div class="korak">
-        <div class="korak-st">03</div>
-        <div>
-          <h3>Individualni pogovori</h3>
-          <p>Ko imam sliko, se vrnem k posameznikom. Zdaj so vprašanja natančnejša. Povem, kaj sem opazil, in preverim, ali drži. Kar mi kdo pove na štiri oči, ostane med nama. V poročilo gre vzorec, ne oseba.</p>
-        </div>
-      </div>
-
-      <div class="korak">
-        <div class="korak-st">04</div>
-        <div>
-          <h3>Pogovor v skupini</h3>
-          <p>Del ugotovitev je treba izreči na glas. To je najtežji korak in tudi najbolj koristen. Marsikaj, kar se je leta skrivalo za vljudnostjo, tu prvič dobi ime. Moja naloga je, da to povem tako, da nihče ne izpade kriv, a da nihče tudi ne more več reči, da za to ni vedel.</p>
-        </div>
-      </div>
-
-      <div class="korak">
-        <div class="korak-st">05</div>
-        <div>
-          <h3>Poročilo in priporočila</h3>
-          <p>Pisno. Kaj sem videl, kje je vzrok, kaj predlagam, v kakšnem vrstnem redu in kdo naj naredi prvi korak. Brez splošnih priporočil, ki bi jih lahko brez spremembe poslal katerikoli drugi organizaciji. Poročilo je vaše in govori o vas.</p>
-        </div>
-      </div>
-
     </div>
-
-    <div class="pod-koraki">
-      <h3>Zakaj tega ne morete narediti sami</h3>
-      <p>Ker ste preveč vpleteni. Kot vodja v vsak proces vlagate svojo energijo in čustva. Brez te strasti organizacija ne bi rasla. A prav ta bližina zamegli pogled na rešitve.</p>
-      <p>S seboj prinašam objektivnost, preverjeno znanje in leta izkušenj, ki jih vaša organizacija potrebuje za naslednji korak.</p>
-    </div>
-
-    <div class="korak-op">
-      <p><strong>In kaj potem?</strong> Diagnostika je prvi korak in je smiselna sama zase, tudi če se boste odločili, da greste naprej sami. Sprememba se namreč ne zgodi na dan, ko oddam poročilo, ampak v mesecih, ki sledijo. Če boste takrat želeli, da ostanem in spremljam uvajanje, se dogovorimo. Če ne, imate v rokah dovolj, da nadaljujete brez mene — in to je pravzaprav namen.</p>
-    </div>
-
-    <div class="merilo">
-      <p>Merilo, po katerem sodim svoje delo, ni debelina poročila. Merilo je, ali organizacija čez leto dni sama prepozna in reši naslednjo podobno težavo. Če me morate klicati vsakič znova, nečesa nisem opravil.</p>
-    </div>
-
-    <p class="drobno" style="margin-top:2.4rem;max-width:760px"><strong>Koliko časa traja.</strong> Odvisno od velikosti organizacije, še bolj pa od tega, koliko ste na spremembo v resnici pripravljeni. Ko vem, za kaj gre, vam povem tudi rok.</p>
   </div>
 </section>
 
@@ -472,25 +425,16 @@ form button:hover{background:var(--crnilo)}
   </div>
 </section>
 
-<!-- ============ PREDAVANJA ============ -->
-<section id="predavanja">
+<!-- ============ ZAKAJ NE GRE SAM ============ -->
+<section id="sami">
   <div class="ovoj">
-    <span class="oznaka">Druga storitev</span>
-    <h2>Včasih se začne<br>z dvema urama.</h2>
-    <p>Diagnostika je zaveza za dalj časa in odločitev, ki jo mora vodstvo dobro premisliti. Ni pa vsaka hiša na tej točki — in ni vsaka hiša tega potrebna.</p>
-    <p>Zato ponujam tudi krajšo obliko: eno ali dve uri s kolektivom, o eni sami temi.</p>
-    <p>Med letoma 2008 in 2011 sem imel okoli dvesto predavanj in delavnic po vsej Sloveniji, večinoma v vzgojno-izobraževalnih ustanovah. Ko sem leta 2011 prevzel vodenje šole, sem to opustil — za oboje ni bilo časa. Zdaj se vračam, z dvanajstimi leti vodenja več.</p>
+    <span class="oznaka">Zakaj potrebujete nekoga od zunaj</span>
+    <h2>Zakaj tega ne morete<br>storiti sami.</h2>
+    <p>Ker ste preveč vpleteni. Kot vodja v vsak proces vlagate svojo energijo in čustva. Brez te strasti organizacija ne bi rasla. A prav ta bližina zamegli pogled na rešitve.</p>
+    <p>S seboj prinašam objektivnost, preverjeno znanje in leta izkušenj, ki jih vaša organizacija potrebuje za naslednji korak.</p>
 
-    <ul class="teme-kratko">
-      <li><b>Zakaj najbolj vestni prvi izgorijo.</b> Del bremena si človek naloži sam. Del mu naložijo drugi, v organizaciji, kjer ni jasno, kje se konča odgovornost enega in začne odgovornost drugega.</li>
-      <li><b>Zakaj isti dogodek v isti hiši ni isti dogodek.</b> Štirje ljudje so bili na istem sestanku. Vsi štirje govorijo resnico. Zgodbe so različne.</li>
-      <li><b>Zmote se vidijo za nazaj.</b> Napako je treba predvideti. Zmote ne moreš. Kaj to pomeni za pričakovanje, da mora biti vse ves čas v redu.</li>
-    </ul>
-
-    <p class="sklepna">To ni predavanje o tem, kako naj zaposleni bolje prenašajo pritisk. Je predavanje o tem, kaj ta pritisk v hiši proizvaja.</p>
-
-    <div class="gumbi" style="margin-top:2.2rem">
-      <a class="gumb" href="predavanja.html">Teme, oblika in cena →</a>
+    <div class="merilo">
+      <p>Merilo, po katerem sodim svoje delo, ni debelina poročila. Merilo je, ali organizacija čez leto dni sama prepozna in reši naslednjo podobno težavo.</p>
     </div>
   </div>
 </section>
@@ -500,53 +444,18 @@ form button:hover{background:var(--crnilo)}
   <div class="ovoj">
     <span class="oznaka">Po čem se razlikujem</span>
     <h2>Česa pri meni ne bo.</h2>
-    <p style="color:#b9bfbd">Toliko let sem bil na drugi strani mize — kot naročnik in kot vodja — da natanko vem, kaj me je pri svetovalcih motilo.</p>
+    <p style="color:#b9bfbd">Toliko let sem bil na drugi strani mize, da natanko vem, kaj me je pri svetovalcih motilo.</p>
 
     <ul class="ne-bo">
-      <li><b>Ne bo predavanja, ki v petek nikogar več ne zanima.</b> Tistega, po katerem so vsi navdušeni, v ponedeljek beseda še nanese ob kavi, potem pa nihče več ne ve, za kaj je šlo. Zato pri dveh urah polovico časa dela kolektiv, ne jaz.</li>
+      <li><b>Ne bo predavanja, ki v petek nikogar več ne zanima.</b> Zato pri dveh urah polovico časa dela kolektiv, ne jaz.</li>
       <li><b>Ne bo poročila, napisanega tako, da bo naročniku všeč.</b> Plačate me za to, kar vidim, ne za to, kar bi radi slišali.</li>
-      <li><b>Ne bo modnih besed.</b> Nobenih sinergij, paradigem in preobrazb. Če česa ne znam povedati preprosto, tega še ne razumem dovolj dobro.</li>
-      <li><b>Ne bo dobrega počutja na ukaz.</b> Cilj ni, da bi se pri vas vsi ves čas počutili odlično — to ni mogoče in ni potrebno. Cilj je organizacija, ki dela tudi takrat, ko je težko, in v kateri ljudje vedo, da so ovire del vsakega procesa in ne znamenje, da je nekaj hudo narobe. Nič ni narobe, če se kdo ne počuti fantastično. Narobe je pričakovati, da se bodo tako počutili vsi — in narobe je, če kdo svoje nezadovoljstvo brez razloga prenaša na druge.</li>
-      <li><b>Ne bo hitrih zaključkov.</b> Prvi teden nimam mnenja. Kdor vam ga ponudi na prvem sestanku, ga je prinesel s seboj.</li>
+      <li><b>Ne bo dobrega počutja na ukaz.</b> Cilj je organizacija, ki dela tudi takrat, ko je težko, in v kateri ljudje vedo, da so ovire del vsakega procesa.</li>
     </ul>
-
-    <div class="zbode">
-      <h3>Zakaj sprememba zbode</h3>
-      <p>Trg je poln ponudb za poslovno svetovanje in coaching, ki obljubljajo, da bo po njih vsem lažje in lepše. Tudi teambuilding je pogosto to: prijeten dan, ki naslednji teden ničesar ne premakne. Razlog ni v tem, da bi bili predavatelji slabi.</p>
-      <p>Razlog je v nas. Ljudje smo predvidljiva bitja in navade so kot železna srajca. Človek bo raje vztrajal v slabi in boleči situaciji, ker mu je vsaj znana, kot stopil v neznano, kjer se boji, da bo še slabše.</p>
-      <p>Zato sprememba, ki nič ne zbode, ni sprememba. Brez kančka neugodja in brez soočenja z resničnim stanjem ni premika — ne pri človeku ne v organizaciji.</p>
-    </div>
 
     <blockquote class="navedek">
       <p>Ko sem se po dolgi odsotnosti vrnil v šolo, me je učenec sedmega razreda vprašal, ali sem v redu. Vprašal sem ga nazaj, ali smo lahko ljudje ves čas v redu. Rekel je: lahko — če smo norci.</p>
       <footer>Sedmošolec je imel prav.</footer>
     </blockquote>
-
-    <div class="sklep">
-      <p>Če stopite v pasji iztrebek, vam nič ne pomaga, če si rečete, da je čokolada. Stopili ste v drek. Šele ko to poveste na glas, lahko naredite prvi korak, da se ga znebite.</p>
-      <p>Ne iščem globljega pomena v vsaki težavi. Nekatere stvari se preprosto zgodijo in iluzorno je misliti, da bomo z razumom prišli do dna vsemu. Življenje je bolj podobno glasbi kot matematični enačbi. Pride točka, ko je treba stvari sprejeti, tudi če jih ne razumemo do konca. In šele ko jih sprejmemo, jih lahko začnemo spreminjati.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ZA JAVNE NAROČNIKE ============ -->
-<section class="javni" id="javni">
-  <div class="ovoj">
-    <span class="oznaka">Za javne naročnike</span>
-    <h2>Vem, kako je na vaši<br>strani mize.</h2>
-    <p>Postopek mora zdržati revizijo. Zato je vsaka nejasnost tveganje, in zato so odločitve počasne — ne iz nezainteresiranosti, ampak iz previdnosti.</p>
-
-    <ul class="javni-seznam">
-      <li><b>Diagnostika procesov sodi med intelektualne storitve.</b> Pri teh Zakon o javnem naročanju izbire zgolj po najnižji ceni ne dopušča — naročnik mora ovrednotiti tudi metodologijo, reference in usposobljenost izvajalca. To vam olajša utemeljitev izbire.</li>
-      <li><b>Obseg dela običajno omogoča enostavnejši postopek naročila.</b> Ne gre za večletno pogodbo z odprtim koncem, ampak za omejeno, vnaprej opisano storitev.</li>
-      <li><b>Ponudbo napišem nedvoumno.</b> Metoda, koraki, roki, kaj dobite in kaj ne — vse zapisano vnaprej. Nič ni prepuščeno naknadnemu dogovoru, ker vem, kako izgleda revizijski pregled dokumentacije.</li>
-      <li><b>Diagnostiko naroči vodstvo.</b> Če vodstvo za njo ne stoji, je ne sprejmem. Brez njihove podpore je vsak pogovor v hiši zapravljen čas — za vas in zame.</li>
-    </ul>
-
-    <div class="javni-sklep">
-      <p>Slovenska javna uprava je dobro digitalizirana. Birokracija s tem ni izginila, ker so postopki še vedno zgrajeni okoli pristojnosti posameznih uradov in ne okoli tega, kar človek na drugi strani okenca dejansko potrebuje.</p>
-      <p><strong>To je natanko moje področje. Ne prodajam programske opreme.</strong></p>
-    </div>
   </div>
 </section>
 
@@ -554,39 +463,13 @@ form button:hover{background:var(--crnilo)}
 <section id="kdo">
   <div class="ovoj">
     <span class="oznaka">Kdo sem</span>
-    <div class="bio-mreza">
-      <div class="bio-foto">
-        <img src="portret-krog.jpg" alt="mag. Boštjan Štrajhar" width="520" height="520">
-        <p>Antropologija me je naučila opazovati skupnost, ne da bi jo prehitro razložil. Psihoanaliza me je naučila najprej pogledati vase — brez tega ni nevtralnega pogleda na druge. Vodenje me je naučilo, da je treba na koncu vseeno nekaj odločiti.</p>
-      </div>
-      <div>
-        <h2>Organizacije poznam<br>s terena in z vrha.</h2>
-        <p>Nisem svetovalec, ki bi organizacije poznal iz literature. Šolo in vrtec sem ustanovil in ju vodil. Javni zavod sem prevzel in reorganiziral. Danes delam v občinski upravi, kjer se od znotraj vidi, kje se postopki zataknejo in koliko dela je potrebnega, da storitev pride do človeka.</p>
-        <p>Znanstveni magisterij iz antropologije mi daje orodje, s katerim vidim vzorce v odnosih med ljudmi. Leta vodenja mi dajejo občutek za to, kaj je v resnici izvedljivo. Eno brez drugega ne zaleže.</p>
-        <p>Diagnostiko opravljam ob rednem delu, v vnaprej dogovorjenem obsegu in rokih. Zato je ne sprejmem veliko — in zato tudi natančno preverim, ali sem pravi človek za vas, preden karkoli obljubim.</p>
-
-        <div class="pot">
-
-          <div class="pot-blok">
-            <h3>Kar sem vodil</h3>
-            <p><strong>Ustanovitelj in ravnatelj Waldorfske šole in vrtca Savinja.</strong> Iz nič: prostori, kadri, pravilniki, finance. Uradni ustanovitelj je bila matična ljubljanska šola, postavitev na terenu pa moje delo. V podporo šoli je bilo takrat povezanih več kot dvajset občin.</p>
-            <p><strong>Direktor javnega zavoda za kulturo, šport in turizem.</strong> Reorganizacija zavoda, novi regionalni produkti, šest povezanih občin v skupnem programu. Za ponoven mandat nisem kandidiral.</p>
-            <p><strong>Podsekretar, vodja oddelka za investicije in razvoj, strokovni sodelavec.</strong> Investicije, javna naročila, upravni postopki, usklajevanje z ministrstvi in civilnimi iniciativami, odnosi z javnostjo.</p>
-          </div>
-
-          <div class="pot-blok">
-            <h3>Kje sem se učil</h3>
-            <p>Pri dvajsetih sem odšel v Anglijo in tam tri leta študiral kot mednarodni štipendist, med ljudmi z vseh koncev sveta. Naučil sem se nekaj, česar doma ne bi mogel: isto stvar različne kulture vidijo različno, in kdor je prepričan, da ima prav, navadno le stoji na enem mestu.</p>
-            <p>Doma znanstveni magisterij iz antropologije, med moduli psihoanaliza, v teoriji in praksi.</p>
-          </div>
-
-          <div class="pot-blok">
-            <h3>Predavanja</h3>
-            <p>Med letoma 2008 in 2011 sem imel okoli dvesto predavanj in delavnic po vsej Sloveniji, večinoma v vrtcih, šolah in drugih vzgojno-izobraževalnih ustanovah — o komunikaciji s starši, o soočanju s stresom in izzivi ter o tem, kako poleg razuma nagovoriti tudi voljo in čutenje. Leta 2011 sem s tem prenehal, ker sem prevzel vodenje šole. Zdaj se vračam, s petnajstimi leti vodenja več. Poleg tega vodim mediacije v delovnih sporih.</p>
-            <p><a href="predavanja.html">Teme, oblika in cena →</a></p>
-          </div>
-
-        </div>
+    <h2>Organizacije poznam<br>s terena in z vrha.</h2>
+    <div class="kdo-kratko">
+      <p>Nisem svetovalec, ki bi organizacije poznal iz literature. Šolo in vrtec sem ustanovil in ju vodil sedem let. Javni zavod sem prevzel in reorganiziral. Danes delam v občinski upravi.</p>
+      <p>Znanstveni magisterij iz antropologije, med moduli psihoanaliza. Med letoma 2008 in 2011 okoli dvesto predavanj in delavnic po vsej Sloveniji.</p>
+      <p>Oboje opravljam ob rednem delu, zato ne sprejmem veliko naročil — in zato tudi preverim, ali sem pravi človek za vas, preden karkoli obljubim.</p>
+      <div class="gumbi">
+        <a class="gumb-obris" href="pot.html">Celotna pot →</a>
       </div>
     </div>
   </div>
@@ -667,7 +550,7 @@ form button:hover{background:var(--crnilo)}
 
 <footer class="noga">
   <div class="ovoj">
-    <p>© <span id="leto">2026</span> mag. Boštjan Štrajhar</p>
+    <p>© <span id="leto">2026</span> mag. Boštjan Štrajhar · <a href="diagnostika.html">Diagnostika</a> · <a href="predavanja.html">Predavanja</a> · <a href="pot.html">Kdo sem</a></p>
     <p>Ta stran ne uporablja piškotkov in ne zbira podatkov o obiskovalcih.</p>
   </div>
 </footer>
@@ -829,7 +712,7 @@ form button:hover{background:var(--crnilo)}
       "@id": "https://bostjanstrajhar-ops.github.io/#storitev",
       "name": "Diagnostika organizacijskih in poslovnih procesov",
       "description": "Diagnostika poslovnih in organizacijskih procesov za podjetja, javne zavode in občinske uprave. Opazovanje na terenu, individualni pogovori, pisno poročilo z ugotovitvami in priporočili ter spremljanje uvajanja sprememb.",
-      "url": "https://bostjanstrajhar-ops.github.io/",
+      "url": "https://bostjanstrajhar-ops.github.io/diagnostika.html",
       "provider": { "@id": "https://bostjanstrajhar-ops.github.io/#oseba" },
       "areaServed": { "@type": "Country", "name": "Slovenija" },
       "availableLanguage": "sl",
@@ -854,7 +737,9 @@ form button:hover{background:var(--crnilo)}
       "inLanguage": "sl-SI",
       "about": { "@id": "https://bostjanstrajhar-ops.github.io/#oseba" },
       "hasPart": [
+        { "@id": "https://bostjanstrajhar-ops.github.io/diagnostika.html" },
         { "@id": "https://bostjanstrajhar-ops.github.io/predavanja.html" },
+        { "@id": "https://bostjanstrajhar-ops.github.io/pot.html" },
         { "@id": "https://bostjanstrajhar-ops.github.io/test.html" },
         { "@id": "https://bostjanstrajhar-ops.github.io/test-predavanja.html" }
       ]

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kdo sem — celotna pot | mag. Boštjan Štrajhar</title>
+<meta name="description" content="Kar sem vodil, kje sem se učil in od kod izhajajo predavanja. Ustanovitelj waldorfske šole in vrtca, direktor javnega zavoda, danes občinska uprava.">
+<meta name="author" content="mag. Boštjan Štrajhar">
+<link rel="canonical" href="https://bostjanstrajhar-ops.github.io/pot.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sl_SI">
+<meta property="og:url" content="https://bostjanstrajhar-ops.github.io/pot.html">
+<meta property="og:site_name" content="mag. Boštjan Štrajhar">
+<meta property="og:title" content="Kdo sem — celotna pot | mag. Boštjan Štrajhar">
+<meta property="og:description" content="Kar sem vodil, kje sem se učil in od kod izhajajo predavanja. Ustanovitelj waldorfske šole in vrtca, direktor javnega zavoda, danes občinska uprava.">
+<meta name="theme-color" content="#f7f5f1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f7f5f1'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%232b4f55' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='16' r='2.6' fill='%232b4f55'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="slog.css">
+<style>
+/* Slog te strani. Skupni slog je v slog.css. */
+/* ---------- hero ---------- */
+.hero{border-top:0;padding-top:clamp(3rem,7vw,6rem)}
+.hero-mreza{display:grid;grid-template-columns:1.35fr .85fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.hero h1 .tiho{color:var(--tiho)}
+.hero .uvod{margin-bottom:2rem}
+.hero-foto{position:relative}
+.hero-foto img{width:100%;height:auto;display:block;border-radius:3px;filter:saturate(.93)}
+.hero-foto figcaption{
+  font-size:.78rem;color:var(--tiho);margin-top:.85rem;line-height:1.5;
+  border-left:2px solid var(--crta);padding-left:.85rem;
+}
+.dejavnosti{display:flex;flex-wrap:wrap;gap:.5rem;margin:2.3rem 0 0;padding:0;list-style:none}
+.dejavnosti li{
+  font-size:.815rem;color:var(--tiho);border:1px solid var(--crta);
+  padding:5px 12px;border-radius:100px;background:#fdfcfa;
+}
+@media(max-width:820px){
+  .hero-mreza{grid-template-columns:1fr;gap:2.6rem}
+  .hero-foto{max-width:330px}
+}
+
+
+/* ---------- vabilo na test ---------- */
+.sklepna{
+  margin-top:2.2rem;font-family:"Newsreader",Georgia,serif;
+  font-size:clamp(1.1rem,1.9vw,1.28rem);line-height:1.55;color:#252b2d;max-width:46ch;
+}
+.vabilo{
+  margin-top:3rem;max-width:860px;background:var(--papir-topel);
+  border-radius:3px;padding:clamp(1.7rem,3.5vw,2.4rem);
+  display:grid;grid-template-columns:1fr auto;gap:clamp(1.4rem,3vw,2.6rem);align-items:center;
+}
+.vabilo h3{
+  font-family:"Newsreader",Georgia,serif;font-size:1.5rem;font-weight:400;margin-bottom:.7rem;
+}
+.vabilo p{margin-bottom:.7rem;font-size:1rem}
+.vabilo p:last-child{margin-bottom:0}
+.vabilo .gumb{white-space:nowrap}
+@media(max-width:700px){
+  .vabilo{grid-template-columns:1fr;align-items:stretch}
+  .vabilo .gumb{text-align:center}
+}
+
+/* ---------- metoda ---------- */
+.koraki{margin-top:3rem;counter-reset:k}
+.korak{
+  display:grid;grid-template-columns:96px 1fr;gap:clamp(1rem,3vw,2.6rem);
+  padding:2.1rem 0;border-top:1px solid var(--crta);
+}
+.korak:last-of-type{border-bottom:1px solid var(--crta)}
+.korak-st{
+  font-family:"Newsreader",Georgia,serif;font-size:2.5rem;line-height:1;
+  color:var(--poudarek);opacity:.42;font-weight:300;padding-top:.1rem;
+}
+.korak p{margin-bottom:0}
+.korak-op{
+  margin-top:2.2rem;padding:1.5rem 1.7rem;background:var(--papir-topel);
+  border-radius:3px;max-width:760px;
+}
+.korak-op p{margin:0;font-size:.97rem}
+.pod-koraki{margin-top:3rem;max-width:700px}
+.pod-koraki h3{
+  font-family:"Newsreader",Georgia,serif;font-size:1.4rem;font-weight:400;margin-bottom:.9rem;
+}
+.merilo{
+  margin-top:3rem;max-width:720px;border-left:2px solid var(--poudarek);padding-left:1.7rem;
+}
+.merilo p{
+  margin:0;font-family:"Newsreader",Georgia,serif;
+  font-size:clamp(1.12rem,2vw,1.34rem);line-height:1.55;color:#22282a;max-width:none;
+}
+@media(max-width:620px){
+  .korak{grid-template-columns:1fr;gap:.5rem}
+  .korak-st{font-size:1.6rem}
+}
+
+/* ---------- primeri ---------- */
+/* Trije primeri drug pod drugim: v treh stolpcih bi bile vrstice prekratke
+   za tako gosto besedilo, dva stolpca pa bi tretji primer pustila samega. */
+.primeri{margin-top:3.4rem;max-width:820px}
+.primer{padding:2.8rem 0;border-top:1px solid var(--crta)}
+.primer:last-child{border-bottom:1px solid var(--crta)}
+.primer h3{font-family:"Newsreader",Georgia,serif;font-size:1.62rem;font-weight:400;margin-bottom:1.1rem}
+.primer p{font-size:1rem;max-width:66ch}
+.primer .kdo{
+  display:inline-block;font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--tiho);border:1px solid var(--crta);padding:4px 10px;border-radius:2px;margin-bottom:1.1rem;
+}
+.primer .zakljucek{
+  border-left:2px solid var(--poudarek);padding-left:1.4rem;margin-top:1.7rem;
+  font-family:"Newsreader",Georgia,serif;font-size:1.12rem;line-height:1.6;color:#252b2d;
+}
+
+/* ---------- temni razdelek ---------- */
+.temno{background:var(--temno);color:#c8ccca;border-top:0}
+.temno h2,.temno h3{color:#f2efe9}
+.temno .oznaka{color:#7c8886}
+.temno a{color:#8fbdc4}
+.ne-bo{list-style:none;padding:0;margin:2.5rem 0 0;max-width:780px}
+.ne-bo li{
+  padding:1.25rem 0;border-bottom:1px solid rgba(255,255,255,.11);
+  font-size:1.03rem;line-height:1.65;
+}
+.ne-bo li:first-child{border-top:1px solid rgba(255,255,255,.11)}
+.ne-bo b{color:#f2efe9;font-weight:500}
+.zbode{margin-top:3.4rem;max-width:700px}
+.zbode h3{
+  font-family:"Newsreader",Georgia,serif;font-size:1.5rem;font-weight:400;
+  color:#f2efe9;margin-bottom:1rem;
+}
+.zbode p{color:#c3c8c6;max-width:none}
+.navedek{
+  margin:3.4rem 0 0;max-width:700px;border-left:2px solid var(--poudarek-svetel);padding-left:1.7rem;
+}
+.navedek p{
+  font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:clamp(1.16rem,2.3vw,1.42rem);
+  line-height:1.55;color:#eae7e0;max-width:none;
+}
+.navedek footer{font-size:.85rem;color:#8b9694;font-style:normal}
+.temno .sklep{margin-top:2.8rem;max-width:640px;color:#b9bfbd}
+
+/* ---------- za javne naročnike ---------- */
+.javni{background:var(--papir-topel);border-top:0}
+.javni-seznam{list-style:none;padding:0;margin:2.6rem 0 0;max-width:820px}
+.javni-seznam li{
+  padding:1.35rem 0;border-bottom:1px solid #ddd5c8;font-size:1rem;line-height:1.68;
+}
+.javni-seznam li:first-child{border-top:1px solid #ddd5c8}
+.javni-seznam b{display:block;color:var(--crnilo);font-weight:600;margin-bottom:.15rem}
+.javni-sklep{
+  margin-top:2.8rem;max-width:700px;border-left:2px solid var(--poudarek);padding-left:1.7rem;
+}
+.javni-sklep p{font-size:1rem}
+.javni-sklep p:last-child{margin-bottom:0}
+
+/* ---------- kdo sem ---------- */
+.bio-mreza{display:grid;grid-template-columns:.9fr 1.35fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.bio-foto img{width:100%;max-width:250px;height:auto;border-radius:50%;display:block}
+.bio-foto p{font-size:.83rem;color:var(--tiho);margin-top:1.3rem;max-width:250px;line-height:1.6}
+.pot{margin:2.6rem 0 0}
+.pot-blok{padding:1.9rem 0;border-top:1px solid var(--crta)}
+.pot-blok:last-child{border-bottom:1px solid var(--crta)}
+.pot-blok h3{
+  font-family:"Newsreader",Georgia,serif;font-size:1.34rem;font-weight:400;margin-bottom:.85rem;
+}
+.pot-blok p{font-size:1rem;max-width:64ch}
+.pot-blok p:last-child{margin-bottom:0}
+@media(max-width:860px){
+  .bio-mreza{grid-template-columns:1fr;gap:2.4rem}
+}
+
+/* ---------- kontakt ---------- */
+.kontakt{background:var(--papir-topel);border-top:0}
+.kontakt-mreza{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.podatki{list-style:none;padding:0;margin:2rem 0 0}
+.podatki li{margin-bottom:1.1rem;font-size:1rem}
+.podatki .oznaka-mala{display:block;font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;color:var(--tiho);margin-bottom:.15rem}
+.podatki a{text-decoration:none;border-bottom:1px solid var(--crta)}
+.podatki a:hover{border-bottom-color:var(--poudarek)}
+
+form{background:#fdfcfa;border:1px solid var(--crta);border-radius:3px;padding:clamp(1.5rem,3vw,2.2rem)}
+.polje{margin-bottom:1.15rem}
+.polje label{display:block;font-size:.85rem;font-weight:500;color:var(--crnilo);margin-bottom:.4rem}
+.polje select{
+  width:100%;font-family:inherit;font-size:.97rem;color:var(--crnilo);
+  background:#fff;border:1px solid var(--crta);border-radius:2px;padding:11px 13px;line-height:1.55;
+}
+.polje select:focus{border-color:var(--poudarek);outline:none;box-shadow:0 0 0 3px rgba(43,79,85,.1)}
+
+/* Daljše zgodbe so zvite; obiskovalec jih razpre sam. Brez skripte — <details>. */
+.vec{margin:.2rem 0 1.15rem;max-width:var(--besedilo)}
+.vec > summary{
+  list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:.6rem;
+  color:var(--poudarek);font-size:.9rem;padding:7px 0;
+  border-bottom:1px solid var(--crta);width:auto;
+}
+.vec > summary::-webkit-details-marker{display:none}
+.vec > summary::after{
+  content:"";width:6px;height:6px;flex:none;
+  border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
+  transform:rotate(45deg) translateY(-2px);transition:transform .2s;
+}
+.vec[open] > summary::after{transform:rotate(-135deg) translateY(1px)}
+.vec > summary:hover{color:var(--crnilo);border-bottom-color:var(--poudarek)}
+.vec > summary:focus-visible{outline:2px solid var(--poudarek);outline-offset:3px}
+.vec .zapri{display:none}
+.vec[open] .odpri{display:none}
+.vec[open] .zapri{display:inline}
+.vec-vsebina{padding-top:1.3rem}
+.vec-vsebina > :last-child{margin-bottom:0}
+@media(max-width:620px){.vec > summary{padding:11px 0;font-size:.95rem}}
+
+/* Kratke teme v razdelku o predavanjih. */
+.teme-kratko{list-style:none;padding:0;margin:2.4rem 0 0;max-width:820px}
+.teme-kratko li{padding:1.3rem 0;border-bottom:1px solid var(--crta);font-size:1rem;line-height:1.68}
+.teme-kratko li:first-child{border-top:1px solid var(--crta)}
+.teme-kratko b{display:block;color:var(--crnilo);font-weight:600;margin-bottom:.15rem}
+.polje input,.polje textarea{
+  width:100%;font-family:inherit;font-size:.97rem;color:var(--crnilo);
+  background:#fff;border:1px solid var(--crta);border-radius:2px;padding:11px 13px;line-height:1.55;
+}
+.polje input:focus,.polje textarea:focus{border-color:var(--poudarek);outline:none;box-shadow:0 0 0 3px rgba(43,79,85,.1)}
+.polje textarea{resize:vertical;min-height:130px}
+.dvojno{display:grid;grid-template-columns:1fr 1fr;gap:1.15rem}
+form button{
+  width:100%;background:var(--poudarek);color:#fff;border:0;border-radius:2px;
+  padding:14px 20px;font-family:inherit;font-size:.96rem;font-weight:500;cursor:pointer;transition:background .2s;
+}
+form button:hover{background:var(--crnilo)}
+.drobno{font-size:.79rem;color:var(--tiho);line-height:1.55;margin:.95rem 0 0}
+/* Rezerva, kadar brskalnik nima nastavljenega poštnega programa. */
+.rezerva{margin-top:1.4rem;padding-top:1.4rem;border-top:1px solid var(--crta)}
+.rezerva p{font-size:.88rem;line-height:1.6;margin-bottom:.8rem;max-width:none}
+.rezerva textarea{
+  width:100%;font-family:inherit;font-size:.85rem;line-height:1.55;color:var(--tekst);
+  background:var(--papir);border:1px solid var(--crta);border-radius:2px;padding:11px 13px;resize:vertical;
+}
+.kopiraj{
+  margin-top:.7rem;width:auto;background:none;border:1px solid var(--crta);color:var(--tekst);
+  padding:9px 16px;border-radius:2px;font-family:inherit;font-size:.87rem;cursor:pointer;
+}
+.kopiraj:hover{border-color:var(--poudarek);color:var(--poudarek);background:none}
+@media(max-width:820px){.kontakt-mreza,.dvojno{grid-template-columns:1fr}}
+/* 16px prepreči, da iOS ob dotiku na izbirnik poveča stran (enako kot za input v slog.css). */
+@media(max-width:620px){.polje select{padding:13px 14px;font-size:16px}}
+
+
+
+/* Uvodni razdelek te strani nima zgornje črte, ker je prvi na strani. */
+.hero-diag{border-top:0;padding-top:clamp(3rem,7vw,6rem)}
+</style>
+</head>
+<body>
+<a class="skip" href="#vsebina">Preskoči na vsebino</a>
+
+<header class="glava" id="glava">
+  <div class="ovoj">
+    <a class="logo" href="index.html">mag. Boštjan Štrajhar <span>— diagnostika organizacij</span></a>
+    <button class="meni-gumb" id="meni-gumb" type="button"
+            aria-expanded="false" aria-controls="meni" aria-label="Odpri meni">
+      <svg width="26" height="18" viewBox="0 0 26 18" fill="none" aria-hidden="true">
+        <path class="crta c1" d="M1 1h24"/>
+        <path class="crta c2" d="M1 9h24"/>
+        <path class="crta c3" d="M1 17h24"/>
+      </svg>
+    </button>
+    <nav class="meni" id="meni" aria-label="Glavni meni">
+      <a href="diagnostika.html">Diagnostika</a>
+      <a class="meni-test" href="test.html"><span class="kratko">Test organizacije</span><span class="dolgo">Test organizacijske realnosti</span></a>
+      <a href="predavanja.html">Predavanja</a>
+      <a class="meni-test" href="test-predavanja.html"><span class="kratko">Test kolektiva</span><span class="dolgo">Kaj bi vaš kolektiv slišal</span></a>
+      <a href="pot.html" aria-current="page">Kdo sem</a>
+      <a class="gumb-mali" href="index.html#kontakt">Uvodni pogovor</a>
+    </nav>
+  </div>
+</header>
+
+<main id="vsebina">
+
+<!-- ============ KDO SEM ============ -->
+<section id="kdo" class="hero-diag">
+  <div class="ovoj">
+    <span class="oznaka">Kdo sem</span>
+    <div class="bio-mreza">
+      <div class="bio-foto">
+        <img src="portret-krog.jpg" alt="mag. Boštjan Štrajhar" width="520" height="520">
+        <p>Antropologija me je naučila opazovati skupnost, ne da bi jo prehitro razložil. Psihoanaliza me je naučila najprej pogledati vase — brez tega ni nevtralnega pogleda na druge. Vodenje me je naučilo, da je treba na koncu vseeno nekaj odločiti.</p>
+      </div>
+      <div>
+        <h1>Organizacije poznam<br>s terena in z vrha.</h1>
+        <p>Nisem svetovalec, ki bi organizacije poznal iz literature. Šolo in vrtec sem ustanovil in ju vodil. Javni zavod sem prevzel in reorganiziral. Danes delam v občinski upravi, kjer se od znotraj vidi, kje se postopki zataknejo in koliko dela je potrebnega, da storitev pride do človeka.</p>
+        <p>Znanstveni magisterij iz antropologije mi daje orodje, s katerim vidim vzorce v odnosih med ljudmi. Leta vodenja mi dajejo občutek za to, kaj je v resnici izvedljivo. Eno brez drugega ne zaleže.</p>
+        <p>Diagnostiko opravljam ob rednem delu, v vnaprej dogovorjenem obsegu in rokih. Zato je ne sprejmem veliko — in zato tudi natančno preverim, ali sem pravi človek za vas, preden karkoli obljubim.</p>
+
+        <div class="pot">
+
+          <div class="pot-blok">
+            <h3>Kar sem vodil</h3>
+            <p><strong>Ustanovitelj in ravnatelj Waldorfske šole in vrtca Savinja.</strong> Iz nič: prostori, kadri, pravilniki, finance. Uradni ustanovitelj je bila matična ljubljanska šola, postavitev na terenu pa moje delo. V podporo šoli je bilo takrat povezanih več kot dvajset občin.</p>
+            <p><strong>Direktor javnega zavoda za kulturo, šport in turizem.</strong> Reorganizacija zavoda, novi regionalni produkti, šest povezanih občin v skupnem programu. Za ponoven mandat nisem kandidiral.</p>
+            <p><strong>Podsekretar, vodja oddelka za investicije in razvoj, strokovni sodelavec.</strong> Investicije, javna naročila, upravni postopki, usklajevanje z ministrstvi in civilnimi iniciativami, odnosi z javnostjo.</p>
+          </div>
+
+          <div class="pot-blok">
+            <h3>Kje sem se učil</h3>
+            <p>Pri dvajsetih sem odšel v Anglijo in tam tri leta študiral kot mednarodni štipendist, med ljudmi z vseh koncev sveta. Naučil sem se nekaj, česar doma ne bi mogel: isto stvar različne kulture vidijo različno, in kdor je prepričan, da ima prav, navadno le stoji na enem mestu.</p>
+            <p>Doma znanstveni magisterij iz antropologije, med moduli psihoanaliza, v teoriji in praksi.</p>
+          </div>
+
+          <div class="pot-blok">
+            <h3>Predavanja</h3>
+            <p>Med letoma 2008 in 2011 sem imel okoli dvesto predavanj in delavnic po vsej Sloveniji, večinoma v vrtcih, šolah in drugih vzgojno-izobraževalnih ustanovah — o komunikaciji s starši, o soočanju s stresom in izzivi ter o tem, kako poleg razuma nagovoriti tudi voljo in čutenje. Leta 2011 sem s tem prenehal, ker sem prevzel vodenje šole. Zdaj se vračam, s petnajstimi leti vodenja več. Poleg tega vodim mediacije v delovnih sporih.</p>
+            <p><a href="predavanja.html">Teme, oblika in cena →</a></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="naprej">
+  <div class="ovoj">
+    <span class="oznaka">Naslednji korak</span>
+    <h2>Kaj od tega<br>potrebujete vi.</h2>
+    <p>Če ne veste, katera pot je prava, začnite z enim od obeh testov. Vsak traja dve minuti in nič se ne pošlje.</p>
+    <div class="gumbi">
+      <a class="gumb" href="test.html">Test organizacije</a>
+      <a class="gumb-obris" href="test-predavanja.html">Test kolektiva →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="noga">
+  <div class="ovoj">
+    <p>© <span id="leto">2026</span> mag. Boštjan Štrajhar · <a href="index.html">Začetna stran</a></p>
+    <p>Ta stran ne uporablja piškotkov in ne zbira podatkov o obiskovalcih.</p>
+  </div>
+</footer>
+
+<script>
+(function(){"use strict";
+  var l=document.getElementById("leto"); if(l) l.textContent=new Date().getFullYear();
+  var g=document.getElementById("glava"), z=null;
+  window.addEventListener("scroll",function(){var s=window.scrollY>12;
+    if(s!==z){g.classList.toggle("oblita",s);z=s;}},{passive:true});
+  var mg=document.getElementById("meni-gumb"), m=document.getElementById("meni");
+  if(mg&&m){var p=function(o){mg.setAttribute("aria-expanded",o?"true":"false");
+      mg.setAttribute("aria-label",o?"Zapri meni":"Odpri meni");
+      m.classList.toggle("odprt",o);document.body.classList.toggle("meni-odprt",o);};
+    mg.addEventListener("click",function(){p(mg.getAttribute("aria-expanded")!=="true");});
+    m.addEventListener("click",function(e){if(e.target.tagName==="A")p(false);});
+    document.addEventListener("keydown",function(e){
+      if(e.key==="Escape"&&mg.getAttribute("aria-expanded")==="true"){p(false);mg.focus();}});
+    window.addEventListener("resize",function(){if(window.innerWidth>1080)p(false);});}
+})();
+</script>
+</body>
+</html>
