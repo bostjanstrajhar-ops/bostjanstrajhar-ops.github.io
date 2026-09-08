@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kaj bi vaš kolektiv slišal — šest vprašanj za vodstvo</title>
+<title>Kaj mora slišati vaš kolektiv — šest vprašanj za vodstvo</title>
 <meta name="description" content="Šest vprašanj, ki pokažejo, katera od treh tem je za vaš kolektiv na mestu. Dve minuti, brez registracije. Odgovori ostanejo v vašem brskalniku.">
 <meta name="author" content="mag. Boštjan Štrajhar">
 <link rel="canonical" href="https://bostjanstrajhar-ops.github.io/test-predavanja.html">
@@ -11,7 +11,7 @@
 <meta property="og:locale" content="sl_SI">
 <meta property="og:url" content="https://bostjanstrajhar-ops.github.io/test-predavanja.html">
 <meta property="og:site_name" content="mag. Boštjan Štrajhar">
-<meta property="og:title" content="Kaj bi vaš kolektiv slišal — šest vprašanj za vodstvo">
+<meta property="og:title" content="Kaj mora slišati vaš kolektiv — šest vprašanj za vodstvo">
 <meta property="og:description" content="Šest vprašanj, ki pokažejo, katera tema je za vaš kolektiv na mestu. Dve minuti, brez shranjevanja.">
 <meta property="og:image" content="https://bostjanstrajhar-ops.github.io/predavanje.jpg">
 <meta name="theme-color" content="#f7f5f1">
@@ -148,7 +148,7 @@ html{scroll-padding-top:112px}
       <a href="diagnostika.html">Diagnostika</a>
       <a class="meni-test" href="test.html"><span class="kratko">Test organizacije</span><span class="dolgo">Test organizacijske realnosti</span></a>
       <a href="predavanja.html">Predavanja</a>
-      <a class="meni-test" href="test-predavanja.html" aria-current="page"><span class="kratko">Test kolektiva</span><span class="dolgo">Kaj bi vaš kolektiv slišal</span></a>
+      <a class="meni-test" href="test-predavanja.html" aria-current="page"><span class="kratko">Test kolektiva</span><span class="dolgo">Kaj mora slišati kolektiv</span></a>
       <a href="pot.html">Kdo sem</a>
       <a class="gumb-mali" href="index.html#kontakt">Uvodni pogovor</a>
     </nav>
@@ -160,11 +160,11 @@ html{scroll-padding-top:112px}
 <section class="test-uvod">
   <div class="ovoj">
     <span class="oznaka">Za vodstvo</span>
-    <h1>Kaj bi vaš kolektiv slišal.</h1>
+    <h1>Kaj mora slišati vaš kolektiv.</h1>
 
     <div class="opozorilo">
-      <p>Nobena od treh tem ni prava za vsak kolektiv. Ta vprašanja vam pokažejo, katera je pri vas najbolj na mestu — ali pa da nobena ni.</p>
-      <p>Odgovarjajte po tem, kako je, ne po tem, kako bi želeli, da bi bilo.</p>
+      <p>Nobena od treh tem ni univerzalna. Vprašanja pokažejo, katera je dejansko na mestu pri vas — ali pa vas opozorijo, da ne potrebujete nobene.</p>
+      <p>Odgovarjajte po dejanskem stanju, ne po tem, kako bi želeli, da bi bilo.</p>
     </div>
 
     <p class="zasebno">Dve minuti. Nič se ne pošlje, nič se ne shrani — odgovori ostanejo v vašem brskalniku.</p>
@@ -270,7 +270,7 @@ html{scroll-padding-top:112px}
       <button type="button" class="ponovi" id="ponovi">Ponovi test</button>
     </div>
 
-    <p class="ni-diagnoza">Ta izid ni diagnoza. Šest vprašanj pove le, o čem je pri vas vredno govoriti dve uri.</p>
+    <p class="ni-diagnoza">Ta izid ni diagnoza. Šest vprašanj pove le, o čem je pri vas smiselno govoriti dve uri.</p>
   </div>
 </section>
 
@@ -297,7 +297,6 @@ html{scroll-padding-top:112px}
     if (s !== zadnje) { glava.classList.toggle("oblita", s); zadnje = s; }
   }, { passive: true });
 
-  // Meni na telefonu.
   var mGumb = document.getElementById("meni-gumb");
   var meni = document.getElementById("meni");
   if (mGumb && meni) {
@@ -323,16 +322,11 @@ html{scroll-padding-top:112px}
     });
   }
 
-  // ---------- Test ----------
-  // Da = 2, Delno = 1, Ne = 0. Skupaj od 0 do 12.
-  // Izid ne sledi skupnemu seštevku, ampak sklopu z največ točkami:
-  // ta določi priporočeno temo. Vse se izračuna v brskalniku.
-
   var TEME = {
     A: {
-      naslov: "Pri vas breme ni enakomerno razdeljeno.",
+      naslov: "Breme pri vas ni enakomerno razdeljeno.",
       besedilo: [
-        "Odgovori kažejo na hišo, v kateri delo teče — teče pa po nekaj ljudeh. To se navadno opazi šele, ko eden od njih odide ali obstane."
+        "Odgovori kažejo na hišo, v kateri delo teče izključno po plečih nekaj posameznikov. To se navadno opazi šele takrat, ko najboljši med njimi izgorijo ali odidejo."
       ],
       tema: "Zakaj najbolj vestni prvi izgorijo",
       povezava: "predavanja.html#tema-1"
@@ -340,15 +334,15 @@ html{scroll-padding-top:112px}
     B: {
       naslov: "Pri vas se dogovori razumejo različno.",
       besedilo: [
-        "Odgovori kažejo, da se na sestankih doseže soglasje, ki v izvedbi ne drži. To redko pomeni, da kdo ne posluša. Pogosteje pomeni, da vsak nosi svoj del slike in misli, da je slika ena sama."
+        "Odgovori kažejo, da se na sestankih doseže navidezno soglasje, ki v izvedbi ne drži. To redko pomeni, da vas nihče ne posluša. Pomeni, da vsak nosi svoj del slike in misli, da je slika ena sama."
       ],
       tema: "Zakaj isti dogodek v isti hiši ni isti dogodek",
       povezava: "predavanja.html#tema-2"
     },
     C: {
-      naslov: "Pri vas se o težavah govori pozno.",
+      naslov: "O težavah se pri vas govori prepozno.",
       besedilo: [
-        "Odgovori kažejo na organizacijo, kjer velja, da mora biti vzdušje dobro. Cena tega je, da se stvari izrečejo šele, ko jih ni več mogoče prekriti."
+        "Odgovori kažejo na organizacijo, kjer velja nenapisano pravilo, da mora biti vzdušje za vsako ceno dobro. Cena tega je, da se stvari izrečejo šele, ko jih ni več mogoče prekriti."
       ],
       tema: "Zmote se vidijo za nazaj",
       povezava: "predavanja.html#tema-3"
@@ -358,8 +352,8 @@ html{scroll-padding-top:112px}
   var NIC = {
     naslov: "Videti je, da nič posebej ne izstopa.",
     besedilo: [
-      "Po teh odgovorih pri vas ni teme, ki bi terjala dve uri celotnega kolektiva. To ni vljudnostna fraza — če bi vam kljub temu kaj prodajal, bi bil natanko tak predavatelj, kakršnih sam ne maram.",
-      "Test si shranite in ga ponovite čez pol leta."
+      "Po teh odgovorih pri vas ni teme, ki bi terjala dve uri celotnega kolektiva. To ni vljudnostna fraza — ne prodajam predavanj zgolj zato, da bi nekaj zapolnil.",
+      "Zapišite si datum in test ponovite čez pol leta."
     ]
   };
 
@@ -406,8 +400,6 @@ html{scroll-padding-top:112px}
     if (r.skupaj <= 3) {
       izid = NIC;
     } else {
-      // Sklop z največ točkami določi temo. Pri izenačenju velja prvi po vrsti,
-      // z opombo, da sta pri vas na mestu obe.
       var najvisje = r.poSkupinah.slice().sort(function (a, b) { return b.tocke - a.tocke; });
       izenacena = najvisje.length > 1 && najvisje[0].tocke === najvisje[1].tocke;
       for (var i = 0; i < r.poSkupinah.length; i++) {
@@ -463,7 +455,7 @@ html{scroll-padding-top:112px}
   "@type": "WebPage",
   "@id": "https://bostjanstrajhar-ops.github.io/test-predavanja.html",
   "url": "https://bostjanstrajhar-ops.github.io/test-predavanja.html",
-  "name": "Kaj bi vaš kolektiv slišal",
+  "name": "Kaj mora slišati vaš kolektiv",
   "description": "Šest vprašanj, ki pokažejo, katera od treh tem predavanj je za vaš kolektiv na mestu.",
   "inLanguage": "sl-SI",
   "isPartOf": { "@id": "https://bostjanstrajhar-ops.github.io/#stran" },
