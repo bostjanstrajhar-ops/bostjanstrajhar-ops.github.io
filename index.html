@@ -15,279 +15,45 @@
 <meta property="og:description" content="Dve uri s kolektivom ali diagnostika celotne organizacije. Za javne zavode, občinske uprave in podjetja. Začnite s testom — dve minuti.">
 <meta name="theme-color" content="#f7f5f1">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f7f5f1'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%232b4f55' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='16' r='2.6' fill='%232b4f55'/%3E%3C/svg%3E">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        papir: "#f7f5f1", papirtopel: "#efeae1", crnilo: "#191e20", tekst: "#33393b",
+        tiho: "#6b7274", crta: "#e0dacf", poudarek: "#2b4f55", poudareksvetel: "#4a7f88", temno: "#1b2224"
+      },
+      fontFamily: {
+        serif: ['Newsreader', 'Georgia', 'Times New Roman', 'serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif']
+      },
+      maxWidth: { ovoj: '1120px', besedilo: '660px' }
+    }
+  }
+};
+</script>
 <link rel="stylesheet" href="slog.css">
-<style>
-/* Slog te strani. Skupni slog je v slog.css. */
-/* ---------- hero ---------- */
-.hero{border-top:0;padding-top:clamp(3rem,7vw,6rem)}
-.hero-mreza{display:grid;grid-template-columns:1.35fr .85fr;gap:clamp(2rem,6vw,5rem);align-items:center}
-.hero h1 .tiho{color:var(--tiho)}
-.hero .uvod{margin-bottom:2rem}
-.hero-foto{position:relative}
-.hero-foto img{width:100%;height:auto;display:block;border-radius:3px;filter:saturate(.93)}
-.hero-foto figcaption{
-  font-size:.78rem;color:var(--tiho);margin-top:.85rem;line-height:1.5;
-  border-left:2px solid var(--crta);padding-left:.85rem;
-}
-.dejavnosti{display:flex;flex-wrap:wrap;gap:.5rem;margin:2.3rem 0 0;padding:0;list-style:none}
-.dejavnosti li{
-  font-size:.815rem;color:var(--tiho);border:1px solid var(--crta);
-  padding:5px 12px;border-radius:100px;background:#fdfcfa;
-}
-@media(max-width:820px){
-  .hero-mreza{grid-template-columns:1fr;gap:2.6rem}
-  .hero-foto{max-width:330px}
-}
-
-
-/* ---------- vabilo na test ---------- */
-.sklepna{
-  margin-top:2.2rem;font-family:"Newsreader",Georgia,serif;
-  font-size:clamp(1.1rem,1.9vw,1.28rem);line-height:1.55;color:#252b2d;max-width:46ch;
-}
-.vabilo{
-  margin-top:3rem;max-width:860px;background:var(--papir-topel);
-  border-radius:3px;padding:clamp(1.7rem,3.5vw,2.4rem);
-  display:grid;grid-template-columns:1fr auto;gap:clamp(1.4rem,3vw,2.6rem);align-items:center;
-}
-.vabilo h3{
-  font-family:"Newsreader",Georgia,serif;font-size:1.5rem;font-weight:400;margin-bottom:.7rem;
-}
-.vabilo p{margin-bottom:.7rem;font-size:1rem}
-.vabilo p:last-child{margin-bottom:0}
-.vabilo .gumb{white-space:nowrap}
-@media(max-width:700px){
-  .vabilo{grid-template-columns:1fr;align-items:stretch}
-  .vabilo .gumb{text-align:center}
-}
-
-/* ---------- metoda ---------- */
-.koraki{margin-top:3rem;counter-reset:k}
-.korak{
-  display:grid;grid-template-columns:96px 1fr;gap:clamp(1rem,3vw,2.6rem);
-  padding:2.1rem 0;border-top:1px solid var(--crta);
-}
-.korak:last-of-type{border-bottom:1px solid var(--crta)}
-.korak-st{
-  font-family:"Newsreader",Georgia,serif;font-size:2.5rem;line-height:1;
-  color:var(--poudarek);opacity:.42;font-weight:300;padding-top:.1rem;
-}
-.korak p{margin-bottom:0}
-.korak-op{
-  margin-top:2.2rem;padding:1.5rem 1.7rem;background:var(--papir-topel);
-  border-radius:3px;max-width:760px;
-}
-.korak-op p{margin:0;font-size:.97rem}
-.pod-koraki{margin-top:3rem;max-width:700px}
-.pod-koraki h3{
-  font-family:"Newsreader",Georgia,serif;font-size:1.4rem;font-weight:400;margin-bottom:.9rem;
-}
-.merilo{
-  margin-top:3rem;max-width:720px;border-left:2px solid var(--poudarek);padding-left:1.7rem;
-}
-.merilo p{
-  margin:0;font-family:"Newsreader",Georgia,serif;
-  font-size:clamp(1.12rem,2vw,1.34rem);line-height:1.55;color:#22282a;max-width:none;
-}
-@media(max-width:620px){
-  .korak{grid-template-columns:1fr;gap:.5rem}
-  .korak-st{font-size:1.6rem}
-}
-
-/* ---------- primeri ---------- */
-/* Trije primeri drug pod drugim: v treh stolpcih bi bile vrstice prekratke
-   za tako gosto besedilo, dva stolpca pa bi tretji primer pustila samega. */
-.primeri{margin-top:3.4rem;max-width:820px}
-.primer{padding:2.8rem 0;border-top:1px solid var(--crta)}
-.primer:last-child{border-bottom:1px solid var(--crta)}
-.primer h3{font-family:"Newsreader",Georgia,serif;font-size:1.62rem;font-weight:400;margin-bottom:1.1rem}
-.primer p{font-size:1rem;max-width:66ch}
-.primer .kdo{
-  display:inline-block;font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;
-  color:var(--tiho);border:1px solid var(--crta);padding:4px 10px;border-radius:2px;margin-bottom:1.1rem;
-}
-.primer .zakljucek{
-  border-left:2px solid var(--poudarek);padding-left:1.4rem;margin-top:1.7rem;
-  font-family:"Newsreader",Georgia,serif;font-size:1.12rem;line-height:1.6;color:#252b2d;
-}
-
-/* ---------- temni razdelek ---------- */
-.temno{background:var(--temno);color:#c8ccca;border-top:0}
-.temno h2,.temno h3{color:#f2efe9}
-.temno .oznaka{color:#7c8886}
-.temno a{color:#8fbdc4}
-.ne-bo{list-style:none;padding:0;margin:2.5rem 0 0;max-width:780px}
-.ne-bo li{
-  padding:1.25rem 0;border-bottom:1px solid rgba(255,255,255,.11);
-  font-size:1.03rem;line-height:1.65;
-}
-.ne-bo li:first-child{border-top:1px solid rgba(255,255,255,.11)}
-.ne-bo b{color:#f2efe9;font-weight:500}
-.zbode{margin-top:3.4rem;max-width:700px}
-.zbode h3{
-  font-family:"Newsreader",Georgia,serif;font-size:1.5rem;font-weight:400;
-  color:#f2efe9;margin-bottom:1rem;
-}
-.zbode p{color:#c3c8c6;max-width:none}
-.navedek{
-  margin:3.4rem 0 0;max-width:700px;border-left:2px solid var(--poudarek-svetel);padding-left:1.7rem;
-}
-.navedek p{
-  font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:clamp(1.16rem,2.3vw,1.42rem);
-  line-height:1.55;color:#eae7e0;max-width:none;
-}
-.navedek footer{font-size:.85rem;color:#8b9694;font-style:normal}
-.temno .sklep{margin-top:2.8rem;max-width:640px;color:#b9bfbd}
-
-/* ---------- za javne naročnike ---------- */
-.javni{background:var(--papir-topel);border-top:0}
-.javni-seznam{list-style:none;padding:0;margin:2.6rem 0 0;max-width:820px}
-.javni-seznam li{
-  padding:1.35rem 0;border-bottom:1px solid #ddd5c8;font-size:1rem;line-height:1.68;
-}
-.javni-seznam li:first-child{border-top:1px solid #ddd5c8}
-.javni-seznam b{display:block;color:var(--crnilo);font-weight:600;margin-bottom:.15rem}
-.javni-sklep{
-  margin-top:2.8rem;max-width:700px;border-left:2px solid var(--poudarek);padding-left:1.7rem;
-}
-.javni-sklep p{font-size:1rem}
-.javni-sklep p:last-child{margin-bottom:0}
-
-/* ---------- kdo sem ---------- */
-.bio-mreza{display:grid;grid-template-columns:.9fr 1.35fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
-.bio-foto img{width:100%;max-width:250px;height:auto;border-radius:50%;display:block}
-.bio-foto p{font-size:.83rem;color:var(--tiho);margin-top:1.3rem;max-width:250px;line-height:1.6}
-.pot{margin:2.6rem 0 0}
-.pot-blok{padding:1.9rem 0;border-top:1px solid var(--crta)}
-.pot-blok:last-child{border-bottom:1px solid var(--crta)}
-.pot-blok h3{
-  font-family:"Newsreader",Georgia,serif;font-size:1.34rem;font-weight:400;margin-bottom:.85rem;
-}
-.pot-blok p{font-size:1rem;max-width:64ch}
-.pot-blok p:last-child{margin-bottom:0}
-@media(max-width:860px){
-  .bio-mreza{grid-template-columns:1fr;gap:2.4rem}
-}
-
-/* ---------- kontakt ---------- */
-.kontakt{background:var(--papir-topel);border-top:0}
-.kontakt-mreza{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
-.podatki{list-style:none;padding:0;margin:2rem 0 0}
-.podatki li{margin-bottom:1.1rem;font-size:1rem}
-.podatki .oznaka-mala{display:block;font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;color:var(--tiho);margin-bottom:.15rem}
-.podatki a{text-decoration:none;border-bottom:1px solid var(--crta)}
-.podatki a:hover{border-bottom-color:var(--poudarek)}
-
-form{background:#fdfcfa;border:1px solid var(--crta);border-radius:3px;padding:clamp(1.5rem,3vw,2.2rem)}
-.polje{margin-bottom:1.15rem}
-.polje label{display:block;font-size:.85rem;font-weight:500;color:var(--crnilo);margin-bottom:.4rem}
-.polje select{
-  width:100%;font-family:inherit;font-size:.97rem;color:var(--crnilo);
-  background:#fff;border:1px solid var(--crta);border-radius:2px;padding:11px 13px;line-height:1.55;
-}
-.polje select:focus{border-color:var(--poudarek);outline:none;box-shadow:0 0 0 3px rgba(43,79,85,.1)}
-
-/* Daljše zgodbe so zvite; obiskovalec jih razpre sam. Brez skripte — <details>. */
-.vec{margin:.2rem 0 1.15rem;max-width:var(--besedilo)}
-.vec > summary{
-  list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:.6rem;
-  color:var(--poudarek);font-size:.9rem;padding:7px 0;
-  border-bottom:1px solid var(--crta);width:auto;
-}
-.vec > summary::-webkit-details-marker{display:none}
-.vec > summary::after{
-  content:"";width:6px;height:6px;flex:none;
-  border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
-  transform:rotate(45deg) translateY(-2px);transition:transform .2s;
-}
-.vec[open] > summary::after{transform:rotate(-135deg) translateY(1px)}
-.vec > summary:hover{color:var(--crnilo);border-bottom-color:var(--poudarek)}
-.vec > summary:focus-visible{outline:2px solid var(--poudarek);outline-offset:3px}
-.vec .zapri{display:none}
-.vec[open] .odpri{display:none}
-.vec[open] .zapri{display:inline}
-.vec-vsebina{padding-top:1.3rem}
-.vec-vsebina > :last-child{margin-bottom:0}
-@media(max-width:620px){.vec > summary{padding:11px 0;font-size:.95rem}}
-
-/* Kratke teme v razdelku o predavanjih. */
-.teme-kratko{list-style:none;padding:0;margin:2.4rem 0 0;max-width:820px}
-.teme-kratko li{padding:1.3rem 0;border-bottom:1px solid var(--crta);font-size:1rem;line-height:1.68}
-.teme-kratko li:first-child{border-top:1px solid var(--crta)}
-.teme-kratko b{display:block;color:var(--crnilo);font-weight:600;margin-bottom:.15rem}
-.polje input,.polje textarea{
-  width:100%;font-family:inherit;font-size:.97rem;color:var(--crnilo);
-  background:#fff;border:1px solid var(--crta);border-radius:2px;padding:11px 13px;line-height:1.55;
-}
-.polje input:focus,.polje textarea:focus{border-color:var(--poudarek);outline:none;box-shadow:0 0 0 3px rgba(43,79,85,.1)}
-.polje textarea{resize:vertical;min-height:130px}
-.dvojno{display:grid;grid-template-columns:1fr 1fr;gap:1.15rem}
-form button{
-  width:100%;background:var(--poudarek);color:#fff;border:0;border-radius:2px;
-  padding:14px 20px;font-family:inherit;font-size:.96rem;font-weight:500;cursor:pointer;transition:background .2s;
-}
-form button:hover{background:var(--crnilo)}
-.drobno{font-size:.79rem;color:var(--tiho);line-height:1.55;margin:.95rem 0 0}
-/* Rezerva, kadar brskalnik nima nastavljenega poštnega programa. */
-.rezerva{margin-top:1.4rem;padding-top:1.4rem;border-top:1px solid var(--crta)}
-.rezerva p{font-size:.88rem;line-height:1.6;margin-bottom:.8rem;max-width:none}
-.rezerva textarea{
-  width:100%;font-family:inherit;font-size:.85rem;line-height:1.55;color:var(--tekst);
-  background:var(--papir);border:1px solid var(--crta);border-radius:2px;padding:11px 13px;resize:vertical;
-}
-.kopiraj{
-  margin-top:.7rem;width:auto;background:none;border:1px solid var(--crta);color:var(--tekst);
-  padding:9px 16px;border-radius:2px;font-family:inherit;font-size:.87rem;cursor:pointer;
-}
-.kopiraj:hover{border-color:var(--poudarek);color:var(--poudarek);background:none}
-@media(max-width:820px){.kontakt-mreza,.dvojno{grid-template-columns:1fr}}
-/* 16px prepreči, da iOS ob dotiku na izbirnik poveča stran (enako kot za input v slog.css). */
-@media(max-width:620px){.polje select{padding:13px 14px;font-size:16px}}
-
-
-/* ---------- položaji, v katerih me pokličejo ---------- */
-.polozaji{list-style:none;padding:0;margin:2rem 0 0;max-width:780px}
-.polozaji li{padding:1rem 0;border-bottom:1px solid var(--crta);font-size:1.02rem;line-height:1.6}
-.polozaji li:first-child{border-top:1px solid var(--crta)}
-.polozaji li::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;
-  background:var(--poudarek);margin:0 .85rem .28rem 0;opacity:.6}
-
-/* ---------- dve poti ---------- */
-.poti{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,4vw,3rem);margin-top:2.6rem}
-.pot-kartica{border-top:2px solid var(--poudarek);padding-top:1.5rem;display:flex;flex-direction:column}
-.pot-kartica h3{font-family:"Newsreader",Georgia,serif;font-size:1.5rem;font-weight:400;margin-bottom:.3rem}
-.pot-kartica .meta{font-size:.79rem;letter-spacing:.11em;text-transform:uppercase;color:var(--tiho);margin-bottom:1rem}
-.pot-kartica p{font-size:1rem;margin-bottom:1.1rem}
-.pot-kartica .gumbi{margin-top:auto;padding-top:.4rem}
-@media(max-width:760px){.poti{grid-template-columns:1fr;gap:2.4rem}}
-
-/* ---------- kratek življenjepis na razdelilniku ---------- */
-.kdo-kratko{max-width:720px}
-.kdo-kratko p{font-size:1.02rem}
-
-</style>
 </head>
-<body>
-<a class="skip" href="#vsebina">Preskoči na vsebino</a>
+<body class="bg-papir font-sans text-tekst text-[17px] leading-relaxed antialiased">
+<a class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[99] focus:rounded focus:bg-crnilo focus:px-4 focus:py-2.5 focus:text-white" href="#vsebina">Preskoči na vsebino</a>
 
-<header class="glava" id="glava">
-  <div class="ovoj">
-    <a class="logo" href="index.html">mag. Boštjan Štrajhar <span>— diagnostika organizacij</span></a>
-    <button class="meni-gumb" id="meni-gumb" type="button"
-            aria-expanded="false" aria-controls="meni" aria-label="Odpri meni">
+<!-- ============ GLAVA ============ -->
+<header class="glava sticky top-0 z-50" id="glava">
+  <div class="mx-auto flex h-[66px] max-w-ovoj items-center justify-between gap-6 px-6">
+    <a class="whitespace-nowrap font-serif text-[1.05rem] text-crnilo" href="index.html">mag. Boštjan Štrajhar <span class="hidden text-[.9rem] text-tiho xl:inline">— diagnostika organizacij</span></a>
+    <button class="meni-gumb -mr-2.5 p-2.5 leading-none text-crnilo lg:hidden" id="meni-gumb" type="button" aria-expanded="false" aria-controls="meni" aria-label="Odpri meni">
       <svg width="26" height="18" viewBox="0 0 26 18" fill="none" aria-hidden="true">
-        <path class="crta c1" d="M1 1h24"/>
-        <path class="crta c2" d="M1 9h24"/>
-        <path class="crta c3" d="M1 17h24"/>
+        <path class="crta c1" d="M1 1h24"/><path class="crta c2" d="M1 9h24"/><path class="crta c3" d="M1 17h24"/>
       </svg>
     </button>
-    <nav class="meni" id="meni" aria-label="Glavni meni">
-      <a href="diagnostika.html">Diagnostika</a>
-      <a class="meni-test" href="test.html"><span class="kratko">Test organizacije</span><span class="dolgo">Test organizacijske realnosti</span></a>
-      <a href="predavanja.html">Predavanja</a>
-      <a class="meni-test" href="test-predavanja.html"><span class="kratko">Test kolektiva</span><span class="dolgo">Kaj bi vaš kolektiv slišal</span></a>
-      <a href="pot.html">Kdo sem</a>
-      <a class="gumb-mali" href="#kontakt">Uvodni pogovor</a>
+    <nav class="meni hidden items-center gap-6 lg:flex" id="meni" aria-label="Glavni meni">
+      <a class="text-[.865rem] text-tekst transition-colors hover:text-poudarek" href="diagnostika.html">Diagnostika</a>
+      <a class="meni-test flex items-center gap-2 text-[.865rem] font-medium text-poudarek transition-colors hover:text-crnilo" href="test.html">Test organizacije</a>
+      <a class="text-[.865rem] text-tekst transition-colors hover:text-poudarek" href="predavanja.html">Predavanja</a>
+      <a class="meni-test flex items-center gap-2 text-[.865rem] font-medium text-poudarek transition-colors hover:text-crnilo" href="test-predavanja.html">Test kolektiva</a>
+      <a class="text-[.865rem] text-tekst transition-colors hover:text-poudarek" href="pot.html">Kdo sem</a>
+      <a class="meni-cta rounded border border-poudarek px-4 py-2 text-[.865rem] font-medium text-poudarek transition-colors hover:bg-poudarek hover:text-white" href="#kontakt">Uvodni pogovor</a>
     </nav>
   </div>
 </header>
@@ -295,70 +61,70 @@ form button:hover{background:var(--crnilo)}
 <main id="vsebina">
 
 <!-- ============ UVOD ============ -->
-<section class="hero">
-  <div class="ovoj">
-    <div class="hero-mreza">
+<section class="border-t-0 px-6 pb-16 pt-14 sm:pb-20 md:pt-20">
+  <div class="mx-auto max-w-ovoj">
+    <div class="grid items-center gap-12 md:grid-cols-[1.35fr_.85fr] lg:gap-20">
       <div>
-        <span class="oznaka">Diagnostika organizacij · Predavanja za kolektive</span>
-        <h1>Vzrok je skoraj vedno<br><span class="tiho">drugje, kot se zdi.</span></h1>
-        <p class="uvod">Poslušam po oddelkih in povem, kaj sem videl. Včasih zadostujeta dve uri s kolektivom, včasih je treba pogledati celoto.</p>
-        <div class="gumbi">
-          <a class="gumb" href="test.html">Test organizacije — 2 minuti</a>
-          <a class="gumb-obris" href="test-predavanja.html">Test kolektiva →</a>
+        <span class="eyebrow mb-6">Diagnostika organizacij · Predavanja za kolektive</span>
+        <h1 class="mb-5 font-serif text-[clamp(2.35rem,5.4vw,4.05rem)] font-normal leading-[1.08] tracking-tight text-crnilo">Vzrok je skoraj vedno<br><span class="text-tiho">drugje, kot se zdi.</span></h1>
+        <p class="mb-8 max-w-[36ch] font-serif text-[clamp(1.2rem,2.1vw,1.44rem)] leading-relaxed text-[#2a3133]">Poslušam po oddelkih in povem, kaj sem videl. Včasih zadostujeta dve uri s kolektivom, včasih je treba pogledati celoto.</p>
+        <div class="flex flex-wrap items-center gap-4">
+          <a class="btn" href="test.html">Test organizacije — 2 minuti</a>
+          <a class="btn-ghost" href="test-predavanja.html">Test kolektiva <span aria-hidden="true">→</span></a>
         </div>
-        <ul class="dejavnosti">
-          <li>Javni zavodi</li>
-          <li>Občinske uprave</li>
-          <li>Podjetja od desetih zaposlenih naprej</li>
+        <ul class="mt-9 flex flex-wrap gap-2">
+          <li class="tag">Javni zavodi</li>
+          <li class="tag">Občinske uprave</li>
+          <li class="tag">Podjetja od desetih zaposlenih naprej</li>
         </ul>
       </div>
-      <figure class="hero-foto">
-        <img src="portret.jpg" alt="mag. Boštjan Štrajhar" width="880" height="1252">
-        <figcaption>26 let dela v organizacijah. Dvanajst let na vodstvenih mestih — v šolstvu, javnem zavodu in občinski upravi.</figcaption>
+      <figure class="relative mx-auto max-w-[330px] md:max-w-none">
+        <img class="block w-full rounded-[3px] shadow-[0_30px_60px_-40px_rgba(25,30,32,.55)] [filter:saturate(.93)]" src="portret.jpg" alt="mag. Boštjan Štrajhar" width="880" height="1252">
+        <figcaption class="mt-3.5 border-l-2 border-crta pl-3.5 text-[.78rem] leading-normal text-tiho">26 let dela v organizacijah. Dvanajst let na vodstvenih mestih — v šolstvu, javnem zavodu in občinski upravi.</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
 <!-- ============ KDAJ ME POKLIČEJO ============ -->
-<section id="kdaj">
-  <div class="ovoj">
-    <span class="oznaka">Kdaj me pokličejo</span>
-    <h2>Štirje trenutki,<br>ki jih poznam od blizu.</h2>
-    <ul class="polozaji">
-      <li>Ko je bilo treba urediti odnose med učitelji in starši.</li>
-      <li>Ko je vodja želel vpeljati novost in je hotel, da tudi zaživi.</li>
-      <li>Ko je ravnatelj želel podpreti učitelje, ki so bili na robu izgorelosti.</li>
-      <li>Ko je novo vodstvo hotelo jasno sliko, kje organizacija je.</li>
+<section class="border-t border-crta px-6 py-16 sm:py-24" id="kdaj">
+  <div class="mx-auto max-w-ovoj">
+    <span class="eyebrow mb-6">Kdaj me pokličejo</span>
+    <h2 class="mb-6 font-serif text-[clamp(1.72rem,3.2vw,2.5rem)] font-normal leading-tight tracking-tight text-crnilo">Štirje trenutki,<br>ki jih poznam od blizu.</h2>
+    <ul class="max-w-[780px]">
+      <li class="border-t border-crta py-4 text-[1.02rem] leading-relaxed">Ko je bilo treba urediti odnose med učitelji in starši.</li>
+      <li class="border-t border-crta py-4 text-[1.02rem] leading-relaxed">Ko je vodja želel vpeljati novost in je hotel, da tudi zaživi.</li>
+      <li class="border-t border-crta py-4 text-[1.02rem] leading-relaxed">Ko je ravnatelj želel podpreti učitelje, ki so bili na robu izgorelosti.</li>
+      <li class="border-y border-crta py-4 text-[1.02rem] leading-relaxed">Ko je novo vodstvo hotelo jasno sliko, kje organizacija je.</li>
     </ul>
-    <p class="sklepna">Nobeden od teh trenutkov ne pomeni, da je kaj narobe. Vsi štirje pomenijo, da nekdo hoče naprej.</p>
+    <p class="mt-9 max-w-[46ch] font-serif text-[clamp(1.1rem,1.9vw,1.28rem)] leading-snug text-[#252b2d]">Nobeden od teh trenutkov ne pomeni, da je kaj narobe. Vsi štirje pomenijo, da nekdo hoče naprej.</p>
   </div>
 </section>
 
 <!-- ============ DVE POTI ============ -->
-<section id="poti">
-  <div class="ovoj">
-    <span class="oznaka">Kaj ponujam</span>
-    <h2>Dve poti. Prva je krajša,<br>druga gre do konca.</h2>
+<section class="border-t border-crta px-6 py-16 sm:py-24" id="poti">
+  <div class="mx-auto max-w-ovoj">
+    <span class="eyebrow mb-6">Kaj ponujam</span>
+    <h2 class="mb-6 font-serif text-[clamp(1.72rem,3.2vw,2.5rem)] font-normal leading-tight tracking-tight text-crnilo">Dve poti. Prva je krajša,<br>druga gre do konca.</h2>
 
-    <div class="poti">
-      <div class="pot-kartica">
-        <h3>Predavanje in delavnica</h3>
-        <p class="meta">Ena ura ali dve · do 70 ljudi · 800–2.600 EUR</p>
-        <p>Ena tema, ves kolektiv. Ne o tem, kako pritisk prenašati, ampak o tem, kje nastane. Tri teme: zakaj najbolj vestni prvi izgorijo, zakaj isti dogodek v isti hiši ni isti dogodek, zmote se vidijo za nazaj.</p>
-        <div class="gumbi">
-          <a class="gumb" href="predavanja.html">Teme in cena →</a>
-          <a class="gumb-obris" href="test-predavanja.html">Test kolektiva</a>
+    <div class="mt-10 grid gap-6 md:grid-cols-2 md:gap-8">
+      <div class="card card-hover flex flex-col border-t-2 border-t-poudarek p-7 sm:p-8">
+        <h3 class="mb-1.5 font-serif text-2xl font-normal text-crnilo">Predavanje in delavnica</h3>
+        <p class="mb-4 text-[.79rem] uppercase tracking-[.11em] text-tiho">Ena ura ali dve · do 70 ljudi · 800–2.600 EUR</p>
+        <p class="mb-6 leading-relaxed">Ena tema, ves kolektiv. Ne o tem, kako pritisk prenašati, ampak o tem, kje nastane. Tri teme: zakaj najbolj vestni prvi izgorijo, zakaj isti dogodek v isti hiši ni isti dogodek, zmote se vidijo za nazaj.</p>
+        <div class="mt-auto flex flex-wrap items-center gap-4 pt-1">
+          <a class="btn-line" href="predavanja.html">Teme in cena <span aria-hidden="true">→</span></a>
+          <a class="btn-ghost" href="test-predavanja.html">Test kolektiva</a>
         </div>
       </div>
 
-      <div class="pot-kartica">
-        <h3>Diagnostika procesov</h3>
-        <p class="meta">Pet korakov · več mesecev · pisno poročilo</p>
-        <p>Vstopim v organizacijo, poslušam po oddelkih, sestavim sliko in jo preverim v pogovorih na štiri oči. Del ugotovitev izrečem pred skupino. Na koncu oddam pisno poročilo z vzrokom in priporočili.</p>
-        <div class="gumbi">
-          <a class="gumb" href="diagnostika.html">Kako poteka →</a>
-          <a class="gumb-obris" href="test.html">Test organizacije</a>
+      <div class="card card-hover flex flex-col border-t-2 border-t-poudarek p-7 sm:p-8">
+        <h3 class="mb-1.5 font-serif text-2xl font-normal text-crnilo">Diagnostika procesov</h3>
+        <p class="mb-4 text-[.79rem] uppercase tracking-[.11em] text-tiho">Pet korakov · več mesecev · pisno poročilo</p>
+        <p class="mb-6 leading-relaxed">Vstopim v organizacijo, poslušam po oddelkih, sestavim sliko in jo preverim v pogovorih na štiri oči. Del ugotovitev izrečem pred skupino. Na koncu oddam pisno poročilo z vzrokom in priporočili.</p>
+        <div class="mt-auto flex flex-wrap items-center gap-4 pt-1">
+          <a class="btn-line" href="diagnostika.html">Kako poteka <span aria-hidden="true">→</span></a>
+          <a class="btn-ghost" href="test.html">Test organizacije</a>
         </div>
       </div>
     </div>
@@ -366,57 +132,63 @@ form button:hover{background:var(--crnilo)}
 </section>
 
 <!-- ============ IZ PRAKSE ============ -->
-<section id="praksa">
-  <div class="ovoj">
-    <span class="oznaka">Iz prakse</span>
-    <h2>Trije primeri.</h2>
-    <p>Vsi so resnični. Vsi so zapisani tako, da se nihče ne prepozna.</p>
+<section class="border-t border-crta px-6 py-16 sm:py-24" id="praksa">
+  <div class="mx-auto max-w-ovoj">
+    <span class="eyebrow mb-6">Iz prakse</span>
+    <h2 class="mb-6 font-serif text-[clamp(1.72rem,3.2vw,2.5rem)] font-normal leading-tight tracking-tight text-crnilo">Trije primeri.</h2>
+    <p class="max-w-besedilo leading-relaxed">Vsi so resnični. Vsi so zapisani tako, da se nihče ne prepozna.</p>
 
-    <div class="primeri">
+    <div class="mt-10 max-w-[820px]">
 
-      <article class="primer">
-        <span class="kdo">Vzgojno-izobraževalni zavod</span>
-        <h3>Problem je imel ime in priimek</h3>
-        <p>Kot ravnatelj sem redno sedel v razredih in opazoval pouk. V enem razredu je bil učenec, ki je veljal za težavo. Živahen, moteč — to je držalo. Rešitev, o kateri so vsi govorili, je bila ena sama: učenec se mora spremeniti.</p>
-        <details class="vec">
+      <article class="border-t border-crta py-10">
+        <span class="tag mb-4 rounded-[2px] text-[.74rem] uppercase tracking-[.13em]">Vzgojno-izobraževalni zavod</span>
+        <h3 class="mb-4 font-serif text-[1.62rem] font-normal text-crnilo">Problem je imel ime in priimek</h3>
+        <div class="prose-sl">
+          <p>Kot ravnatelj sem redno sedel v razredih in opazoval pouk. V enem razredu je bil učenec, ki je veljal za težavo. Živahen, moteč — to je držalo. Rešitev, o kateri so vsi govorili, je bila ena sama: učenec se mora spremeniti.</p>
+        </div>
+        <details class="vec mt-3 max-w-besedilo">
           <summary><span class="odpri">Prikaži več</span><span class="zapri">Prikaži manj</span></summary>
-          <div class="vec-vsebina">
-        <p>Ko sem opazoval, sem videl nekaj drugega. Učitelj je imel do tega otroka antipatijo. Ne zlonamerno. Čisto človeško. A dokler si tega ni priznal, ni imel v rokah ničesar, kar bi lahko spremenil pri sebi. Vso spremembo je bilo torej treba naložiti otroku.</p>
-        <p>Isti otrok je pri drugem učitelju deloval bistveno bolje.</p>
-        <p class="zakljucek">To ni zgodba o šoli. Simpatija in antipatija delujeta v vsaki hiši — med sodelavci, med vodjo in zaposlenim. Vpletena dva pogosto mislita, da tega nihče ne opazi. Opazijo vsi drugi. In prav to, ne organigram, ustvarja vzdušje na delovnem mestu.</p>
-        <p style="margin-top:1.4rem">V podjetju se isti vzorec pokaže drugače. Nekdo velja za »težavnega«. Njegovi predlogi se sistematično ne uvrstijo na dnevni red. Njegove naloge se tiho podvajajo pri drugih. Formalno je vse v redu. V resnici pa organizacija plačuje odnos, o katerem se ne govori.</p>
+          <div class="prose-sl pt-5">
+            <p>Ko sem opazoval, sem videl nekaj drugega. Učitelj je imel do tega otroka antipatijo. Ne zlonamerno. Čisto človeško. A dokler si tega ni priznal, ni imel v rokah ničesar, kar bi lahko spremenil pri sebi. Vso spremembo je bilo torej treba naložiti otroku.</p>
+            <p>Isti otrok je pri drugem učitelju deloval bistveno bolje.</p>
+            <p class="rule-quote font-serif text-[1.12rem] leading-relaxed text-[#252b2d]">To ni zgodba o šoli. Simpatija in antipatija delujeta v vsaki hiši — med sodelavci, med vodjo in zaposlenim. Vpletena dva pogosto mislita, da tega nihče ne opazi. Opazijo vsi drugi. In prav to, ne organigram, ustvarja vzdušje na delovnem mestu.</p>
+            <p>V podjetju se isti vzorec pokaže drugače. Nekdo velja za »težavnega«. Njegovi predlogi se sistematično ne uvrstijo na dnevni red. Njegove naloge se tiho podvajajo pri drugih. Formalno je vse v redu. V resnici pa organizacija plačuje odnos, o katerem se ne govori.</p>
           </div>
         </details>
       </article>
 
-      <article class="primer">
-        <span class="kdo">Javno podjetje</span>
-        <h3>Krivda, ki ni bila njegova</h3>
-        <p>Javno podjetje je izvajalo večletno infrastrukturno investicijo. Rok se je premikal, stroški so rasli. Ljudje so bili jezni, mediji so bili kritični.</p>
-        <details class="vec">
+      <article class="border-t border-crta py-10">
+        <span class="tag mb-4 rounded-[2px] text-[.74rem] uppercase tracking-[.13em]">Javno podjetje</span>
+        <h3 class="mb-4 font-serif text-[1.62rem] font-normal text-crnilo">Krivda, ki ni bila njegova</h3>
+        <div class="prose-sl">
+          <p>Javno podjetje je izvajalo večletno infrastrukturno investicijo. Rok se je premikal, stroški so rasli. Ljudje so bili jezni, mediji so bili kritični.</p>
+        </div>
+        <details class="vec mt-3 max-w-besedilo">
           <summary><span class="odpri">Prikaži več</span><span class="zapri">Prikaži manj</span></summary>
-          <div class="vec-vsebina">
-        <p>Jeza se je zbrala pri enem človeku — pri sodelavcu, ki je projekt vodil operativno in v tem okolju tudi živi. Kritizirali so ga v trgovini in na ulici, kot da so zamude in podražitve njegova odločitev.</p>
-        <p>Dejstva so bila drugačna. Projekt se je začel pod prejšnjim vodstvom. Del zahtev je postavil sofinancer. Predvsem pa je bilo delo oddano po najnižji ceni — in v slovenskem gradbeništvu najnižja ponujena cena skoraj nikoli ni končna cena. Časovnice se raztegnejo, obseg del zraste z aneksi, in kar je bilo na papirju najcenejše, je na koncu dražje in slabše.</p>
-        <p>Napaka torej ni bila njegova. Napaka je bila v merilu, po katerem je bil izvajalec izbran — in to merilo je bilo postavljeno, preden je on prevzel projekt.</p>
-        <p class="zakljucek">Zanimivo vprašanje ni bilo, kdo je kriv. Zanimivo je bilo, zakaj je ta človek krivdo vzel nase — in zakaj se mu je zdelo, da bi bilo brezbrižno, če bi mu bilo lažje.</p>
-        <p style="margin-top:1.4rem">To je organizacijsko vprašanje, ne zasebno. Kadar odgovornost ni jasno razdeljena, jo prevzamejo najbolj vestni. Ti isti ljudje potem prvi izgorijo ali odidejo — organizacija pa to razume kot njihovo osebno šibkost.</p>
+          <div class="prose-sl pt-5">
+            <p>Jeza se je zbrala pri enem človeku — pri sodelavcu, ki je projekt vodil operativno in v tem okolju tudi živi. Kritizirali so ga v trgovini in na ulici, kot da so zamude in podražitve njegova odločitev.</p>
+            <p>Dejstva so bila drugačna. Projekt se je začel pod prejšnjim vodstvom. Del zahtev je postavil sofinancer. Predvsem pa je bilo delo oddano po najnižji ceni — in v slovenskem gradbeništvu najnižja ponujena cena skoraj nikoli ni končna cena. Časovnice se raztegnejo, obseg del zraste z aneksi, in kar je bilo na papirju najcenejše, je na koncu dražje in slabše.</p>
+            <p>Napaka torej ni bila njegova. Napaka je bila v merilu, po katerem je bil izvajalec izbran — in to merilo je bilo postavljeno, preden je on prevzel projekt.</p>
+            <p class="rule-quote font-serif text-[1.12rem] leading-relaxed text-[#252b2d]">Zanimivo vprašanje ni bilo, kdo je kriv. Zanimivo je bilo, zakaj je ta človek krivdo vzel nase — in zakaj se mu je zdelo, da bi bilo brezbrižno, če bi mu bilo lažje.</p>
+            <p>To je organizacijsko vprašanje, ne zasebno. Kadar odgovornost ni jasno razdeljena, jo prevzamejo najbolj vestni. Ti isti ljudje potem prvi izgorijo ali odidejo — organizacija pa to razume kot njihovo osebno šibkost.</p>
           </div>
         </details>
       </article>
 
-      <article class="primer">
-        <span class="kdo">Zasebno podjetje</span>
-        <h3>Odpoved kot edino sporočilo, ki je prišlo skozi</h3>
-        <p>Zaposleni je pri direktorju veljal za izjemnega. Prijazen, nasmejan, vedno optimističen — in direktorjev osebni prijatelj. Sam je menil, da je glede na svojo izobrazbo na prenizkem delovnem mestu in premalo plačan.</p>
-        <details class="vec">
+      <article class="border-y border-crta py-10">
+        <span class="tag mb-4 rounded-[2px] text-[.74rem] uppercase tracking-[.13em]">Zasebno podjetje</span>
+        <h3 class="mb-4 font-serif text-[1.62rem] font-normal text-crnilo">Odpoved kot edino sporočilo, ki je prišlo skozi</h3>
+        <div class="prose-sl">
+          <p>Zaposleni je pri direktorju veljal za izjemnega. Prijazen, nasmejan, vedno optimističen — in direktorjev osebni prijatelj. Sam je menil, da je glede na svojo izobrazbo na prenizkem delovnem mestu in premalo plačan.</p>
+        </div>
+        <details class="vec mt-3 max-w-besedilo">
           <summary><span class="odpri">Prikaži več</span><span class="zapri">Prikaži manj</span></summary>
-          <div class="vec-vsebina">
-        <p>Vodja oddelka je direktorju leta poročal drugačno sliko: delo, ki ni bilo opravljeno, spori s sodelavci, službene poti, ki jih ni znal utemeljiti. Direktor tega ni slišal. Ne zato, ker bi bil slab vodja — zato, ker mu je bila prijateljeva različica bližja.</p>
-        <p>Nekega dne je zaposleni prinesel odpoved. Brez zamere, je rekel, rad bi se preizkusil še kje drugje. Direktor je še isti dan naročil, naj se mu dvigne plača.</p>
-        <p class="zakljucek">Odpoved je bila edino sporočilo, ki je do direktorja prišlo. Vsa prejšnja so hodila po poti, ki je bila pri njem zaprta — prihajala so od vodje, ki mu ni bil prijatelj.</p>
-        <p style="margin-top:1.4rem">Kaj je ostalo. V plačni lestvici je nastala anomalija, ki so jo opazili vsi in o kateri ni govoril nihče. Vodja oddelka je odšel h konkurenci. Zaposleni, zaradi katerega se je vse skupaj zgodilo, si je nekaj mesecev pozneje vseeno našel novo službo. Direktor je ostal — z dražjo plačno lestvico, brez vodje in brez prijatelja.</p>
-        <p>V vsaki hiši obstaja pot, po kateri informacija do vodstva pride, in pot, po kateri ne. Redkokdaj je to stvar organigrama. Skoraj vedno je stvar tega, komu vodstvo verjame.</p>
+          <div class="prose-sl pt-5">
+            <p>Vodja oddelka je direktorju leta poročal drugačno sliko: delo, ki ni bilo opravljeno, spori s sodelavci, službene poti, ki jih ni znal utemeljiti. Direktor tega ni slišal. Ne zato, ker bi bil slab vodja — zato, ker mu je bila prijateljeva različica bližja.</p>
+            <p>Nekega dne je zaposleni prinesel odpoved. Brez zamere, je rekel, rad bi se preizkusil še kje drugje. Direktor je še isti dan naročil, naj se mu dvigne plača.</p>
+            <p class="rule-quote font-serif text-[1.12rem] leading-relaxed text-[#252b2d]">Odpoved je bila edino sporočilo, ki je do direktorja prišlo. Vsa prejšnja so hodila po poti, ki je bila pri njem zaprta — prihajala so od vodje, ki mu ni bil prijatelj.</p>
+            <p>Kaj je ostalo. V plačni lestvici je nastala anomalija, ki so jo opazili vsi in o kateri ni govoril nihče. Vodja oddelka je odšel h konkurenci. Zaposleni, zaradi katerega se je vse skupaj zgodilo, si je nekaj mesecev pozneje vseeno našel novo službo. Direktor je ostal — z dražjo plačno lestvico, brez vodje in brez prijatelja.</p>
+            <p>V vsaki hiši obstaja pot, po kateri informacija do vodstva pride, in pot, po kateri ne. Redkokdaj je to stvar organigrama. Skoraj vedno je stvar tega, komu vodstvo verjame.</p>
           </div>
         </details>
       </article>
@@ -426,120 +198,123 @@ form button:hover{background:var(--crnilo)}
 </section>
 
 <!-- ============ ZAKAJ NE GRE SAM ============ -->
-<section id="sami">
-  <div class="ovoj">
-    <span class="oznaka">Zakaj potrebujete nekoga od zunaj</span>
-    <h2>Zakaj tega ne morete<br>storiti sami.</h2>
-    <p>Ker ste preveč vpleteni. Kot vodja v vsak proces vlagate svojo energijo in čustva. Brez te strasti organizacija ne bi rasla. A prav ta bližina zamegli pogled na rešitve.</p>
-    <p>S seboj prinašam objektivnost, preverjeno znanje in leta izkušenj, ki jih vaša organizacija potrebuje za naslednji korak.</p>
-
-    <div class="merilo">
-      <p>Merilo, po katerem sodim svoje delo, ni debelina poročila. Merilo je, ali organizacija čez leto dni sama prepozna in reši naslednjo podobno težavo.</p>
+<section class="border-t border-crta px-6 py-16 sm:py-24" id="sami">
+  <div class="mx-auto max-w-ovoj">
+    <span class="eyebrow mb-6">Zakaj potrebujete nekoga od zunaj</span>
+    <h2 class="mb-6 font-serif text-[clamp(1.72rem,3.2vw,2.5rem)] font-normal leading-tight tracking-tight text-crnilo">Zakaj tega ne morete<br>storiti sami.</h2>
+    <div class="prose-sl">
+      <p>Ker ste preveč vpleteni. Kot vodja v vsak proces vlagate svojo energijo in čustva. Brez te strasti organizacija ne bi rasla. A prav ta bližina zamegli pogled na rešitve.</p>
+      <p>S seboj prinašam objektivnost, preverjeno znanje in leta izkušenj, ki jih vaša organizacija potrebuje za naslednji korak.</p>
+    </div>
+    <div class="rule-quote mt-10 max-w-[720px]">
+      <p class="font-serif text-[clamp(1.12rem,2vw,1.34rem)] leading-snug text-[#22282a]">Merilo, po katerem sodim svoje delo, ni debelina poročila. Merilo je, ali organizacija čez leto dni sama prepozna in reši naslednjo podobno težavo.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ ČESA NE BO ============ -->
-<section class="temno" id="drugace">
-  <div class="ovoj">
-    <span class="oznaka">Po čem se razlikujem</span>
-    <h2>Česa pri meni ne bo.</h2>
-    <p style="color:#b9bfbd">Toliko let sem bil na drugi strani mize, da natanko vem, kaj me je pri svetovalcih motilo.</p>
+<!-- ============ ČESA NE BO (temno) ============ -->
+<section class="bg-temno px-6 py-16 text-[#c8ccca] sm:py-24" id="drugace">
+  <div class="mx-auto max-w-ovoj">
+    <span class="eyebrow mb-6 text-[#7c8886]">Po čem se razlikujem</span>
+    <h2 class="mb-6 font-serif text-[clamp(1.72rem,3.2vw,2.5rem)] font-normal leading-tight tracking-tight text-[#f2efe9]">Česa pri meni ne bo.</h2>
+    <p class="max-w-besedilo leading-relaxed text-[#b9bfbd]">Toliko let sem bil na drugi strani mize, da natanko vem, kaj me je pri svetovalcih motilo.</p>
 
-    <ul class="ne-bo">
-      <li><b>Ne bo predavanja, ki v petek nikogar več ne zanima.</b> Zato pri dveh urah polovico časa dela kolektiv, ne jaz.</li>
-      <li><b>Ne bo poročila, napisanega tako, da bo naročniku všeč.</b> Plačate me za to, kar vidim, ne za to, kar bi radi slišali.</li>
-      <li><b>Ne bo dobrega počutja na ukaz.</b> Cilj je organizacija, ki dela tudi takrat, ko je težko, in v kateri ljudje vedo, da so ovire del vsakega procesa.</li>
+    <ul class="mt-10 max-w-[780px]">
+      <li class="border-y border-white/10 py-5 text-[1.03rem] leading-relaxed"><b class="font-medium text-[#f2efe9]">Ne bo predavanja, ki v petek nikogar več ne zanima.</b> Zato pri dveh urah polovico časa dela kolektiv, ne jaz.</li>
+      <li class="border-b border-white/10 py-5 text-[1.03rem] leading-relaxed"><b class="font-medium text-[#f2efe9]">Ne bo poročila, napisanega tako, da bo naročniku všeč.</b> Plačate me za to, kar vidim, ne za to, kar bi radi slišali.</li>
+      <li class="border-b border-white/10 py-5 text-[1.03rem] leading-relaxed"><b class="font-medium text-[#f2efe9]">Ne bo dobrega počutja na ukaz.</b> Cilj je organizacija, ki dela tudi takrat, ko je težko, in v kateri ljudje vedo, da so ovire del vsakega procesa.</li>
     </ul>
 
-    <blockquote class="navedek">
-      <p>Ko sem se po dolgi odsotnosti vrnil v šolo, me je učenec sedmega razreda vprašal, ali sem v redu. Vprašal sem ga nazaj, ali smo lahko ljudje ves čas v redu. Rekel je: lahko — če smo norci.</p>
-      <footer>Sedmošolec je imel prav.</footer>
+    <blockquote class="mt-14 max-w-[700px] border-l-2 border-poudareksvetel pl-7">
+      <p class="mb-4 font-serif text-[clamp(1.16rem,2.3vw,1.42rem)] italic leading-snug text-[#eae7e0]">Ko sem se po dolgi odsotnosti vrnil v šolo, me je učenec sedmega razreda vprašal, ali sem v redu. Vprašal sem ga nazaj, ali smo lahko ljudje ves čas v redu. Rekel je: lahko — če smo norci.</p>
+      <footer class="text-[.85rem] text-[#8b9694]">Sedmošolec je imel prav.</footer>
     </blockquote>
   </div>
 </section>
 
 <!-- ============ KDO SEM ============ -->
-<section id="kdo">
-  <div class="ovoj">
-    <span class="oznaka">Kdo sem</span>
-    <h2>Organizacije poznam<br>s terena in z vrha.</h2>
-    <div class="kdo-kratko">
-      <p>Nisem svetovalec, ki bi organizacije poznal iz literature. Šolo in vrtec sem ustanovil in ju vodil sedem let. Javni zavod sem prevzel in reorganiziral. Danes delam v občinski upravi.</p>
-      <p>Znanstveni magisterij iz antropologije, med moduli psihoanaliza. Med letoma 2008 in 2011 okoli dvesto predavanj in delavnic po vsej Sloveniji.</p>
-      <p>Oboje opravljam ob rednem delu, zato ne sprejmem veliko naročil — in zato tudi preverim, ali sem pravi človek za vas, preden karkoli obljubim.</p>
-      <div class="gumbi">
-        <a class="gumb-obris" href="pot.html">Celotna pot →</a>
+<section class="border-t border-crta px-6 py-16 sm:py-24" id="kdo">
+  <div class="mx-auto max-w-ovoj">
+    <span class="eyebrow mb-6">Kdo sem</span>
+    <h2 class="mb-6 font-serif text-[clamp(1.72rem,3.2vw,2.5rem)] font-normal leading-tight tracking-tight text-crnilo">Organizacije poznam<br>s terena in z vrha.</h2>
+    <div class="max-w-[720px]">
+      <div class="prose-sl">
+        <p class="text-[1.02rem]">Nisem svetovalec, ki bi organizacije poznal iz literature. Šolo in vrtec sem ustanovil in ju vodil sedem let. Javni zavod sem prevzel in reorganiziral. Danes delam v občinski upravi.</p>
+        <p class="text-[1.02rem]">Znanstveni magisterij iz antropologije, med moduli psihoanaliza. Med letoma 2008 in 2011 okoli dvesto predavanj in delavnic po vsej Sloveniji.</p>
+        <p class="text-[1.02rem]">Oboje opravljam ob rednem delu, zato ne sprejmem veliko naročil — in zato tudi preverim, ali sem pravi človek za vas, preden karkoli obljubim.</p>
+      </div>
+      <div class="mt-6">
+        <a class="btn-ghost" href="pot.html">Celotna pot <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ KONTAKT ============ -->
-<section class="kontakt" id="kontakt">
-  <div class="ovoj">
-    <div class="kontakt-mreza">
+<section class="bg-papirtopel px-6 py-16 sm:py-24" id="kontakt">
+  <div class="mx-auto max-w-ovoj">
+    <div class="grid items-start gap-12 md:grid-cols-[1fr_1.15fr] lg:gap-20">
       <div>
-        <span class="oznaka">Prvi korak</span>
-        <h2>Uvodni pogovor je brezplačen.</h2>
-        <p>Traja približno pol ure. Povejte mi, kaj se pri vas dogaja. Povem vam, ali sem za to pravi človek. <strong>Če nisem, vam to povem takoj</strong> — in po možnosti tudi, koga pokličete namesto mene.</p>
+        <span class="eyebrow mb-6">Prvi korak</span>
+        <h2 class="mb-6 font-serif text-[clamp(1.72rem,3.2vw,2.5rem)] font-normal leading-tight tracking-tight text-crnilo">Uvodni pogovor je brezplačen.</h2>
+        <p class="max-w-besedilo leading-relaxed">Traja približno pol ure. Povejte mi, kaj se pri vas dogaja. Povem vam, ali sem za to pravi človek. <strong class="font-semibold text-crnilo">Če nisem, vam to povem takoj</strong> — in po možnosti tudi, koga pokličete namesto mene.</p>
 
-        <ul class="podatki">
-          <li>
-            <span class="oznaka-mala">E-pošta</span>
-            <a href="mailto:bostjan@strajhar.si">bostjan@strajhar.si</a>
+        <ul class="mt-8 space-y-4">
+          <li class="text-base">
+            <span class="mb-0.5 block text-[.74rem] uppercase tracking-[.13em] text-tiho">E-pošta</span>
+            <a class="border-b border-crta pb-0.5 text-poudarek transition-colors hover:border-poudarek hover:text-crnilo" href="mailto:bostjan@strajhar.si">bostjan@strajhar.si</a>
           </li>
-          <li>
-            <span class="oznaka-mala">Telefon</span>
-            <a href="tel:+38640475307">040 475 307</a>
+          <li class="text-base">
+            <span class="mb-0.5 block text-[.74rem] uppercase tracking-[.13em] text-tiho">Telefon</span>
+            <a class="border-b border-crta pb-0.5 text-poudarek transition-colors hover:border-poudarek hover:text-crnilo" href="tel:+38640475307">040 475 307</a>
           </li>
-          <li>
-            <span class="oznaka-mala">Odzovem se</span>
+          <li class="text-base">
+            <span class="mb-0.5 block text-[.74rem] uppercase tracking-[.13em] text-tiho">Odzovem se</span>
             v treh delovnih dneh
           </li>
         </ul>
       </div>
 
-      <form id="obrazec">
-        <div class="dvojno">
-          <div class="polje">
-            <label for="ime">Ime in priimek</label>
-            <input type="text" id="ime" name="ime" required autocomplete="name">
+      <form class="rounded-md border border-crta bg-[#fdfcfa] p-6 sm:p-8" id="obrazec">
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label class="mb-1.5 block text-[.85rem] font-medium text-crnilo" for="ime">Ime in priimek</label>
+            <input class="w-full rounded-[3px] border border-crta bg-white px-3.5 py-2.5 text-[.97rem] leading-snug text-crnilo transition focus:border-poudarek focus:outline-none focus:ring-4 focus:ring-poudarek/10" type="text" id="ime" name="ime" required autocomplete="name">
           </div>
-          <div class="polje">
-            <label for="org">Organizacija</label>
-            <input type="text" id="org" name="org" autocomplete="organization">
-          </div>
-        </div>
-        <div class="dvojno">
-          <div class="polje">
-            <label for="posta">E-pošta</label>
-            <input type="email" id="posta" name="posta" required autocomplete="email">
-          </div>
-          <div class="polje">
-            <label for="tel">Telefon <span style="color:var(--tiho);font-weight:400">(neobvezno)</span></label>
-            <input type="tel" id="tel" name="tel" autocomplete="tel">
+          <div>
+            <label class="mb-1.5 block text-[.85rem] font-medium text-crnilo" for="org">Organizacija</label>
+            <input class="w-full rounded-[3px] border border-crta bg-white px-3.5 py-2.5 text-[.97rem] leading-snug text-crnilo transition focus:border-poudarek focus:outline-none focus:ring-4 focus:ring-poudarek/10" type="text" id="org" name="org" autocomplete="organization">
           </div>
         </div>
-        <div class="polje">
-          <label for="zanimanje">Kaj vas zanima</label>
-          <select id="zanimanje" name="zanimanje">
+        <div class="mt-5 grid gap-5 sm:grid-cols-2">
+          <div>
+            <label class="mb-1.5 block text-[.85rem] font-medium text-crnilo" for="posta">E-pošta</label>
+            <input class="w-full rounded-[3px] border border-crta bg-white px-3.5 py-2.5 text-[.97rem] leading-snug text-crnilo transition focus:border-poudarek focus:outline-none focus:ring-4 focus:ring-poudarek/10" type="email" id="posta" name="posta" required autocomplete="email">
+          </div>
+          <div>
+            <label class="mb-1.5 block text-[.85rem] font-medium text-crnilo" for="tel">Telefon <span class="font-normal text-tiho">(neobvezno)</span></label>
+            <input class="w-full rounded-[3px] border border-crta bg-white px-3.5 py-2.5 text-[.97rem] leading-snug text-crnilo transition focus:border-poudarek focus:outline-none focus:ring-4 focus:ring-poudarek/10" type="tel" id="tel" name="tel" autocomplete="tel">
+          </div>
+        </div>
+        <div class="mt-5">
+          <label class="mb-1.5 block text-[.85rem] font-medium text-crnilo" for="zanimanje">Kaj vas zanima</label>
+          <select class="w-full rounded-[3px] border border-crta bg-white px-3.5 py-2.5 text-[.97rem] leading-snug text-crnilo transition focus:border-poudarek focus:outline-none focus:ring-4 focus:ring-poudarek/10" id="zanimanje" name="zanimanje">
             <option value="Diagnostika">Diagnostika</option>
             <option value="Predavanje ali delavnica">Predavanje ali delavnica</option>
             <option value="Ne vem še">Ne vem še</option>
           </select>
         </div>
-        <div class="polje">
-          <label for="sporocilo">Kaj se pri vas dogaja?</label>
-          <textarea id="sporocilo" name="sporocilo" required placeholder="Nekaj stavkov je dovolj. Podrobnosti pustiva za pogovor."></textarea>
+        <div class="mt-5">
+          <label class="mb-1.5 block text-[.85rem] font-medium text-crnilo" for="sporocilo">Kaj se pri vas dogaja?</label>
+          <textarea class="min-h-[130px] w-full resize-y rounded-[3px] border border-crta bg-white px-3.5 py-2.5 text-[.97rem] leading-snug text-crnilo transition focus:border-poudarek focus:outline-none focus:ring-4 focus:ring-poudarek/10" id="sporocilo" name="sporocilo" required placeholder="Nekaj stavkov je dovolj. Podrobnosti pustiva za pogovor."></textarea>
         </div>
-        <button type="submit">Pripravi sporočilo</button>
-        <p class="drobno">Gumb odpre vaš e-poštni program z že napisanim sporočilom. Nič se ne pošlje samodejno in nič se ne shrani na tej strani.</p>
+        <button class="mt-5 w-full rounded-[3px] bg-poudarek px-5 py-3.5 text-[.96rem] font-medium text-white transition-colors hover:bg-crnilo" type="submit">Pripravi sporočilo</button>
+        <p class="mt-4 text-[.79rem] leading-normal text-tiho">Gumb odpre vaš e-poštni program z že napisanim sporočilom. Nič se ne pošlje samodejno in nič se ne shrani na tej strani.</p>
 
-        <div class="rezerva" id="rezerva" hidden>
-          <p><strong>Se poštni program ni odprl?</strong> To se zgodi, kadar v brskalniku ni nastavljen. Besedilo je spodaj — kopirajte ga in pošljite na <a href="mailto:bostjan@strajhar.si">bostjan@strajhar.si</a> ali pa me pokličite na <a href="tel:+38640475307">040 475 307</a>.</p>
-          <textarea id="rezerva-besedilo" rows="8" readonly aria-label="Pripravljeno besedilo sporočila"></textarea>
-          <button type="button" class="kopiraj" id="kopiraj">Kopiraj besedilo</button>
+        <div class="mt-6 border-t border-crta pt-6" id="rezerva" hidden>
+          <p class="mb-3 text-[.88rem] leading-relaxed"><strong class="font-semibold text-crnilo">Se poštni program ni odprl?</strong> To se zgodi, kadar v brskalniku ni nastavljen. Besedilo je spodaj — kopirajte ga in pošljite na <a class="text-poudarek underline" href="mailto:bostjan@strajhar.si">bostjan@strajhar.si</a> ali pa me pokličite na <a class="text-poudarek underline" href="tel:+38640475307">040 475 307</a>.</p>
+          <textarea class="w-full resize-y rounded-[3px] border border-crta bg-papir px-3.5 py-2.5 text-[.85rem] leading-snug text-tekst" id="rezerva-besedilo" rows="8" readonly aria-label="Pripravljeno besedilo sporočila"></textarea>
+          <button class="mt-2.5 rounded-[3px] border border-crta px-4 py-2.5 text-[.87rem] transition-colors hover:border-poudarek hover:text-poudarek" type="button" id="kopiraj">Kopiraj besedilo</button>
         </div>
       </form>
     </div>
@@ -548,135 +323,15 @@ form button:hover{background:var(--crnilo)}
 
 </main>
 
-<footer class="noga">
-  <div class="ovoj">
-    <p>© <span id="leto">2026</span> mag. Boštjan Štrajhar · <a href="diagnostika.html">Diagnostika</a> · <a href="predavanja.html">Predavanja</a> · <a href="pot.html">Kdo sem</a></p>
+<!-- ============ NOGA ============ -->
+<footer class="border-t border-crta px-6 py-10 text-[.83rem] text-tiho">
+  <div class="mx-auto flex max-w-ovoj flex-wrap justify-between gap-3.5">
+    <p>© <span id="leto">2026</span> mag. Boštjan Štrajhar · <a class="text-poudarek hover:text-crnilo" href="diagnostika.html">Diagnostika</a> · <a class="text-poudarek hover:text-crnilo" href="predavanja.html">Predavanja</a> · <a class="text-poudarek hover:text-crnilo" href="pot.html">Kdo sem</a></p>
     <p>Ta stran ne uporablja piškotkov in ne zbira podatkov o obiskovalcih.</p>
   </div>
 </footer>
 
-<script>
-(function () {
-  "use strict";
-
-  // Letnica v nogi se posodobi sama.
-  var leto = document.getElementById("leto");
-  if (leto) leto.textContent = new Date().getFullYear();
-
-  // Tanka črta pod glavo se pojavi šele, ko stran odrsamo.
-  var glava = document.getElementById("glava");
-  var zadnje = null;
-  window.addEventListener("scroll", function () {
-    var stanje = window.scrollY > 12;
-    if (stanje !== zadnje) {
-      glava.classList.toggle("oblita", stanje);
-      zadnje = stanje;
-    }
-  }, { passive: true });
-
-  // Meni na telefonu.
-  var mGumb = document.getElementById("meni-gumb");
-  var meni = document.getElementById("meni");
-  if (mGumb && meni) {
-    var preklopi = function (odpri) {
-      mGumb.setAttribute("aria-expanded", odpri ? "true" : "false");
-      mGumb.setAttribute("aria-label", odpri ? "Zapri meni" : "Odpri meni");
-      meni.classList.toggle("odprt", odpri);
-      document.body.classList.toggle("meni-odprt", odpri);
-    };
-    mGumb.addEventListener("click", function () {
-      preklopi(mGumb.getAttribute("aria-expanded") !== "true");
-    });
-    // Klik na povezavo v meniju ga zapre.
-    meni.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") preklopi(false);
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && mGumb.getAttribute("aria-expanded") === "true") {
-        preklopi(false);
-        mGumb.focus();
-      }
-    });
-    // Ob vrnitvi na širok zaslon meni ne sme ostati skrit.
-    window.addEventListener("resize", function () {
-      if (window.innerWidth > 1080) preklopi(false);
-    });
-  }
-
-  // Obrazec sestavi e-sporočilo in odpre poštni program.
-  // Brez zunanjih storitev — primerno za GitHub Pages.
-  var NASLOV = "bostjan@strajhar.si";
-  var obrazec = document.getElementById("obrazec");
-  if (!obrazec) return;
-
-  obrazec.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var v = function (id) { return (document.getElementById(id).value || "").trim(); };
-
-    var izbira = (document.getElementById("zanimanje") || {}).value || "Povpraševanje";
-    var zadeva = izbira + (v("org") ? " — " + v("org") : "");
-    var telo = [
-      "Ime in priimek: " + v("ime"),
-      "Organizacija: " + (v("org") || "—"),
-      "E-pošta: " + v("posta"),
-      "Telefon: " + (v("tel") || "—"),
-      "Kaj vas zanima: " + izbira,
-      "",
-      "Kaj se dogaja:",
-      v("sporocilo"),
-      "",
-      "—",
-      "Poslano prek spletne strani."
-    ].join("\r\n");
-
-    var povezava = "mailto:" + NASLOV +
-      "?subject=" + encodeURIComponent(zadeva) +
-      "&body=" + encodeURIComponent(telo);
-
-    // Klik na skrito povezavo deluje zanesljiveje kot window.location,
-    // zlasti v Safariju na iPhonu.
-    var a = document.createElement("a");
-    a.href = povezava;
-    a.style.display = "none";
-    a.setAttribute("data-mailto", "1");
-    document.body.appendChild(a);
-    a.click();
-    setTimeout(function () { a.remove(); }, 1000);
-
-    // Če se poštni program ne odpre (v brskalniku ni nastavljen),
-    // obiskovalec ne sme ostati praznih rok: pokažemo besedilo za kopiranje.
-    var rezerva = document.getElementById("rezerva");
-    var polje = document.getElementById("rezerva-besedilo");
-    if (rezerva && polje) {
-      polje.value = "Za: " + NASLOV + "\nZadeva: " + zadeva + "\n\n" + telo.replace(/\r\n/g, "\n");
-      rezerva.hidden = false;
-    }
-  });
-
-  // Kopiranje besedila v odložišče.
-  var kopiraj = document.getElementById("kopiraj");
-  if (kopiraj) {
-    kopiraj.addEventListener("click", function () {
-      var polje = document.getElementById("rezerva-besedilo");
-      polje.select();
-      polje.setSelectionRange(0, polje.value.length);
-      var uspelo = false;
-      try { uspelo = document.execCommand("copy"); } catch (e) { uspelo = false; }
-      if (!uspelo && navigator.clipboard) {
-        navigator.clipboard.writeText(polje.value).then(function () {
-          kopiraj.textContent = "Kopirano";
-        }, function () {
-          kopiraj.textContent = "Označite besedilo in kopirajte ročno";
-        });
-        return;
-      }
-      kopiraj.textContent = uspelo ? "Kopirano" : "Označite besedilo in kopirajte ročno";
-    });
-  }
-})();
-</script>
-<!-- Strukturirani podatki: iskalnikom in pomočnikom povedo, kdo si in kaj ponujaš.
-     Za obiskovalca nevidno; spremeni le, če se spremenijo kontaktni podatki. -->
+<script src="app.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

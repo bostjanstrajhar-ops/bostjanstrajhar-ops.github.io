@@ -16,187 +16,95 @@
 <meta property="og:image" content="https://bostjanstrajhar-ops.github.io/predavanje.jpg">
 <meta name="theme-color" content="#f7f5f1">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f7f5f1'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%232b4f55' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='16' r='2.6' fill='%232b4f55'/%3E%3C/svg%3E">
-
-<link rel="stylesheet" href="slog.css">
-
-<style>
-/* Slog te strani. Skupni slog je v slog.css. Enak kot pri prvem testu. */
-html{scroll-padding-top:112px}
-.test-uvod{border-top:0;padding-top:clamp(2.6rem,6vw,4.6rem);padding-bottom:0}
-.test-uvod h1{max-width:16ch}
-.opozorilo{margin-top:2.4rem;max-width:660px;border-left:2px solid var(--poudarek);padding-left:1.6rem}
-.opozorilo p{
-  font-family:"Newsreader",Georgia,serif;font-size:clamp(1.08rem,1.9vw,1.24rem);
-  line-height:1.58;color:#252b2d;
-}
-.opozorilo p:last-child{margin-bottom:0}
-.zasebno{
-  display:inline-flex;align-items:center;gap:.55rem;margin-top:1.8rem;
-  font-size:.83rem;color:var(--tiho);border:1px solid var(--crta);
-  padding:8px 14px;border-radius:100px;background:#fdfcfa;
-}
-
-/* ---------- vprašanja ---------- */
-.vprasanja{padding-top:clamp(3rem,6vw,4.5rem)}
-.skupina{border:0;padding:0;margin:0 0 3.2rem;max-width:820px}
-.skupina legend{
-  padding:0;font-size:.735rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--tiho);font-weight:500;margin-bottom:1.4rem;
-}
-.vprasanje{padding:1.9rem 0;border-top:1px solid var(--crta)}
-.skupina .vprasanje:last-child{border-bottom:1px solid var(--crta)}
-.vprasanje .besedilo{
-  display:grid;grid-template-columns:2.6rem 1fr;gap:.4rem;
-  font-family:"Newsreader",Georgia,serif;font-size:clamp(1.08rem,1.85vw,1.24rem);
-  line-height:1.5;color:#252b2d;margin-bottom:1.25rem;
-}
-.vprasanje .st{
-  font-family:"Inter",sans-serif;font-size:.72rem;font-weight:500;
-  letter-spacing:.1em;color:var(--poudarek);opacity:.55;padding-top:.5rem;
-}
-.izbire{display:flex;gap:.6rem;margin-left:2.6rem;flex-wrap:wrap}
-.izbire input{position:absolute;width:1px;height:1px;opacity:0;margin:0}
-.izbire label{
-  cursor:pointer;border:1px solid var(--crta);background:#fdfcfa;
-  padding:9px 22px;border-radius:2px;font-size:.92rem;color:var(--tekst);
-  transition:border-color .18s,background .18s,color .18s;user-select:none;
-}
-.izbire label:hover{border-color:var(--poudarek);color:var(--poudarek)}
-.izbire input:checked + label{background:var(--poudarek);border-color:var(--poudarek);color:#fff}
-.izbire input:focus-visible + label{outline:2px solid var(--poudarek);outline-offset:3px}
-@media(max-width:520px){
-  .vprasanje .besedilo{grid-template-columns:1fr;gap:.3rem}
-  .vprasanje .st{padding-top:0}
-  .izbire{margin-left:0;gap:.5rem}
-  .izbire label{flex:1;text-align:center;padding:13px 10px;min-width:88px}
-}
-
-.drobno{font-size:.79rem;color:var(--tiho);line-height:1.55;margin:.95rem 0 0}
-
-/* ---------- stanje in izid ---------- */
-.stanje-pas{
-  position:sticky;top:66px;z-index:20;
-  background:rgba(247,245,241,.95);backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--crta);
-}
-.stanje{
-  max-width:var(--sirina);margin:0 auto;padding:.7rem 28px;
-  display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  font-size:.84rem;color:var(--tiho);
-}
-.stanje .crtica{flex:1;max-width:220px;height:2px;background:var(--crta);position:relative;border-radius:2px}
-.stanje .crtica i{
-  position:absolute;inset:0 auto 0 0;background:var(--poudarek);
-  border-radius:2px;width:0;transition:width .3s;
-}
-.izid{border-top:1px solid var(--crta);background:var(--papir-topel);padding:clamp(2.6rem,6vw,4.4rem) 0}
-.izid[hidden]{display:none}
-.izid h2{margin:.6rem 0 1.3rem;max-width:20ch}
-.izid-besedilo{max-width:640px}
-.izid-besedilo p:last-of-type{margin-bottom:0}
-.priporocena{
-  margin-top:2.6rem;max-width:640px;border-left:2px solid var(--poudarek);padding-left:1.7rem;
-}
-.priporocena .oznaka-mala{
-  display:block;font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;
-  color:var(--tiho);margin-bottom:.4rem;
-}
-.priporocena p{
-  margin:0;font-family:"Newsreader",Georgia,serif;
-  font-size:clamp(1.16rem,2.2vw,1.42rem);line-height:1.5;color:#22282a;
-}
-.podskupine{list-style:none;padding:0;margin:2.6rem 0 0;max-width:640px;border-top:1px solid #ddd5c8}
-.podskupine li{
-  display:flex;justify-content:space-between;gap:1rem;align-items:baseline;
-  padding:.9rem 0;border-bottom:1px solid #ddd5c8;font-size:.95rem;
-}
-.podskupine b{font-weight:500;color:var(--crnilo)}
-.podskupine .tocke{color:var(--tiho);font-variant-numeric:tabular-nums;white-space:nowrap}
-.izid-gumbi{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:2.6rem}
-.ponovi{
-  background:none;border:0;padding:14px 4px;font-family:inherit;font-size:.94rem;
-  color:var(--tekst);border-bottom:1px solid var(--crta);cursor:pointer;
-}
-.ponovi:hover{color:var(--poudarek);border-bottom-color:var(--poudarek)}
-.ni-diagnoza{margin-top:2.8rem;font-size:.85rem;color:var(--tiho);max-width:600px}
-@media(max-width:620px){
-  .stanje{padding:.7rem 22px}
-  .opozorilo,.priporocena{padding-left:1.3rem}
-  .zasebno{
-    display:block;border:0;border-top:1px solid var(--crta);
-    border-radius:0;background:none;padding:1.1rem 0 0;margin-top:2rem;
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        papir: "#f7f5f1", papirtopel: "#efeae1", crnilo: "#191e20", tekst: "#33393b",
+        tiho: "#6b7274", crta: "#e0dacf", poudarek: "#2b4f55", poudareksvetel: "#4a7f88", temno: "#1b2224"
+      },
+      fontFamily: {
+        serif: ['Newsreader', 'Georgia', 'Times New Roman', 'serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif']
+      },
+      maxWidth: { ovoj: '1120px', besedilo: '660px' }
+    }
   }
-}
-</style>
+};
+</script>
+<link rel="stylesheet" href="slog.css">
+<style>html{scroll-padding-top:112px}</style>
 </head>
+<body class="bg-papir font-sans text-tekst text-[17px] leading-relaxed antialiased">
+<a class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[99] focus:rounded focus:bg-crnilo focus:px-4 focus:py-2.5 focus:text-white" href="#vprasanja">Preskoči na vprašanja</a>
 
-<body>
-<a class="skip" href="#vprasanja">Preskoči na vprašanja</a>
-
-<header class="glava" id="glava">
-  <div class="ovoj">
-    <a class="logo" href="index.html">mag. Boštjan Štrajhar <span>— diagnostika organizacij</span></a>
-    <button class="meni-gumb" id="meni-gumb" type="button"
-            aria-expanded="false" aria-controls="meni" aria-label="Odpri meni">
+<!-- ============ GLAVA ============ -->
+<header class="glava sticky top-0 z-50" id="glava">
+  <div class="mx-auto flex h-[66px] max-w-ovoj items-center justify-between gap-6 px-6">
+    <a class="whitespace-nowrap font-serif text-[1.05rem] text-crnilo" href="index.html">mag. Boštjan Štrajhar <span class="hidden text-[.9rem] text-tiho xl:inline">— diagnostika organizacij</span></a>
+    <button class="meni-gumb -mr-2.5 p-2.5 leading-none text-crnilo lg:hidden" id="meni-gumb" type="button" aria-expanded="false" aria-controls="meni" aria-label="Odpri meni">
       <svg width="26" height="18" viewBox="0 0 26 18" fill="none" aria-hidden="true">
-        <path class="crta c1" d="M1 1h24"/>
-        <path class="crta c2" d="M1 9h24"/>
-        <path class="crta c3" d="M1 17h24"/>
+        <path class="crta c1" d="M1 1h24"/><path class="crta c2" d="M1 9h24"/><path class="crta c3" d="M1 17h24"/>
       </svg>
     </button>
-    <nav class="meni" id="meni" aria-label="Glavni meni">
-      <a href="diagnostika.html">Diagnostika</a>
-      <a class="meni-test" href="test.html"><span class="kratko">Test organizacije</span><span class="dolgo">Test organizacijske realnosti</span></a>
-      <a href="predavanja.html">Predavanja</a>
-      <a class="meni-test" href="test-predavanja.html" aria-current="page"><span class="kratko">Test kolektiva</span><span class="dolgo">Kaj bi vaš kolektiv slišal</span></a>
-      <a href="pot.html">Kdo sem</a>
-      <a class="gumb-mali" href="index.html#kontakt">Uvodni pogovor</a>
+    <nav class="meni hidden items-center gap-6 lg:flex" id="meni" aria-label="Glavni meni">
+      <a class="text-[.865rem] text-tekst transition-colors hover:text-poudarek" href="diagnostika.html">Diagnostika</a>
+      <a class="meni-test flex items-center gap-2 text-[.865rem] font-medium text-poudarek transition-colors hover:text-crnilo" href="test.html">Test organizacije</a>
+      <a class="text-[.865rem] text-tekst transition-colors hover:text-poudarek" href="predavanja.html">Predavanja</a>
+      <a class="meni-test flex items-center gap-2 text-[.865rem] font-medium text-crnilo" href="test-predavanja.html" aria-current="page">Test kolektiva</a>
+      <a class="text-[.865rem] text-tekst transition-colors hover:text-poudarek" href="pot.html">Kdo sem</a>
+      <a class="meni-cta rounded border border-poudarek px-4 py-2 text-[.865rem] font-medium text-poudarek transition-colors hover:bg-poudarek hover:text-white" href="index.html#kontakt">Uvodni pogovor</a>
     </nav>
   </div>
 </header>
 
 <main>
 
-<section class="test-uvod">
-  <div class="ovoj">
-    <span class="oznaka">Za vodstvo</span>
-    <h1>Kaj bi vaš kolektiv slišal.</h1>
+<!-- ============ UVOD ============ -->
+<section class="border-t-0 px-6 pb-0 pt-12 sm:pt-16">
+  <div class="mx-auto max-w-ovoj">
+    <span class="eyebrow mb-6">Za vodstvo</span>
+    <h1 class="max-w-[16ch] font-serif text-[clamp(2.35rem,5.4vw,4.05rem)] font-normal leading-[1.08] tracking-tight text-crnilo">Kaj bi vaš kolektiv slišal.</h1>
 
-    <div class="opozorilo">
-      <p>Nobena od treh tem ni prava za vsak kolektiv. Ta vprašanja vam pokažejo, katera je pri vas najbolj na mestu — ali pa da nobena ni.</p>
-      <p>Odgovarjajte po tem, kako je, ne po tem, kako bi želeli, da bi bilo.</p>
+    <div class="rule-quote mt-9 max-w-[660px]">
+      <p class="mb-4 font-serif text-[clamp(1.08rem,1.9vw,1.24rem)] leading-snug text-[#252b2d]">Nobena od treh tem ni prava za vsak kolektiv. Ta vprašanja vam pokažejo, katera je pri vas najbolj na mestu — ali pa da nobena ni.</p>
+      <p class="font-serif text-[clamp(1.08rem,1.9vw,1.24rem)] leading-snug text-[#252b2d]">Odgovarjajte po tem, kako je, ne po tem, kako bi želeli, da bi bilo.</p>
     </div>
 
-    <p class="zasebno">Dve minuti. Nič se ne pošlje, nič se ne shrani — odgovori ostanejo v vašem brskalniku.</p>
+    <p class="mt-7 inline-flex items-center gap-2 rounded-full border border-crta bg-[#fdfcfa] px-3.5 py-2 text-[.83rem] text-tiho">Dve minuti. Nič se ne pošlje, nič se ne shrani — odgovori ostanejo v vašem brskalniku.</p>
   </div>
 </section>
 
-<div class="stanje-pas">
-  <div class="stanje" id="stanje" aria-live="polite">
+<!-- ============ PAS S POTEKOM ============ -->
+<div class="sticky top-[66px] z-20 border-b border-crta bg-papir/95 backdrop-blur">
+  <div class="mx-auto flex max-w-ovoj items-center justify-between gap-4 px-6 py-2.5 text-[.84rem] text-tiho" id="stanje" aria-live="polite">
     <span id="stanje-tekst">Odgovorjeno 0 od 6</span>
-    <span class="crtica" aria-hidden="true"><i id="crtica"></i></span>
+    <span class="crtica w-full max-w-[220px] flex-1" aria-hidden="true"><i id="crtica"></i></span>
   </div>
 </div>
 
-<section class="vprasanja" id="vprasanja">
-  <div class="ovoj">
+<!-- ============ VPRAŠANJA ============ -->
+<section class="px-6 pb-16 pt-12 sm:pt-16" id="vprasanja">
+  <div class="mx-auto max-w-ovoj">
     <form id="test">
 
-      <fieldset class="skupina" data-skupina="Obremenitev" data-tema="A">
-        <legend>Obremenitev</legend>
+      <fieldset class="mb-12 max-w-[820px] border-0 p-0" data-skupina="Obremenitev" data-tema="A">
+        <legend class="mb-6 p-0 text-[.735rem] font-medium uppercase tracking-[.16em] text-tiho">Obremenitev</legend>
 
-        <div class="vprasanje">
-          <p class="besedilo"><span class="st">01</span><span id="v1">Ali se ista imena pojavijo vsakič, ko je treba nekaj opraviti nujno ali izven opisa del?</span></p>
-          <div class="izbire" role="radiogroup" aria-labelledby="v1">
+        <div class="border-t border-crta py-8">
+          <p class="mb-5 grid grid-cols-[2.6rem_1fr] gap-1 font-serif text-[clamp(1.08rem,1.85vw,1.24rem)] leading-snug text-[#252b2d]"><span class="pt-2 font-sans text-[.72rem] font-medium tracking-[.1em] text-poudarek/60">01</span><span id="v1">Ali se ista imena pojavijo vsakič, ko je treba nekaj opraviti nujno ali izven opisa del?</span></p>
+          <div class="izbire flex flex-wrap gap-2.5 sm:ml-[2.6rem]" role="radiogroup" aria-labelledby="v1">
             <input type="radio" name="q1" id="q1a" value="2"><label for="q1a">Da</label>
             <input type="radio" name="q1" id="q1b" value="1"><label for="q1b">Delno</label>
             <input type="radio" name="q1" id="q1c" value="0"><label for="q1c">Ne</label>
           </div>
         </div>
 
-        <div class="vprasanje">
-          <p class="besedilo"><span class="st">02</span><span id="v2">Ali so pri vas najbolj utrujeni prav tisti ljudje, na katere se najbolj zanesete?</span></p>
-          <div class="izbire" role="radiogroup" aria-labelledby="v2">
+        <div class="border-y border-crta py-8">
+          <p class="mb-5 grid grid-cols-[2.6rem_1fr] gap-1 font-serif text-[clamp(1.08rem,1.85vw,1.24rem)] leading-snug text-[#252b2d]"><span class="pt-2 font-sans text-[.72rem] font-medium tracking-[.1em] text-poudarek/60">02</span><span id="v2">Ali so pri vas najbolj utrujeni prav tisti ljudje, na katere se najbolj zanesete?</span></p>
+          <div class="izbire flex flex-wrap gap-2.5 sm:ml-[2.6rem]" role="radiogroup" aria-labelledby="v2">
             <input type="radio" name="q2" id="q2a" value="2"><label for="q2a">Da</label>
             <input type="radio" name="q2" id="q2b" value="1"><label for="q2b">Delno</label>
             <input type="radio" name="q2" id="q2c" value="0"><label for="q2c">Ne</label>
@@ -204,21 +112,21 @@ html{scroll-padding-top:112px}
         </div>
       </fieldset>
 
-      <fieldset class="skupina" data-skupina="Razumevanje" data-tema="B">
-        <legend>Razumevanje</legend>
+      <fieldset class="mb-12 max-w-[820px] border-0 p-0" data-skupina="Razumevanje" data-tema="B">
+        <legend class="mb-6 p-0 text-[.735rem] font-medium uppercase tracking-[.16em] text-tiho">Razumevanje</legend>
 
-        <div class="vprasanje">
-          <p class="besedilo"><span class="st">03</span><span id="v3">Ali se dogovori na sestankih sprejmejo gladko, izvedba pa se potem razlikuje od dogovorjenega?</span></p>
-          <div class="izbire" role="radiogroup" aria-labelledby="v3">
+        <div class="border-t border-crta py-8">
+          <p class="mb-5 grid grid-cols-[2.6rem_1fr] gap-1 font-serif text-[clamp(1.08rem,1.85vw,1.24rem)] leading-snug text-[#252b2d]"><span class="pt-2 font-sans text-[.72rem] font-medium tracking-[.1em] text-poudarek/60">03</span><span id="v3">Ali se dogovori na sestankih sprejmejo gladko, izvedba pa se potem razlikuje od dogovorjenega?</span></p>
+          <div class="izbire flex flex-wrap gap-2.5 sm:ml-[2.6rem]" role="radiogroup" aria-labelledby="v3">
             <input type="radio" name="q3" id="q3a" value="2"><label for="q3a">Da</label>
             <input type="radio" name="q3" id="q3b" value="1"><label for="q3b">Delno</label>
             <input type="radio" name="q3" id="q3c" value="0"><label for="q3c">Ne</label>
           </div>
         </div>
 
-        <div class="vprasanje">
-          <p class="besedilo"><span class="st">04</span><span id="v4">Ali izveste, kaj ljudje o odločitvi zares mislijo, šele potem, ko je sestanek končan?</span></p>
-          <div class="izbire" role="radiogroup" aria-labelledby="v4">
+        <div class="border-y border-crta py-8">
+          <p class="mb-5 grid grid-cols-[2.6rem_1fr] gap-1 font-serif text-[clamp(1.08rem,1.85vw,1.24rem)] leading-snug text-[#252b2d]"><span class="pt-2 font-sans text-[.72rem] font-medium tracking-[.1em] text-poudarek/60">04</span><span id="v4">Ali izveste, kaj ljudje o odločitvi zares mislijo, šele potem, ko je sestanek končan?</span></p>
+          <div class="izbire flex flex-wrap gap-2.5 sm:ml-[2.6rem]" role="radiogroup" aria-labelledby="v4">
             <input type="radio" name="q4" id="q4a" value="2"><label for="q4a">Da</label>
             <input type="radio" name="q4" id="q4b" value="1"><label for="q4b">Delno</label>
             <input type="radio" name="q4" id="q4c" value="0"><label for="q4c">Ne</label>
@@ -226,21 +134,21 @@ html{scroll-padding-top:112px}
         </div>
       </fieldset>
 
-      <fieldset class="skupina" data-skupina="Pretvarjanje" data-tema="C">
-        <legend>Pretvarjanje</legend>
+      <fieldset class="mb-4 max-w-[820px] border-0 p-0" data-skupina="Pretvarjanje" data-tema="C">
+        <legend class="mb-6 p-0 text-[.735rem] font-medium uppercase tracking-[.16em] text-tiho">Pretvarjanje</legend>
 
-        <div class="vprasanje">
-          <p class="besedilo"><span class="st">05</span><span id="v5">Ali se pri vas o težavah spregovori šele takrat, ko jih ni več mogoče prezreti?</span></p>
-          <div class="izbire" role="radiogroup" aria-labelledby="v5">
+        <div class="border-t border-crta py-8">
+          <p class="mb-5 grid grid-cols-[2.6rem_1fr] gap-1 font-serif text-[clamp(1.08rem,1.85vw,1.24rem)] leading-snug text-[#252b2d]"><span class="pt-2 font-sans text-[.72rem] font-medium tracking-[.1em] text-poudarek/60">05</span><span id="v5">Ali se pri vas o težavah spregovori šele takrat, ko jih ni več mogoče prezreti?</span></p>
+          <div class="izbire flex flex-wrap gap-2.5 sm:ml-[2.6rem]" role="radiogroup" aria-labelledby="v5">
             <input type="radio" name="q5" id="q5a" value="2"><label for="q5a">Da</label>
             <input type="radio" name="q5" id="q5b" value="1"><label for="q5b">Delno</label>
             <input type="radio" name="q5" id="q5c" value="0"><label for="q5c">Ne</label>
           </div>
         </div>
 
-        <div class="vprasanje">
-          <p class="besedilo"><span class="st">06</span><span id="v6">Ali je v hiši kdo, pri katerem se nekaj zatika že leta, pa nihče ne ve, kako to načeti?</span></p>
-          <div class="izbire" role="radiogroup" aria-labelledby="v6">
+        <div class="border-y border-crta py-8">
+          <p class="mb-5 grid grid-cols-[2.6rem_1fr] gap-1 font-serif text-[clamp(1.08rem,1.85vw,1.24rem)] leading-snug text-[#252b2d]"><span class="pt-2 font-sans text-[.72rem] font-medium tracking-[.1em] text-poudarek/60">06</span><span id="v6">Ali je v hiši kdo, pri katerem se nekaj zatika že leta, pa nihče ne ve, kako to načeti?</span></p>
+          <div class="izbire flex flex-wrap gap-2.5 sm:ml-[2.6rem]" role="radiogroup" aria-labelledby="v6">
             <input type="radio" name="q6" id="q6a" value="2"><label for="q6a">Da</label>
             <input type="radio" name="q6" id="q6b" value="1"><label for="q6b">Delno</label>
             <input type="radio" name="q6" id="q6c" value="0"><label for="q6c">Ne</label>
@@ -252,81 +160,46 @@ html{scroll-padding-top:112px}
   </div>
 </section>
 
-<section class="izid" id="izid" hidden aria-live="polite">
-  <div class="ovoj">
-    <span class="oznaka">Vaš izid</span>
-    <h2 id="izid-naslov"></h2>
-    <div class="izid-besedilo" id="izid-besedilo"></div>
+<!-- ============ IZID ============ -->
+<section class="border-t border-crta bg-papirtopel px-6 py-14 sm:py-20" id="izid" hidden aria-live="polite">
+  <div class="mx-auto max-w-ovoj">
+    <span class="eyebrow mb-6">Vaš izid</span>
+    <h2 class="mb-5 max-w-[20ch] font-serif text-[clamp(1.72rem,3.2vw,2.5rem)] font-normal leading-tight tracking-tight text-crnilo" id="izid-naslov"></h2>
+    <div class="prose-sl max-w-[640px]" id="izid-besedilo"></div>
 
-    <div class="priporocena" id="priporocena" hidden>
-      <span class="oznaka-mala">Priporočena tema</span>
-      <p id="priporocena-tema"></p>
+    <div class="rule-quote mt-10 max-w-[640px]" id="priporocena" hidden>
+      <span class="mb-1.5 block text-[.74rem] uppercase tracking-[.13em] text-tiho">Priporočena tema</span>
+      <p class="font-serif text-[clamp(1.16rem,2.2vw,1.42rem)] leading-snug text-[#22282a]" id="priporocena-tema"></p>
     </div>
 
-    <ul class="podskupine" id="podskupine"></ul>
+    <ul class="mt-10 max-w-[640px] border-t border-[#ddd5c8]" id="podskupine"></ul>
 
-    <div class="izid-gumbi">
-      <a class="gumb" id="izid-povezava" href="predavanja.html">Poglejte to temo →</a>
-      <button type="button" class="ponovi" id="ponovi">Ponovi test</button>
+    <div class="mt-10 flex flex-wrap items-center gap-4">
+      <a class="btn" id="izid-povezava" href="predavanja.html">Poglejte to temo <span aria-hidden="true">→</span></a>
+      <button type="button" class="btn-ghost" id="ponovi">Ponovi test</button>
     </div>
 
-    <p class="ni-diagnoza">Ta izid ni diagnoza. Šest vprašanj pove le, o čem je pri vas vredno govoriti dve uri.</p>
+    <p class="mt-10 max-w-[600px] text-[.85rem] text-tiho">Ta izid ni diagnoza. Šest vprašanj pove le, o čem je pri vas vredno govoriti dve uri.</p>
   </div>
 </section>
 
 </main>
 
-<footer class="noga">
-  <div class="ovoj">
-    <p>© <span id="leto">2026</span> mag. Boštjan Štrajhar · <a href="predavanja.html">Predavanja in delavnice</a> · <a href="index.html">Začetna stran</a></p>
+<footer class="border-t border-crta px-6 py-10 text-[.83rem] text-tiho">
+  <div class="mx-auto flex max-w-ovoj flex-wrap justify-between gap-3.5">
+    <p>© <span id="leto">2026</span> mag. Boštjan Štrajhar · <a class="text-poudarek hover:text-crnilo" href="predavanja.html">Predavanja in delavnice</a> · <a class="text-poudarek hover:text-crnilo" href="index.html">Začetna stran</a></p>
     <p>Ta stran ne uporablja piškotkov in ne zbira podatkov o obiskovalcih.</p>
   </div>
 </footer>
 
+<script src="app.js"></script>
 <script>
+/* ---------- Kaj bi vaš kolektiv slišal ----------
+   Da = 2, Delno = 1, Ne = 0. Skupaj od 0 do 12.
+   Izid ne sledi skupnemu seštevku, ampak sklopu z največ točkami:
+   ta določi priporočeno temo. Vse se izračuna v brskalniku. */
 (function () {
   "use strict";
-
-  var leto = document.getElementById("leto");
-  if (leto) leto.textContent = new Date().getFullYear();
-
-  var glava = document.getElementById("glava");
-  var zadnje = null;
-  window.addEventListener("scroll", function () {
-    var s = window.scrollY > 12;
-    if (s !== zadnje) { glava.classList.toggle("oblita", s); zadnje = s; }
-  }, { passive: true });
-
-  // Meni na telefonu.
-  var mGumb = document.getElementById("meni-gumb");
-  var meni = document.getElementById("meni");
-  if (mGumb && meni) {
-    var preklopi = function (odpri) {
-      mGumb.setAttribute("aria-expanded", odpri ? "true" : "false");
-      mGumb.setAttribute("aria-label", odpri ? "Zapri meni" : "Odpri meni");
-      meni.classList.toggle("odprt", odpri);
-      document.body.classList.toggle("meni-odprt", odpri);
-    };
-    mGumb.addEventListener("click", function () {
-      preklopi(mGumb.getAttribute("aria-expanded") !== "true");
-    });
-    meni.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") preklopi(false);
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && mGumb.getAttribute("aria-expanded") === "true") {
-        preklopi(false); mGumb.focus();
-      }
-    });
-    window.addEventListener("resize", function () {
-      if (window.innerWidth > 1080) preklopi(false);
-    });
-  }
-
-  // ---------- Test ----------
-  // Da = 2, Delno = 1, Ne = 0. Skupaj od 0 do 12.
-  // Izid ne sledi skupnemu seštevku, ampak sklopu z največ točkami:
-  // ta določi priporočeno temo. Vse se izračuna v brskalniku.
 
   var TEME = {
     A: {
@@ -364,8 +237,8 @@ html{scroll-padding-top:112px}
   };
 
   var obrazec = document.getElementById("test");
-  var skupine = Array.prototype.slice.call(obrazec.querySelectorAll(".skupina"));
-  var skupno = obrazec.querySelectorAll(".vprasanje").length;
+  var skupine = Array.prototype.slice.call(obrazec.querySelectorAll("fieldset"));
+  var skupno = obrazec.querySelectorAll(".izbire").length;
 
   var elStanje = document.getElementById("stanje-tekst");
   var elCrtica = document.getElementById("crtica");
@@ -381,16 +254,10 @@ html{scroll-padding-top:112px}
     var odgovori = 0, skupaj = 0, poSkupinah = [];
     skupine.forEach(function (s) {
       var t = 0, n = 0;
-      s.querySelectorAll("input[type=radio]:checked").forEach(function (i) {
-        t += Number(i.value); n++;
-      });
+      var vsa = s.querySelectorAll(".izbire").length;
+      s.querySelectorAll("input[type=radio]:checked").forEach(function (i) { t += Number(i.value); n++; });
       odgovori += n; skupaj += t;
-      poSkupinah.push({
-        ime: s.dataset.skupina,
-        kljuc: s.dataset.tema,
-        tocke: t,
-        najvec: s.querySelectorAll(".vprasanje").length * 2
-      });
+      poSkupinah.push({ ime: s.dataset.skupina, kljuc: s.dataset.tema, tocke: t, najvec: vsa * 2 });
     });
     return { odgovori: odgovori, skupaj: skupaj, poSkupinah: poSkupinah };
   }
@@ -406,8 +273,6 @@ html{scroll-padding-top:112px}
     if (r.skupaj <= 3) {
       izid = NIC;
     } else {
-      // Sklop z največ točkami določi temo. Pri izenačenju velja prvi po vrsti,
-      // z opombo, da sta pri vas na mestu obe.
       var najvisje = r.poSkupinah.slice().sort(function (a, b) { return b.tocke - a.tocke; });
       izenacena = najvisje.length > 1 && najvisje[0].tocke === najvisje[1].tocke;
       for (var i = 0; i < r.poSkupinah.length; i++) {
@@ -434,12 +299,13 @@ html{scroll-padding-top:112px}
     }
 
     elPod.innerHTML = r.poSkupinah.map(function (s) {
-      return "<li><b>" + s.ime + "</b><span class='tocke'>" + s.tocke + " / " + s.najvec + "</span></li>";
+      return "<li class='flex items-baseline justify-between gap-4 border-b border-[#ddd5c8] py-3.5 text-[.95rem]'><b class='font-medium text-crnilo'>" + s.ime + "</b><span class='whitespace-nowrap tabular-nums text-tiho'>" + s.tocke + " / " + s.najvec + "</span></li>";
     }).join("");
 
     var jeSkrit = elIzid.hidden;
     elIzid.hidden = false;
     if (jeSkrit) {
+      elIzid.classList.remove("vstop"); void elIzid.offsetWidth; elIzid.classList.add("vstop");
       setTimeout(function () { elIzid.scrollIntoView({ behavior: "smooth", block: "start" }); }, 80);
     }
   }
@@ -456,7 +322,6 @@ html{scroll-padding-top:112px}
   osvezi();
 })();
 </script>
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -464,10 +329,8 @@ html{scroll-padding-top:112px}
   "@id": "https://bostjanstrajhar-ops.github.io/test-predavanja.html",
   "url": "https://bostjanstrajhar-ops.github.io/test-predavanja.html",
   "name": "Kaj bi vaš kolektiv slišal",
-  "description": "Šest vprašanj, ki pokažejo, katera od treh tem predavanj je za vaš kolektiv na mestu.",
-  "inLanguage": "sl-SI",
-  "isPartOf": { "@id": "https://bostjanstrajhar-ops.github.io/#stran" },
-  "author": { "@id": "https://bostjanstrajhar-ops.github.io/#oseba" }
+  "description": "Šest vprašanj, ki pokažejo, katera od treh tem je za vaš kolektiv na mestu. Dve minuti, brez registracije.",
+  "inLanguage": "sl-SI"
 }
 </script>
 </body>
