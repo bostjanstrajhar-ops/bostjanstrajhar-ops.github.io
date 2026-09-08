@@ -126,7 +126,6 @@ html{scroll-padding-top:112px}
 .ni-diagnoza{margin-top:2.8rem;font-size:.85rem;color:var(--tiho);max-width:600px}
 @media(max-width:620px){
   .stanje{padding:.7rem 22px}
-  /* Ovalna oznaka v dveh vrsticah izgleda nerodno — na telefonu je navadna vrstica. */
   .zasebno{
     display:block;border:0;border-top:1px solid var(--crta);
     border-radius:0;background:none;padding:1.1rem 0 0;margin-top:2rem;
@@ -165,11 +164,11 @@ html{scroll-padding-top:112px}
 <section class="test-uvod">
   <div class="ovoj">
     <span class="oznaka">Test organizacijske realnosti</span>
-    <h1>Sedem vprašanj, na katera se težko odgovori pošteno.</h1>
+    <h1>Sedem vprašanj za odločevalce.</h1>
 
     <div class="opozorilo">
-      <p>Test zahteva eno samo stvar: odkritost do sebe. Če boste odgovarjali tako, kot bi se zagovarjali pred drugimi, vam ne bo povedal ničesar.</p>
-      <p>In še to: <strong>to ni diagnoza.</strong> Diagnoza je tisto, kar naredim na terenu, ko govorim z ljudmi. Test vam pove le, ali je o čem govoriti.</p>
+      <p>Test zahteva odkritost. Če boste odgovarjali tako, kot bi se zagovarjali pred drugimi, vam rezultat ne bo povedal ničesar.</p>
+      <p><strong>To ni diagnoza.</strong> Diagnoza je tisto, kar naredim na terenu. Test vam pokaže le, ali je najin pogovor sploh smiseln.</p>
     </div>
 
     <p class="zasebno">Dve minuti. Nič se ne pošlje, nič se ne shrani — odgovori ostanejo v vašem brskalniku.</p>
@@ -281,7 +280,7 @@ html{scroll-padding-top:112px}
       <button type="button" class="ponovi" id="ponovi">Ponovi test</button>
     </div>
 
-    <p class="ni-diagnoza">Ta izid ni diagnoza in ne more biti. Sedem vprašanj ne more nadomestiti tega, kar se pokaže, ko človek posluša ljudi v hiši. Izid vam pove le, ali je o čem govoriti.</p>
+    <p class="ni-diagnoza">Ta izid ni diagnoza in ne more biti. Sedem vprašanj ne more nadomestiti tega, kar se pokaže na terenu. Izid vam pove le, ali je o čem govoriti.</p>
   </div>
 </section>
 
@@ -308,7 +307,6 @@ html{scroll-padding-top:112px}
     if (s !== zadnje) { glava.classList.toggle("oblita", s); zadnje = s; }
   }, { passive: true });
 
-  // Meni na telefonu.
   var mGumb = document.getElementById("meni-gumb");
   var meni = document.getElementById("meni");
   if (mGumb && meni) {
@@ -334,29 +332,24 @@ html{scroll-padding-top:112px}
     });
   }
 
-  // ---------- Test ----------
-  // Da = 2, Delno = 1, Ne = 0. Skupaj od 0 do 14.
-  // Vse se izračuna v brskalniku; nič se ne pošlje in nič ne shrani.
-
   var IZIDI = [
     {
       do: 3,
-      naslov: "Kaže, da vaša hiša deluje.",
+      naslov: "Kaže, da sistem deluje.",
       besedilo: [
-        "Po teh odgovorih sodeč mene ne potrebujete. To ni vljudnostna fraza. Če bi vas skušal prepričati o nasprotnem, bi bil natanko tak svetovalec, kakršnih ne maram.",
-        "Zapišite si datum in test ponovite čez pol leta. Organizacije se ne pokvarijo naenkrat — pokvarijo se počasi in navadno se tega najprej ne opazi od znotraj.",
-        "Če vseeno želite dve uri s kolektivom o eni sami temi, so na voljo predavanja. To ni isto kot diagnostika in ne predpostavlja, da je pri vas kaj narobe."
+        "Po teh odgovorih sodeč mene ne potrebujete. To ni vljudnost. Zapišite si datum in test ponovite čez pol leta.",
+        "Organizacije se ne pokvarijo naenkrat — pokvarijo se počasi in od znotraj.",
+        "Če kljub temu želite dve uri s kolektivom o eni sami temi, so na voljo predavanja. To ni diagnostika in ne predpostavlja, da je pri vas karkoli narobe."
       ],
       poziv: null,
       poziv2: "Predavanja in delavnice →"
     },
     {
       do: 7,
-      naslov: "Trenja so, a jih še obvladujete.",
+      naslov: "Trenja obstajajo, a jih obvladujete.",
       besedilo: [
-        "Nič od tega ni dramatično. Vse od tega pa raste, dokler se tega nihče ne loti. Trenja se ne umirijo sama — postanejo navada, navad pa nihče več ne opazi.",
-        "Pri tem izidu je verjetno dovolj pogovor, ne projekt. Pokličite in v pol ure vam povem, ali se diagnostika sploh splača. Če se ne, vam to povem takoj.",
-        "Pogosto je pri tem izidu smiselna krajša pot: dve uri s kolektivom o eni temi."
+        "Nič ni dramatično, a vsako trenje raste, dokler se ga nihče ne loti. Trenja se ne umirijo sama — postanejo navada, navad pa nihče več ne opazi.",
+        "Pri tem izidu je navadno dovolj pogovor ali krajša pot: dve uri s kolektivom o specifični temi."
       ],
       poziv: "Pokličite in preveriva",
       poziv2: "Predavanja in delavnice →"
@@ -365,8 +358,8 @@ html{scroll-padding-top:112px}
       do: 11,
       naslov: "Vzorci so se ustalili.",
       besedilo: [
-        "Pri toliko pritrdilnih odgovorih ne gre več za posamezne zaplete, ampak za način, kako vaša hiša deluje. To ni očitek. Tako se organizacije razvijejo, kadar se nihče nima časa ustaviti.",
-        "Takšnih vzorcev od znotraj ni mogoče videti — ne zato, ker ne bi znali, ampak ker ste vpleteni. To je stanje, v katerem diagnostika naredi največ."
+        "Ne gre več za posamezne zaplete, temveč za način delovanja vaše organizacije. Tako se organizacije razvijejo, ko se nihče nima časa ustaviti.",
+        "Takšnih vzorcev od znotraj ni mogoče videti zgolj zato, ker ste vpleteni. To je stanje, v katerem diagnostika naredi največ."
       ],
       poziv: "Dogovorite se za uvodni pogovor"
     },
@@ -374,8 +367,8 @@ html{scroll-padding-top:112px}
       do: 14,
       naslov: "Sistem že plačuje ceno.",
       besedilo: [
-        "To ni več vprašanje učinkovitosti. Pri takem obsegu trenj organizacija izgublja čas in ljudi, ne da bi to kjerkoli pisalo v poročilih — in prvi odidejo tisti najbolj vestni.",
-        "Tu odlašanje ni nevtralna odločitev. Vsak mesec je dražji od prejšnjega, ker se vzorec med tem utrjuje."
+        "To ni več vprašanje učinkovitosti. Vaša organizacija izgublja čas in ljudi, ne da bi to kjerkoli pisalo v poročilih — prvi pa odidejo najbolj vestni.",
+        "Odlašanje tukaj ni nevtralna odločitev, saj se vzorec z vsakim mesecem le utrjuje."
       ],
       poziv: "Dogovorite se za uvodni pogovor"
     }
