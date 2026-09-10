@@ -18,27 +18,56 @@
 <link rel="stylesheet" href="slog.css">
 <style>
 /* Slog te strani. Skupni slog je v slog.css. */
-/* ---------- hero ---------- */
-.hero{border-top:0;padding-top:clamp(3rem,7vw,6rem)}
-.hero-mreza{display:grid;grid-template-columns:1.35fr .85fr;gap:clamp(2rem,6vw,5rem);align-items:center}
-.hero h1 .tiho{color:var(--tiho)}
-.hero .uvod{margin-bottom:2rem}
-.hero-foto{position:relative}
-.hero-foto img{width:100%;height:auto;display:block;border-radius:3px;filter:saturate(.93)}
-.hero-foto figcaption{
-  font-size:.78rem;color:var(--tiho);margin-top:.85rem;line-height:1.5;
-  border-left:2px solid var(--crta);padding-left:.85rem;
+/* ---------- hero z videom v ozadju ----------
+   Posnetek je tih, v zanki in brez upravljalnikov. Nad njim je ravna temna
+   prevleka (ne preliv), da besedilo ohrani polni kontrast na vsaki sličici.
+   --kader-zamik in --kader-povecava premakneta kader v desno, da obraz ni pod
+   naslovom. Če boste kdaj zamenjali posnetek, popravite samo ti dve vrednosti.
+   Imeni se morata razlikovati od --sirina iz slog.css: to je širina vsebine
+   (1120px) in če jo tu prepišemo, se uvod ne poravna s preostalo stranjo. */
+.hero{
+  --kader-zamik:12%;
+  --kader-povecava:135%;
+  position:relative;border-top:0;padding:0;
+  min-height:clamp(430px,74vh,720px);
+  display:flex;align-items:center;
+  background:var(--temno);overflow:hidden;
 }
-.dejavnosti{display:flex;flex-wrap:wrap;gap:.5rem;margin:2.3rem 0 0;padding:0;list-style:none}
-.dejavnosti li{
-  font-size:.815rem;color:var(--tiho);border:1px solid var(--crta);
-  padding:5px 12px;border-radius:100px;background:#fdfcfa;
+.hero-film{
+  position:absolute;top:0;left:var(--kader-zamik);
+  width:var(--kader-povecava);height:100%;
+  object-fit:cover;filter:saturate(.72);
 }
-@media(max-width:820px){
-  .hero-mreza{grid-template-columns:1fr;gap:2.6rem}
-  .hero-foto{max-width:330px}
+.hero-prevleka{position:absolute;inset:0;background:rgba(27,34,36,.82)}
+.hero .ovoj{position:relative;width:100%;padding-top:clamp(3.5rem,8vw,6rem);padding-bottom:clamp(3.5rem,8vw,6rem)}
+.hero-besedilo{max-width:min(52%,600px)}
+.hero .oznaka{color:#7c8886}
+.hero h1{color:#f2efe9}
+.hero h1 .tiho{color:#8b9694}
+.hero .uvod{color:#eae7e0;margin-bottom:2rem;max-width:none}
+.hero .gumb-obris{color:#8fbdc4;border-bottom-color:rgba(255,255,255,.22)}
+.hero .gumb-obris:hover{color:#f2efe9;border-bottom-color:#8fbdc4}
+/* Na ozkih zaslonih kader ne premikamo — prevleka sama poskrbi za berljivost. */
+@media(max-width:900px){
+  .hero{--kader-zamik:0%;--kader-povecava:100%}
+  .hero-besedilo{max-width:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-film{display:none}
+  .hero{background:var(--temno) url(predavanje.jpg) center/cover}
 }
 
+/* ---------- portret v razdelku Kdo sem ---------- */
+.kdo-mreza{display:grid;grid-template-columns:1.35fr .7fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+.kdo-foto{margin:0}
+.kdo-foto img{width:100%;max-width:320px;height:auto;display:block;border-radius:3px;filter:saturate(.93)}
+.kdo-foto figcaption{
+  font-size:.78rem;color:var(--tiho);margin-top:.85rem;line-height:1.5;max-width:320px;
+  border-left:2px solid var(--crta);padding-left:.85rem;
+}
+@media(max-width:860px){
+  .kdo-mreza{grid-template-columns:1fr;gap:2.4rem}
+}
 
 /* ---------- vabilo na test ---------- */
 .sklepna{
@@ -294,21 +323,20 @@ form button:hover{background:var(--crnilo)}
 
 <!-- ============ UVOD ============ -->
 <section class="hero">
+  <video class="hero-film" autoplay muted loop playsinline preload="metadata"
+         poster="predavanje.jpg" aria-hidden="true" tabindex="-1">
+    <source src="hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-prevleka" aria-hidden="true"></div>
   <div class="ovoj">
-    <div class="hero-mreza">
-      <div>
-        <span class="oznaka">Diagnostika in predavanja za odločevalce</span>
-        <h1>Vzrok je drugje,<br><span class="tiho">kot se zdi.</span></h1>
-        <p class="uvod">Vidim tisto, kar se skriva za vljudnostjo in uradnimi poročili. Brez olepševanja. Za javne zavode, občinske uprave in podjetja od 20 zaposlenih naprej.</p>
-        <div class="gumbi">
-          <a class="gumb" href="test.html">Test organizacije — 2 minuti</a>
-          <a class="gumb-obris" href="test-predavanja.html">Test kolektiva →</a>
-        </div>
+    <div class="hero-besedilo">
+      <span class="oznaka">Diagnostika in predavanja za odločevalce</span>
+      <h1>Vzrok je drugje,<br><span class="tiho">kot se zdi.</span></h1>
+      <p class="uvod">Vidim tisto, kar se skriva za vljudnostjo in uradnimi poročili. Brez olepševanja. Za javne zavode, občinske uprave in podjetja od 20 zaposlenih naprej.</p>
+      <div class="gumbi">
+        <a class="gumb" href="test.html">Test organizacije — 2 minuti</a>
+        <a class="gumb-obris" href="test-predavanja.html">Test kolektiva →</a>
       </div>
-      <figure class="hero-foto">
-        <img src="portret.jpg" alt="mag. Boštjan Štrajhar" width="880" height="1252">
-        <figcaption>26 let dela v organizacijah. Dvanajst let na vodstvenih mestih — v šolstvu, javnem zavodu in občinski upravi.</figcaption>
-      </figure>
     </div>
   </div>
 </section>
@@ -347,7 +375,7 @@ form button:hover{background:var(--crnilo)}
 
       <div class="pot-kartica">
         <h3>Diagnostika procesov</h3>
-        <p class="meta">Pet korakov · več mesecev · pisno poročilo</p>
+        <p class="meta">Pet korakov · več dni · pisno poročilo</p>
         <p>Vstopim v organizacijo, poslušam po oddelkih, sestavim sliko in jo preverim v pogovorih na štiri oči. Del ugotovitev izrečem pred skupino. Na koncu oddam pisno poročilo z vzrokom in priporočili.</p>
         <div class="gumbi">
           <a class="gumb" href="diagnostika.html">Kako poteka →</a>
@@ -446,13 +474,21 @@ form button:hover{background:var(--crnilo)}
 <section id="kdo">
   <div class="ovoj">
     <span class="oznaka">Kdo sem</span>
-    <h2>Organizacije poznam<br>s terena in z vrha.</h2>
-    <div class="kdo-kratko">
-      <p>Nisem svetovalec, ki organizacije pozna le iz literature. Šolo in vrtec sem ustanovil in vodil. Javni zavod sem reorganiziral. Danes delujem v občinski upravi. Magisterij iz antropologije in modul psihoanalize mi dajeta orodje za branje odnosov. Petnajst let operativnega vodenja mi daje občutek za to, kaj je v resnici izvedljivo.</p>
-      <p>Delam izključno v vnaprej dogovorjenem obsegu in rokih. Zato naročil ne sprejemam serijsko in predhodno strogo preverim, ali sem pravi človek za vaš sistem.</p>
-      <div class="gumbi">
-        <a class="gumb-obris" href="pot.html">Celotna pot →</a>
+    <div class="kdo-mreza">
+      <div>
+        <h2>Organizacije poznam<br>s terena in z vrha.</h2>
+        <div class="kdo-kratko">
+          <p>Nisem svetovalec, ki organizacije pozna le iz literature. Šolo in vrtec sem ustanovil in vodil. Javni zavod sem reorganiziral. Danes delujem v občinski upravi. Magisterij iz antropologije in modul psihoanalize mi dajeta orodje za branje odnosov. Petnajst let operativnega vodenja mi daje občutek za to, kaj je v resnici izvedljivo.</p>
+          <p>Delam izključno v vnaprej dogovorjenem obsegu in rokih. Zato naročil ne sprejemam serijsko in predhodno strogo preverim, ali sem pravi človek za vaš sistem.</p>
+          <div class="gumbi">
+            <a class="gumb-obris" href="pot.html">Celotna pot →</a>
+          </div>
+        </div>
       </div>
+      <figure class="kdo-foto">
+        <img src="portret.jpg" alt="mag. Boštjan Štrajhar" width="880" height="1252" loading="lazy">
+        <figcaption>26 let dela v organizacijah. Dvanajst let na vodstvenih mestih — v šolstvu, javnem zavodu in občinski upravi.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -578,6 +614,17 @@ form button:hover{background:var(--crnilo)}
     window.addEventListener("resize", function () {
       if (window.innerWidth > 1080) preklopi(false);
     });
+  }
+
+  /* Posnetek v uvodu: kadar obiskovalec želi manj gibanja, ga ustavimo.
+     Nekateri brskalniki samodejnega predvajanja ne dovolijo — takrat ostane
+     vidna slika iz atributa poster, kar je enakovreden prikaz. */
+  var film = document.querySelector(".hero-film");
+  if (film) {
+    var mir = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mir.matches) { film.removeAttribute("autoplay"); film.pause(); }
+    var igraj = film.play();
+    if (igraj && typeof igraj.catch === "function") { igraj.catch(function () {}); }
   }
 
   var NASLOV = "bostjan@strajhar.si";
